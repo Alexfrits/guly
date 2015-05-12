@@ -7213,6 +7213,15 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
+.mega-number {
+  font-size: 8rem;
+  letter-spacing: -1rem;
+  font-weight: 300; }
+
+.suffix {
+  font-size: 5rem;
+  text-transform: uppercase; }
+
 /*===================================================================
   COLORS
 ===================================================================*/

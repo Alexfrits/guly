@@ -2,22 +2,22 @@
 /* 
 ==== NODE MODULES ==== */
 
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var uglify = require('gulp-uglify');
-var rename = require("gulp-rename");
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-ruby-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var livereload = require('gulp-livereload');
-var notify = require('gulp-notify');
-var notifier = require('node-notifier');
-var NotificationCenter = require('node-notifier').NotificationCenter;
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var changed = require('gulp-changed');
-var concat = require('gulp-concat');
-var deleted = require('gulp-deleted');
+var gulp                = require('gulp');
+var plumber             = require('gulp-plumber');
+var uglify              = require('gulp-uglify');
+var rename              = require("gulp-rename");
+var sourcemaps          = require('gulp-sourcemaps');
+var sass                = require('gulp-ruby-sass');
+var autoprefixer        = require('gulp-autoprefixer');
+var livereload          = require('gulp-livereload');
+var notify              = require('gulp-notify');
+var notifier            = require('node-notifier');
+var NotificationCenter  = require('node-notifier').NotificationCenter;
+var imagemin            = require('gulp-imagemin');
+var pngquant            = require('imagemin-pngquant');
+var changed             = require('gulp-changed');
+var concat              = require('gulp-concat');
+var deleted             = require('gulp-deleted');
 
 /* 
 ==== VARIABLES PERSONNELLES ==== */
@@ -28,10 +28,10 @@ var paths = {
   site: [
     'dev/**/*',
     'dev/.htaccess',
-    '!dev/scss{,/**}',        // specific task!
-    '!dev/scripts/*',           // specific task!
-    '!dev/scripts/libs{,/**}',   // specific task!
-    '!dev/img{,/**}'         // specific task!
+    '!dev/scss{,/**}',            // specific task!
+    '!dev/scripts/*',             // specific task!
+    '!dev/scripts/libs{,/**}',    // specific task!
+    '!dev/img{,/**}'              // specific task!
   ]
 };
 
@@ -40,7 +40,7 @@ var paths = {
 /* 
 ==== TÂCHE DEFAULT ==== */
 
-gulp.task('default', ['copy','styles','scripts','watch'],
+gulp.task('default', ['styles','scripts','watch'],
 	function() {
     var notification = new NotificationCenter();
         notification.notify({
@@ -72,7 +72,7 @@ gulp.task('copy', function () {
 ==== TÂCHE STYLES ==== */
 
 gulp.task('styles', function() {
-  return sass('dev/scss/styles.scss', { sourcemap: true })
+  return sass('dev/styles/styles.scss', { sourcemap: true })
   // pour éviter que gulp s'arrête à chaque erreur
     .pipe(plumber())
 // l'autoprefixer
@@ -87,11 +87,11 @@ gulp.task('styles', function() {
       './',
       {
         includeContent: false,  // par défaut, le code source est copié/inclus dans le fichier .map
-        sourceRoot:'../../dev/scss/'  // on spécifie l'emplacement des fichiers sources
+        sourceRoot:'../../dev/styles/'  // on spécifie l'emplacement des fichiers sources
       }
     ))
 // destination du fichier
-    .pipe(gulp.dest('htdocs/css/'))
+    .pipe(gulp.dest('dev/styles'))
 // refresh livereload
     .pipe(livereload());
 });
@@ -122,7 +122,7 @@ gulp.task('scripts', function() {
     	}
     ))
 // destination du fichier
-  	.pipe(gulp.dest('htdocs/scripts/'))
+  	.pipe(gulp.dest('dev/scripts/'))
 // refresh livereload
   	.pipe(livereload());
 });
@@ -145,8 +145,8 @@ gulp.task('watch', function() {
 	livereload.listen();
 // gulp est a l'écoute des changements du main.js et il exécute minify avant !
 	gulp.watch('dev/scripts/**/*.js', ['scripts'])
-  gulp.watch('dev/scss/**/*.scss', ['styles'])
-  gulp.watch(['htdocs/**/*.html', 'htdocs/**/*.php'], ['static'])
+  gulp.watch('dev/styles/**/*.scss', ['styles'])
+  gulp.watch(['dev/**/*.html', 'dev/**/*.php'], ['static'])
 });
 
 

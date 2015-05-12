@@ -1,1 +1,3 @@
-var y = "test main";
+if (window.DeviceOrientationEvent) {
+ console.log("DeviceOrientation is supported");
+}

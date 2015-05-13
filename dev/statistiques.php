@@ -9,28 +9,19 @@
       </div>
 
       <div class="graphe__wrapper row">
-
-        <div class="graphe__scale--v small-2 columns">
-          <ul>
-            <li>0
-            <li>1
-            <li>2
-          </ul>
+        <div class="graphe__img__frame">
+          <div class="graphes">
+            <canvas id="chart-bar" width="2000" height="270"></canvas>
+            <canvas id="chart-line" width="2000" height="270"></canvas>
+          </div>
         </div>
-        <div class="small-10 columns"> 
-          <div class="graphe__img__frame">
-            <div class="graphe__img">
-              <img src="img/guly-graphe.svg" alt="">
-            </div>
-          </div>       
-        </div>
-
       </div>
 
       <div class="row month-display">
         <div class="small-12 small-centered text-center columns">
           <ul>
             <li><h3>MAI 2015</h3>
+            <!-- <li><a href="#" class="update button-tiny">Update</a> -->
           </ul>
         </div>
       </div>

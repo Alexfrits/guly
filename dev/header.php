@@ -20,12 +20,12 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Guly Menu</label></li>
-        <li><a href="pages/profil.php">Profil</a>
-        <li><a href="pages/objectif.php">Objectif</a>
-        <li><a href="pages/statistiques.php">Statistiques</a>
-        <li><a href="pages/badges.php">Badges</a>
-        <li><a href="pages/astuces.php">Astuces</a>
-        <li><a href="pages/faq.php">FAQ</a>
-        <li><a href="pages/boutique.php">Boutique</a>
+        <li><a href="profil.php">Profil</a>
+        <li><a href="objectif.php">Objectif</a>
+        <li><a href="statistiques.php">Statistiques</a>
+        <li><a href="badges.php">Badges</a>
+        <li><a href="astuces.php">Astuces</a>
+        <li><a href="faq.php">FAQ</a>
+        <li><a href="boutique.php">Boutique</a>
       </ul>
     </aside>

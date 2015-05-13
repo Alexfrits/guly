@@ -1,0 +1,29 @@
+.graphe__wrapper {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      
+      height: 274px;
+    }
+
+  .graphe__img__frame {
+    overflow: scroll;
+
+    .graphe__img {
+        width: 2400px;
+    }
+  }
+}
+
+.month-display {
+  ul {
+    list-style-type: none;
+  }
+}
+
+.success-display__trophies {
+  font-size: 3rem;
+}

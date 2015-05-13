@@ -1,9 +1,11 @@
 
+@import 'helpers/reset';
+@import 'helpers/colors';
+
 @import 'vendor/normalize';
 @import 'vendor/foundation.min';
 
 @import 'partials/base';
+@import 'partials/graphe';
 
 @import 'modules/gooey-menu';
-
-@import 'helpers/colors';

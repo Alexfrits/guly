@@ -1,33 +1,6 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <title>Titre</title>
-
-    <link rel="stylesheet" href="styles/styles.css">
-</head>
-<body>
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-
-    <nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-    </nav>
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Guly Menu</label></li>
-        <li>Profil
-        <li>Objectif
-        <li>Statistiques
-        <li>Badges
-        <li>Astuces
-        <li>FAQ
-        <li>Boutique
-      </ul>
-    </aside>
+<?php
+  include 'header.php';
+?>
 
 
     <section class="main-section">
@@ -42,6 +15,7 @@
         </div>
 
         <form>
+        <!-- First name input -->
           <div class="row">
             <div class="small-12 small-centered text-center columns">
 
@@ -50,39 +24,75 @@
                   <label><img src="img/icon_profil.png" height="38" width="38" alt=""></label>
                 </div>
                 <div class="small-10 columns">
-                  <input type="text" id="right-label" placeholder="Prénom">
+                  <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
                 </div>
               </div>
 
+            <!-- Weight select -->
               <div class="row">
                 <div class="large-12 columns">
                   <label>Poids
-                    <select id="weight">
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
+                    <?php
+                        // variables
+                        $selected = '';
 
-                    </select>
+                        // loop for weight
+                        echo '<select name="poids" id="poids" required>',"\n";
+                            for($i=0; $i<=200; $i++) {
+
+                                // Affichage de la ligne
+                                 echo "\t",'<option value="', $i ,'"', $selected ,'>', $i ,'</option>',"\n";
+                            }
+                        echo '</select>',"\n";
+                    ?>
                   </label>
                 </div>
               </div>
 
+              <!-- Notifications switch button -->
+              <div class="row">
+                    <div class="small-2 text-left columns">
+                        <img src="img/icon_notif.jpg" height="149" width="150" alt="">
+                    </div>
+                    <div class="small-6 text-left columns">
+                        <p>Notifications</p>
+                    </div>
+                    <div class="small-3 text-right columns">
+                        <div class="switch round large">
+                            <input id="notif" type="checkbox">
+                            <label for="notif">Notifications</label>
+                        </div>
+                    </div>
+              </div>
+
+              <!-- Bouchon intelligent switch button -->
+              <div class="row">
+                    <div class="small-2 text-left columns">
+                        <img src="img/icon_smartcap.png" height="55" width="55" alt="">
+                    </div>
+                    <div class="small-6 text-left columns">
+                        <p>Bouchon intelligent</p>
+                    </div>
+                    <div class="small-3 text-right columns">
+                        <div class="switch round large">
+                            <input id="smart_cap" type="checkbox">
+                            <label for="smart_cap">Bouchon intelligent</label>
+                        </div>
+                    </div>
+              </div>
+
             </div>
           </div>
+          <a role="button" aria-label="submit form" href="#" class="button expand" id="submit_objectif">Calculer mon objectif</a>
         </form>
 
       </main>
+
+      <div class="lightbox_objectif_off">
+            <h2><?php echo "localStorageNickname"; ?></h1>
+            <p>Guly te conseille de boire...</p>
+            <i class="fa fa-times close_btn"></i>
+      </div>
     </section>
 
   <a class="exit-off-canvas"></a>
@@ -91,24 +101,6 @@
 </div>
 <!-- end MAIN -->
 
-
-<!--  FOOTER
-==================================================================-->
-<footer>
-  
-</footer>
-<!-- end FOOTER -->
-
-<!--  SCRIPTS
-==================================================================-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script>
-	  window.jQuery || document.write('<script src="scripts/vendor/jquery-2.1.3.min.js"><\/script>')
-	</script>
-  <script src="scripts/vendor/foundation.min.js"></script>
-  <script src="scripts/main.min.js"></script>
-
-<!-- end SCRIPTS -->
-
-</body>
-</html>
+<?php
+  include 'footer.php';
+?>

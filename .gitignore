@@ -78,5 +78,9 @@ Temporary Items
 sftp-config.json
 
 # Personnal work files
-
 work/
+
+# Gulp generated files
+dev/scripts/main.min.js
+dev/scripts/main.min.js.map
+dev/styles/styles.css

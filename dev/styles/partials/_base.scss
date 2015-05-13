@@ -1,10 +1,31 @@
-.mega-number {
-  font-size: 8rem;
-  letter-spacing: -1rem;
-  font-weight: 300;
+/*===================================================================
+  MAIN PAGE (water tracker)
+===================================================================*/
+
+.main-wrapper {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.suffix {
-  font-size: 5rem;
-  text-transform: uppercase;
+.mega-number__wrapper {
+    flex-grow: 2;
+
+  // the big water tracker number
+  .mega-number {
+    strong {
+      font-size: 8rem;
+      letter-spacing: -1rem;
+      font-weight: 300;
+    }
+  }
+
+  // the unit suffix of the big number
+  .suffix {
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+}
+.tip-wrapper {
+  flex-grow: 1.5;
 }

@@ -1,1 +1,5 @@
-$(document).foundation();
+$(document).foundation({
+  offcanvas : {
+    open_method: 'overlap'
+  }
+});

@@ -1,0 +1,37 @@
+.graphe__wrapper {
+  margin-bottom: 4rem;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  .graphe__img__frame {
+    overflow: scroll;
+
+    .graphes {
+      position: relative;
+      canvas#chart-bar {
+        
+      }
+      canvas#chart-line {
+        position: absolute;
+        top: 0;
+        left: 58px;
+      }
+    }
+  }
+}
+
+.month-display {
+  ul {
+    list-style-type: none;
+  }
+}
+
+.success-display__trophies {
+  font-size: 3rem;
+}

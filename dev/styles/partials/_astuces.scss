@@ -1,0 +1,57 @@
+// /* ==============================================
+// 				SLIDER ASTUCES / FAQ   
+//  ============================================== */
+
+.slick-slider {
+	height: 84vh;
+	margin-bottom: 0 !important;
+}
+
+.slide {
+	margin: 0 5vw;
+}
+
+/* Prev & Next arrows */
+
+// .slick-prev:before, 
+// .slick-next:before {
+//   color: black !important;
+
+//   bottom: -41vh;
+//   left: 0;
+// }
+
+// .slick-prev:before {
+//   content: "<" !important;
+// }
+
+// .slick-next:before {
+//   content: ">" !important;
+// }
+
+// .slick-prev {
+// 	left: 0 !important;
+// }
+
+// .slick-next {
+// 	right: 0 !important;
+// }
+
+
+/* Dots */
+
+.slick-dots {
+	bottom: 5vh !important;
+	margin: 0 auto !important;
+}
+
+.slick-dots li {
+	border: 1px solid black;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.slick-active button[type="button"] {
+	background: black;
+	border-radius: 50%;
+}

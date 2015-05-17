@@ -1,13 +1,9 @@
-
-@import 'helpers/reset';
-@import 'helpers/colors';
-
-
 @import 'vendor/normalize';
 @import 'vendor/foundation.min';
 @import 'partials/base';
-
 @import 'partials/profil';
-@import 'partials/graphe';
-
-@import 'modules/gooey-menu';
+@import 'partials/astuces';
+@import 'partials/faq';
+@import 'helpers/colors';
+@import 'helpers/slick-theme';
+@import 'helpers/slick';

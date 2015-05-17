@@ -1,8 +1,8 @@
 (function($) {
 
-  window.addEventListener('deviceorientation', handleOrientation, true);
+  if ($('main').hasClass('page-orientation')) {
 
-  function handleOrientation(event) {
+    function handleOrientation(event) {
       var x = event.beta;  // En degré sur l'interval [-180,180].
       var  y = event.gamma; // En degré sur l'interval [-90,90].
 
@@ -25,7 +25,8 @@
       balle.style.left = (maxY * y / 180 - 10) + 'px';
     }
 
-  if ($('main').hasClass('page-orientation')) {
+    window.addEventListener('deviceorientation', handleOrientation, true);
+
     var jardin = document.querySelector('.jardin');
     var balle = document.querySelector('.balle');
     var resultat = document.querySelector('.resultat');

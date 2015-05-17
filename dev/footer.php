@@ -1,7 +1,7 @@
 <!--  FOOTER
 ==================================================================-->
 <footer>
-  
+
 </footer>
 <!-- end FOOTER -->
 
@@ -13,6 +13,7 @@
   </script>
   <script src="scripts/vendor/foundation.min.js"></script>
   <script src="scripts/vendor/slick.min.js"></script>
+  <script src="scripts/vendor/chart.js"></script>
   <script src="scripts/main.min.js"></script>
 <!-- end SCRIPTS -->
 

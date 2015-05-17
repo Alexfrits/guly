@@ -20,6 +20,7 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Guly Menu</label></li>
+        <li><a href="index.php">Water Tracker</a>
         <li><a href="profil.php">Profil</a>
         <li><a href="objectif.php">Objectif</a>
         <li><a href="statistiques.php">Statistiques</a>

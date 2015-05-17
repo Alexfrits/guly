@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
     <!--  MAIN
     ==================================================================-->
-    <main class="main-section main-wrapper">
+    <main class="page-stats main-section main-wrapper">
       <div class="row">
         <div class="small-12 small-centered text-center columns">
           <h1>Statistiques</h1>

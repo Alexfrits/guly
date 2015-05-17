@@ -1,0 +1,14 @@
+// /* ==============================================
+// 				SLIDER ASTUCES / FAQ   
+//  ============================================== */
+
+// voir astuces slider pour scss
+
+#main_faq div.columns h2{
+	font-size: 8px;
+}
+
+#main_faq > div.slide.slick-initialized.slick-slider > div > div > div.item.slick-slide.slick-active > h2{
+	font-size: 18px;
+	font-weight: bold;
+}

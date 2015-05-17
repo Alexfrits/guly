@@ -6,15 +6,15 @@
     <section class="main-section">
 <!--  MAIN
 ==================================================================-->
-      <main>
-        <div class="row">
+      <main id="main_profil">
+        <div class="row intro">
           <div class="small-12 small-centered text-left columns">
             <h1>Hello !</h1>
             <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
           </div>
         </div>
 
-        <form>
+        <form class="profil_form">
         <!-- First name input -->
           <div class="row">
             <div class="small-12 small-centered text-center columns">
@@ -30,7 +30,7 @@
 
             <!-- Weight select -->
               <div class="row">
-                <div class="large-12 columns">
+                <div class="small-12 text-left columns">
                   <label>Poids
                     <?php
                         // variables
@@ -49,16 +49,18 @@
                 </div>
               </div>
 
+          <!-- Section buttons switch -->
+            <div class="switch_section">
               <!-- Notifications switch button -->
               <div class="row">
                     <div class="small-2 text-left columns">
                         <img src="img/icon_notif.jpg" height="149" width="150" alt="">
                     </div>
-                    <div class="small-6 text-left columns">
+                    <div class="small-7 text-left columns">
                         <p>Notifications</p>
                     </div>
-                    <div class="small-3 text-right columns">
-                        <div class="switch round large">
+                    <div class="small-3 text-left columns">
+                        <div class="switch round small">
                             <input id="notif" type="checkbox">
                             <label for="notif">Notifications</label>
                         </div>
@@ -70,33 +72,35 @@
                     <div class="small-2 text-left columns">
                         <img src="img/icon_smartcap.png" height="55" width="55" alt="">
                     </div>
-                    <div class="small-6 text-left columns">
+                    <div class="small-7 text-left columns">
                         <p>Bouchon intelligent</p>
                     </div>
-                    <div class="small-3 text-right columns">
-                        <div class="switch round large">
+                    <div class="small-3 text-left columns">
+                        <div class="switch round small">
                             <input id="smart_cap" type="checkbox">
                             <label for="smart_cap">Bouchon intelligent</label>
                         </div>
                     </div>
               </div>
+            </div>
 
             </div>
           </div>
-          <a role="button" aria-label="submit form" href="#" class="button expand" id="submit_objectif">Calculer mon objectif</a>
+          <a role="button" aria-label="submit form" href="#" class="button expand action_btn" id="submit_objectif">Calculer mon objectif</a>
         </form>
 
       </main>
 
-      <div class="lightbox_objectif_off">
-            <h2><?php echo "localStorageNickname"; ?></h1>
-            <p>Guly te conseille de boire...</p>
-            <i class="fa fa-times close_btn"></i>
+      <div class="lightbox_objectif_off text-center">
+          <div class="result_section">
+            <p>Guly te conseille de boire en moyenne</p>
+            <i class="fa fa-arrow-left return_btn"></i>
+          </div>
+          <a role="button" href="index.php" class="button expand action_btn">Commencer</a>
       </div>
     </section>
 
   <a class="exit-off-canvas"></a>
-
   </div>
 </div>
 <!-- end MAIN -->

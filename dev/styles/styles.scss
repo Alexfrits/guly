@@ -1,4 +1,8 @@
 @import 'helpers/reset';
+@import 'helpers/colors';
+@import 'helpers/slick-theme';
+@import 'helpers/slick';
+
 @import 'vendor/normalize';
 @import 'vendor/foundation.min';
 
@@ -10,7 +14,3 @@
 
 @import 'modules/gooey-menu';
 @import 'modules/orientation';
-
-@import 'helpers/colors';
-@import 'helpers/slick-theme';
-@import 'helpers/slick';

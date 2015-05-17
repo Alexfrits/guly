@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
     <!--  MAIN
     ==================================================================-->
-    <main class="main-section main-wrapper">
+    <main class="page-tracker main-section main-wrapper">
 
       <div class="mega-number__wrapper row">
         <div class="mega-number small-12 small-centered text-center columns">
@@ -25,14 +25,14 @@
       <label class="menu-open-button" for="menu-open">
         <i class="fa fa-glass"></i>
       </label>
-      
+
       <a href="#" class="menu-item"> <i class="fa fa-glass"></i> </a>
       <a href="#" class="menu-item"> <i class="fa fa-beer"></i> </a>
       <a href="#" class="menu-item"> <i class="fa fa-coffee"></i> </a>
     </nav>
   </div>
 <?php include 'gooey-filter.php'; ?>
-  
+
 </div>
 <!-- end GOOEY MENU -->
 

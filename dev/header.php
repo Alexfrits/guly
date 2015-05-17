@@ -28,5 +28,6 @@
         <li><a href="astuces.php">Astuces</a>
         <li><a href="faq.php">FAQ</a>
         <li><a href="boutique.php">Boutique</a>
+        <li><a href="test-orientation.php">TEST Orientation</a>
       </ul>
     </aside>

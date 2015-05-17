@@ -1,5 +1,5 @@
 "use strict"; /*jslint indent: 2 */
-/* 
+/*
 ==== NODE MODULES ==== */
 
 var gulp                = require('gulp');
@@ -19,7 +19,7 @@ var changed             = require('gulp-changed');
 var concat              = require('gulp-concat');
 var deleted             = require('gulp-deleted');
 
-/* 
+/*
 ==== VARIABLES PERSONNELLES ==== */
 var paths = {
   dev: 'dev/',
@@ -28,7 +28,7 @@ var paths = {
   site: [
     'dev/**/*',
     'dev/.htaccess',
-    '!dev/scss{,/**}',            // specific task!
+    '!dev/styles{,/**}',            // specific task!
     '!dev/scripts/*',             // specific task!
     '!dev/scripts/libs{,/**}',    // specific task!
     '!dev/img{,/**}'              // specific task!
@@ -37,7 +37,7 @@ var paths = {
 
 
 
-/* 
+/*
 ==== TÂCHE DEFAULT ==== */
 
 gulp.task('default', ['styles','scripts','watch'],
@@ -50,7 +50,7 @@ gulp.task('default', ['styles','scripts','watch'],
 });
 
 
-/* 
+/*
 ==== TÂCHE COPY ==== */
 // copy (all) changed files except styles/scripts/images + .htaccess + remove deleted files
 gulp.task('copy', function () {
@@ -68,7 +68,7 @@ gulp.task('copy', function () {
 });
 
 
-/* 
+/*
 ==== TÂCHE STYLES ==== */
 
 gulp.task('styles', function() {
@@ -97,7 +97,7 @@ gulp.task('styles', function() {
 });
 
 
-/* 
+/*
 ==== TÂCHE SCRIPTS ==== */
 
 gulp.task('scripts', function() {
@@ -128,7 +128,7 @@ gulp.task('scripts', function() {
 });
 
 
-/* 
+/*
 ==== TÂCHE STATIC ==== */
 
 gulp.task('static', function() {
@@ -137,7 +137,7 @@ gulp.task('static', function() {
 
 
 
-/* 
+/*
 ==== TÂCHE WATCH ==== */
 
 gulp.task('watch', function() {
@@ -151,7 +151,7 @@ gulp.task('watch', function() {
 
 
 
-/* 
+/*
 ==== TÂCHE MINIMG ==== */
 
 gulp.task('minimg', function () {
@@ -162,4 +162,24 @@ gulp.task('minimg', function () {
             use: [pngquant()]
         }))
         .pipe(gulp.dest('htdocs/img/'));
+});
+
+/*
+==== TÂCHE BUILD ==== */
+
+gulp.task('build',['copy', 'styles', 'scripts', 'minimg'], function(){
+    return gulp
+    .src([
+      'dev/styles/styles.css',
+      'dev/styles/styles.css.map',
+      'dev/scripts/main.min.js',
+      'dev/scripts/main.min.js.map'
+    ],{ base: 'dev/'})
+    .pipe(changed(paths.build))
+    .pipe(gulp.dest(paths.build))
+    .pipe(notify({
+      onLast: true,
+      message: 'BUILD task SUCCESS!',
+      icon: null
+    }));
 });

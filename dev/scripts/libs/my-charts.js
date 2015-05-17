@@ -77,7 +77,7 @@ if ($('main').hasClass('page-stats')) {
     scaleShowGridLines : false,
     showScale: false,
     scaleBeginAtZero: true,
-  }
+  };
 
   var myBarChart = new Chart(ctxBar).Bar(dataBar);
   var myLineChart = new Chart(ctxLine).Line(dataLine, optLine);

@@ -1,4 +1,7 @@
-// PROFIL PAGE INIT.
+/* =============================
+		PROFIL PAGE INIT.
+============================= */
+
 .main_profil,
 .result_section {
 	height: 92vh;
@@ -13,7 +16,11 @@
 		margin-top: 5vh;
 	}
 }
-// LIGHTBOX RESULT OBJECTIF
+
+/* =============================
+	LIGHTBOX RESULT OBJECTIF
+============================= */
+
 .lightbox_objectif_off {
 	display: none;
 	position: absolute;
@@ -54,4 +61,3 @@
 		left: 10px;
 	}
 }
-

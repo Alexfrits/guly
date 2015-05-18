@@ -22,9 +22,7 @@
         <li><label>Guly Menu</label></li>
         <li><a href="index.php">Water Tracker</a>
         <li><a href="profil.php">Profil</a>
-        <li><a href="objectif.php">Objectif</a>
         <li><a href="statistiques.php">Statistiques</a>
-        <li><a href="badges.php">Badges</a>
         <li><a href="astuces.php">Astuces</a>
         <li><a href="faq.php">FAQ</a>
         <li><a href="boutique.php">Boutique</a>

@@ -29,9 +29,31 @@
   flex-grow: 1.5;
 }
 
+// Buttons
 .action_btn {
   position: absolute;
   left: 0;
   bottom: 0;
   margin: 0;
+}
+
+.waves{
+  -webkit-animation:waves 1.0s linear;
+  animation:waves 1.0s linear;
+}
+
+@-webkit-keyframes waves{
+  from{
+    box-shadow:0 0 #fff,0 0 0 1px rgba(0,150,255,.5)
+  }
+  to{box-shadow:0 0 0 8px #fff,0 0 0 12px rgba(0,150,255,0)
+  }
+}
+
+@keyframes waves{
+  from{
+    box-shadow:0 0 #fff,0 0 0 1px rgba(0,150,255,.5)
+  }
+  to{box-shadow:0 0 0 8px #fff,0 0 0 12px rgba(0,150,255,0)
+  }
 }

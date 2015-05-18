@@ -64,7 +64,7 @@
       });
 
       // Valider la lightbox
-      $('.go_btn').on('click', function(e) {
+      $('.start_notif').on('click', function(e) {
         $(light_off).fadeOut('slow', function() {
           $(this).addClass('lightbox_objectif_off');
 

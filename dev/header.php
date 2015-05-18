@@ -6,7 +6,6 @@
     <title>Guly | Water Tracker</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src='//cdn.goroost.com/roostjs/lw0c44vesw250gz29b7mz9z0ch7c2y82' async></script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>
@@ -23,7 +22,6 @@
         <li><label>Guly Menu</label></li>
         <li><a href="index.php">Water Tracker</a>
         <li><a href="profil.php">Profil</a>
-        <li><a href="objectif.php">Objectif</a>
         <li><a href="statistiques.php">Statistiques</a>
         <li><a href="badges.php">Badges</a>
         <li><a href="astuces.php">Astuces</a>

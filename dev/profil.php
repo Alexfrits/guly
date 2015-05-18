@@ -88,9 +88,13 @@
           </div>
           <a role="button" aria-label="submit form" href="#" class="button expand action_btn" id="submit_objectif">Calculer mon objectif</a>
         </form>
-
       </main>
-
+  <div class="notifications">
+    <div id="push_connexion">
+      <h3>Notifications</h3>
+      <p>La connexion avec le Guly SmartCap est établie</p>
+    </div>
+  </div>
       <div class="lightbox_objectif_off text-center">
           <div class="result_section">
             <h2 class="result_nickname"></h2>
@@ -99,7 +103,7 @@
             <p>d'eau par jour</p>
             <i class="fa fa-arrow-left return_btn"></i>
           </div>
-          <a role="button" href="index.php" class="button expand action_btn">Commencer</a>
+          <a role="button" href="index.php" class="button expand action_btn .notif">Commencer</a>
       </div>
     </section>
 

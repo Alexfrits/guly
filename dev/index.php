@@ -5,41 +5,54 @@
     ==================================================================-->
     <main class="page-tracker main-section main-wrapper">
 
-      <div class="mega-number__wrapper row">
-        <div class="mega-number small-12 small-centered text-center columns">
+      <div class="mega-number__wrapper">
+        <div class="mega-number">
           <strong>1,7</strong><span class="suffix">l</span>
         </div>
       </div>
 
-      <div class="tip__wrapper row">
-        <div class="small-12 small-centered text-center columns">
+      <div class="tip__wrapper">
           <q>
             Ceci est un petit conseil qui apparaît quand vous avez tout bu.
           </q>
-        </div>
       </div>
 
-      <!-- GOOEY MENU -->
-      <div class="row">
-        <div class="gooey-menu">
-          <nav class="menu">
-            <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
-            <label class="menu-open-button" for="menu-open">
-              <i class="fa fa-glass"></i>
-            </label>
+      
+        <!-- GOOEY MENU -->
+        <div class="gooey__wrapper">
+          <ul class="gooey">
 
-            <a href="#" class="menu-item"> <i class="fa fa-glass"></i> </a>
-            <a href="#" class="menu-item"> <i class="fa fa-beer"></i> </a>
-            <a href="#" class="menu-item"> <i class="fa fa-coffee"></i> </a>
-          </nav>
+            <li class="gooey__open-button"/>
+              <a href="#" class="gooey__item__content">
+                <i class="fa fa-close"></i>
+              </a>
+            </li>
+
+            <li class="gooey__item">
+              <a href="#" class="gooey__item__content">
+                <i class="fa fa-glass"></i>
+              </a>
+            </li>
+
+            <li class="gooey__item">
+              <a href="#" class="gooey__item__content">
+                <i class="fa fa-beer"></i>
+              </a>
+            </li>
+
+            <li class="gooey__item">
+              <a href="#" class="gooey__item__content">
+                <i class="fa fa-coffee"></i>
+              </a>
+            </li>
+            
+          </ul>
         </div>
         <?php include 'gooey-filter.php'; ?>
-      </div>
-      <!-- end GOOEY MENU -->
+        <!-- end GOOEY MENU -->
+
     </main>
     <!-- end MAIN -->
-
-  <a class="exit-off-canvas"></a>
   </div>
 </div>
 

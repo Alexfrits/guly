@@ -9,6 +9,7 @@
 
 .mega-number__wrapper {
     flex-grow: 2;
+    text-align: center;
 
   // the big water tracker number
   .mega-number {
@@ -25,8 +26,9 @@
     text-transform: uppercase;
   }
 }
-.tip-wrapper {
+.tip__wrapper {
   flex-grow: 1.5;
+  text-align: center;
 }
 
 .action_btn {

@@ -54,17 +54,21 @@ $open-distance: (1.5 * $item-width);
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: 400ms;
 
-    &.active ~ .gooey__item {
-      @for $i from 1 through $menu-items {
-        $angle: 150deg + ($i * (60deg));
-        
-        &:nth-child(#{$i+1}){
-          transition-duration:80ms+(80ms*$i);
-          transform:translate3d(
-                      cos($angle)*$open-distance,
-                      sin($angle)*$open-distance,
-                      0
-                    );
+    &.active {
+      transform: rotate(45deg);    
+      
+      & ~ .gooey__item {
+        @for $i from 1 through $menu-items {
+          $angle: 150deg + ($i * (60deg));
+          
+          &:nth-child(#{$i+1}){
+            transition-duration:80ms+(80ms*$i);
+            transform:translate3d(
+                        cos($angle)*$open-distance,
+                        sin($angle)*$open-distance,
+                        0
+                      );
+          }
         }
       }
     }

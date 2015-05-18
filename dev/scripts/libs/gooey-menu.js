@@ -49,6 +49,14 @@
   $openButton.on('click', function(e) {
     e.preventDefault();
     $(this).toggleClass('active');
+
+    // // changer le + en x et vice-versa
+    // var icon = $(this).find('i.fa');
+    // if (icon.hasClass('fa-plus')) {
+    //   icon.removeClass('fa-plus').addClass('fa-close');
+    // } else {
+    //   icon.removeClass('fa-close').addClass('fa-plus');
+    // }
   });
 
 }(jQuery));

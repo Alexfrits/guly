@@ -6,7 +6,7 @@
     <section class="main-section">
 <!--  MAIN
 ==================================================================-->
-      <main id="main_profil">
+      <main class="main_profil">
         <div class="row intro">
           <div class="small-12 small-centered text-left columns">
             <h1>Hello !</h1>
@@ -93,7 +93,10 @@
 
       <div class="lightbox_objectif_off text-center">
           <div class="result_section">
+            <h2 class="result_nickname"></h2>
             <p>Guly te conseille de boire en moyenne</p>
+            <p class="BH"></p>
+            <p>d'eau par jour</p>
             <i class="fa fa-arrow-left return_btn"></i>
           </div>
           <a role="button" href="index.php" class="button expand action_btn">Commencer</a>

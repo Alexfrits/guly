@@ -6,6 +6,7 @@
     <title>Guly | Water Tracker</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src='//cdn.goroost.com/roostjs/lw0c44vesw250gz29b7mz9z0ch7c2y82' async></script>
 </head>
 <body>
 <div class="off-canvas-wrap" data-offcanvas>

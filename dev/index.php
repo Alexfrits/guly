@@ -24,7 +24,7 @@
 
             <li class="gooey__open-button"/>
               <a href="#" class="gooey__item__content">
-                <i class="fa fa-close"></i>
+                <i class="fa fa-plus"></i>
               </a>
             </li>
 
@@ -45,7 +45,7 @@
                 <i class="fa fa-coffee"></i>
               </a>
             </li>
-            
+
           </ul>
         </div>
         <?php include 'gooey-filter.php'; ?>

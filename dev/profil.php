@@ -2,115 +2,81 @@
   include 'header.php';
 ?>
 
+<main class="main_profil">
+    <div class="intro">
+        <h1>Hello !</h1>
+        <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
+    </div><!-- end of .intro -->
+    
+    <form class="profil_form">
+        <!-- Nickname input -->
+        <label for="nickname"><img src="img/icon_profil.png" height="38" width="38" alt="icone du profil"></label>
+        <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
+        
+        <!-- Weight select -->
+  
+        <label for="poids">Poids</label>
 
-    <section class="main-section">
-<!--  MAIN
-==================================================================-->
-      <main class="main_profil">
-        <div class="row intro">
-          <div class="small-12 small-centered text-left columns">
-            <h1>Hello !</h1>
-            <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
-          </div>
-        </div>
+        <?php
+            // variables
+            $selected = '';
 
-        <form class="profil_form">
-        <!-- First name input -->
-          <div class="row">
-            <div class="small-12 small-centered text-center columns">
+            // loop for weight
+            echo '<select name="poids" id="poids" required>',"\n";
+                for($i=0; $i<=250; $i++) {
 
-              <div class="row">
-                <div class="small-2 columns">
-                  <label><img src="img/icon_profil.png" height="38" width="38" alt=""></label>
-                </div>
-                <div class="small-10 columns">
-                  <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
-                </div>
-              </div>
+                    // Affichage de la ligne
+                     echo "\t",'<option value="', $i ,'"', $selected ,'>', $i ,'</option>',"\n";
+                }
+            echo '</select>',"\n";
+        ?>
 
-            <!-- Weight select -->
-              <div class="row">
-                <div class="small-12 text-left columns">
-                  <label>Poids
-                    <?php
-                        // variables
-                        $selected = '';
-
-                        // loop for weight
-                        echo '<select name="poids" id="poids" required>',"\n";
-                            for($i=0; $i<=200; $i++) {
-
-                                // Affichage de la ligne
-                                 echo "\t",'<option value="', $i ,'"', $selected ,'>', $i ,'</option>',"\n";
-                            }
-                        echo '</select>',"\n";
-                    ?>
-                  </label>
-                </div>
-              </div>
-
-          <!-- Section buttons switch -->
-            <div class="switch_section">
-              <!-- Notifications switch button -->
-              <div class="row">
-                    <div class="small-2 text-left columns">
-                        <img src="img/icon_notif.jpg" height="149" width="150" alt="">
-                    </div>
-                    <div class="small-7 text-left columns">
-                        <p>Notifications</p>
-                    </div>
-                    <div class="small-3 text-left columns">
-                        <div class="switch round small">
-                            <input id="notif" type="checkbox">
-                            <label for="notif">Notifications</label>
-                        </div>
-                    </div>
-              </div>
-
-              <!-- Bouchon intelligent switch button -->
-              <div class="row">
-                    <div class="small-2 text-left columns">
-                        <img src="img/icon_smartcap.png" height="55" width="55" alt="">
-                    </div>
-                    <div class="small-7 text-left columns">
-                        <p>Bouchon intelligent</p>
-                    </div>
-                    <div class="small-3 text-left columns">
-                        <div class="switch round small">
-                            <input id="smart_cap" type="checkbox">
-                            <label for="smart_cap">Bouchon intelligent</label>
-                        </div>
-                    </div>
-              </div>
+        <div class="switch_section">
+            <!-- Notifications switch button -->
+            <img src="img/icon_notif.jpg" height="149" width="150" alt="">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="notifications" checked>
+                <label class="onoffswitch-label" for="notifications">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
             </div>
 
-            </div>
-          </div>
-          <a role="button" aria-label="submit form" href="#" class="button expand action_btn" id="submit_objectif">Calculer mon objectif</a>
-        </form>
-      </main>
-  <div class="notifications">
+            <!-- Bouchon intelligent switch button -->
+            <img src="img/icon_smartcap.png" height="55" width="55" alt="">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="smartCap" checked>
+                <label class="onoffswitch-label" for="smartCap">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div>  
+        </div><!-- end of .switch_section -->
+
+        <a role="button" href="#" class="button action_btn" id="submit_objectif">Calculer mon objectif</a>
+
+    </form>
+</main>
+
+
+<div class="display_none">
     <div id="push_connexion">
-      <h3>Notifications</h3>
-      <p>La connexion avec le Guly SmartCap est établie</p>
-    </div>
-  </div>
-      <div class="lightbox_objectif_off text-center">
-          <div class="result_section">
+        <h3>Notifications</h3>
+        <p>La connexion avec le Guly SmartCap est établie</p>
+    </div><!-- end of .push_connexion -->
+    
+    <div class="lightbox_objectif_off">
+        <div class="result_section">
             <h2 class="result_nickname"></h2>
             <p>Guly te conseille de boire en moyenne</p>
             <p class="BH"></p>
             <p>d'eau par jour</p>
             <i class="fa fa-arrow-left return_btn"></i>
-          </div>
-          <a role="button" href="index.php" class="button expand action_btn .notif">Commencer</a>
-      </div>
-    </section>
+        </div><!-- end of .result_section -->
+        <a role="button" href="index.php" class="button action_btn .notif">Commencer</a>
+    </div><!-- end of .lightbox_objectif_off -->
 
-  <a class="exit-off-canvas"></a>
-  </div>
-</div>
-<!-- end MAIN -->
+</div><!-- end of .display_none -->
 
 <?php
   include 'footer.php';

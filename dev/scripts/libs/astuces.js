@@ -1,9 +1,10 @@
 (function($) {
+  // astuces + FAQ
   $('.slide').slick({
-    accessibility : true,
-    dots: true,
-    //arrows: true,
-    mobileFirst : true,
-    swipeToSlide : true
-  });
+   accessibility : true,
+   dots: true,
+   //arrows: true,
+   mobileFirst : true,
+   swipeToSlide : true
+ });
 }(jQuery));

@@ -32,83 +32,47 @@
 }
 
 /* ======================================
-                BUTTONS
+                MENU NAV
 =========================================*/
-// Submit
-.action_btn {
+
+#aside_nav {
+  width: 100vw;
+  height: 92vh;
+  background: url(../img/bg-nav.svg) 0 0 no-repeat;
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
-  margin: 0;
-}
+  transition: left 1s ease;
+  z-index: 1001;
 
-// Animate onclick
-.waves{
-  -webkit-animation:waves 1.0s linear;
-  animation:waves 1.0s linear;
-}
+  h1 {
+    font-size: 10vw;
+    font-weight: 400;
+    color: $second-color;
 
-@-webkit-keyframes waves{
-  from{
-    box-shadow:0 0 #fff,0 0 0 1px rgba(0,150,255,.5)
   }
-  to{box-shadow:0 0 0 8px #fff,0 0 0 12px rgba(0,150,255,0)
+
+  #menu_waves {
+    width: 45px;
+    height: auto;
+    margin: 5px 10px 10px 10px;
+    position: absolute;
+    right: 5px;
+  }
+
+  nav li {
+    padding: 8px 0;
+  }
+
+  nav a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 8vw;
+    color: $second-color;
   }
 }
 
-@keyframes waves{
-  from{
-    box-shadow:0 0 #fff,0 0 0 1px rgba(0,150,255,.5)
-  }
-  to{box-shadow:0 0 0 8px #fff,0 0 0 12px rgba(0,150,255,0)
-  }
+.close {
+  left: -78% !important;
 }
 
-
-// Switch button
-.onoffswitch {
-    position: relative; width: 105px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #EEEEEE; border-radius: 50px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 60px; padding: 0; line-height: 60px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "";
-    padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block; width: 50px; margin: 5px;
-    background: #FFFFFF;
-    border: 2px solid #EEEEEE; border-radius: 50px;
-    position: absolute; top: 0; bottom: 0; right: 41px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}

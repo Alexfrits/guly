@@ -1,4 +1,5 @@
 (function($) {
+  if ($('main').hasClass('page-tracker')) {
 
   $openButton = $('.gooey .gooey__open-button');
 
@@ -58,5 +59,5 @@
     //   icon.removeClass('fa-close').addClass('fa-plus');
     // }
   });
-
+}
 }(jQuery));

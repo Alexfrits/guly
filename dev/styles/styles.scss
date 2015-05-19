@@ -1,11 +1,11 @@
+@import 'vendor/normalize';
+
 @import 'helpers/reset';
 @import 'helpers/colors';
+@import 'helpers/fonts';
 @import 'helpers/slick-theme';
 @import 'helpers/slick';
 @import 'helpers/trigo';
-
-@import 'vendor/normalize';
-// @import 'vendor/foundation.min';
 
 @import 'partials/base';
 @import 'partials/profil';
@@ -17,4 +17,5 @@
 
 @import 'modules/gooey-menu';
 @import 'modules/orientation';
+@import 'modules/buttons';
 

@@ -10,7 +10,7 @@
 
     <form class="profil_form">
         <!-- Nickname input -->
-        <label for="nickname"><img src="img/icon_profil.png" height="38" width="38" alt="icone du profil"></label>
+        <label for="nickname" class="nickname"></label>
         <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
 
         <!-- Weight select -->
@@ -22,7 +22,7 @@
             $selected = '';
 
             // loop for weight
-            echo '<select name="poids" id="poids" required>',"\n";
+            echo '<select name="poids" id="poids">',"\n";
                 for($i=0; $i<=250; $i++) {
 
                     // Affichage de la ligne

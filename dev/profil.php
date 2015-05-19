@@ -7,14 +7,14 @@
         <h1>Hello !</h1>
         <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
     </div><!-- end of .intro -->
-    
+
     <form class="profil_form">
         <!-- Nickname input -->
         <label for="nickname"><img src="img/icon_profil.png" height="38" width="38" alt="icone du profil"></label>
         <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
-        
+
         <!-- Weight select -->
-  
+
         <label for="poids">Poids</label>
 
         <?php
@@ -50,7 +50,7 @@
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
                 </label>
-            </div>  
+            </div>
         </div><!-- end of .switch_section -->
 
         <a role="button" href="#" class="button action_btn" id="submit_objectif">Calculer mon objectif</a>
@@ -64,7 +64,7 @@
         <h3>Notifications</h3>
         <p>La connexion avec le Guly SmartCap est établie</p>
     </div><!-- end of .push_connexion -->
-    
+
     <div class="lightbox_objectif_off">
         <div class="result_section">
             <h2 class="result_nickname"></h2>

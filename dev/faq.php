@@ -4,11 +4,8 @@
     <!--  MAIN
     ==================================================================-->
     <main id="main_faq">
-        <div class="row">
-            <div class="small-12 text-center columns">
                 <h1>FAQ</h1>
-            </div>
-        </div>
+
 <div class="slide">
     <div class="item">
         <h2>Comment Guly calcule-il mon besoin hydrolique quotidien ?</h2>
@@ -54,10 +51,6 @@
 
     </main>
     <!-- end MAIN -->
-
-  <a class="exit-off-canvas"></a>
-  </div>
-</div>
 
 <?php
   include 'footer.php';

@@ -16,6 +16,7 @@
             Ceci est un petit conseil qui apparaît quand vous avez tout bu.
           </q>
       </div>
+      <div>{{ 3 +1 }}</div>
       
         <!-- GOOEY MENU -->
         <div class="gooey__wrapper">

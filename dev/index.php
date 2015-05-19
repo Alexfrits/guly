@@ -16,7 +16,6 @@
             Ceci est un petit conseil qui apparaît quand vous avez tout bu.
           </q>
       </div>
-
       
         <!-- GOOEY MENU -->
         <div class="gooey__wrapper">

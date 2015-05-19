@@ -7,7 +7,7 @@
 
     <ul>
       <li ng-repeat="hint in hints">
-        <h3>{{hint.title}}</h3>
+        <h3><a href="#/astuces/{{hint.hintId}}">{{hint.title}}</a></h3>
         <p>{{hint.content}}</p>
       </li>
     </ul>

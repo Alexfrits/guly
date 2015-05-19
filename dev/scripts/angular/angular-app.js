@@ -15,6 +15,10 @@ gulyApp.config(['$routeProvider',
         templateUrl: 'partials/water-tracker.html',
         // controller: 'HintsListCtrl'
       })
+      .when('/astuces/:astuceId', {
+        templateUrl: 'partials/astuce-detail.html',
+        controller: 'HintDetailCtrl'
+      })
     .otherwise({
       redirectTo:'/water-tracker'
     });

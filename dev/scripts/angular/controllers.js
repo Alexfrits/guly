@@ -10,3 +10,9 @@ hintsListControllers.controller('HintsListCtrl', ['$scope', '$http',
     $scope.orderProp = 'age';
   }
 ]);
+
+hintsListControllers.controller('HintDetailCtrl', ['$scope', '$routeParams',
+  function($scope, $routeParams) {
+    $scope.astuceId = $routeParams.astuceId;
+  }
+]);

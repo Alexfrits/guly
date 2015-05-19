@@ -1,9 +1,3 @@
-$(document).foundation({
-  offcanvas : {
-    open_method: 'overlap'
-  }
-});
-
 (function($) {
   $('input, select, action_btn, a').on('focus', function(e) {
     $(this).addClass('waves');

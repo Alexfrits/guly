@@ -1,12 +1,16 @@
 (function($) {
 
   var $icon = $('#menu_waves');
-  var $aside = $('#aside_nav');
+  var $panel = $('#aside_nav');
+  var $menuItems = $panel.find('li a');
 
   $icon.on('click', function(e) {
-    $aside.toggleClass('close');
+    e.preventDefault();
+    $panel.toggleClass('close');
+  });
 
-    e.preventDefault;
+  $menuItems.on('click', function(e) {
+    $panel.addClass('close');
   });
 
 }(jQuery));

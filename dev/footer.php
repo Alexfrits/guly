@@ -11,10 +11,12 @@
   <script>
     window.jQuery || document.write('<script src="scripts/vendor/jquery-2.1.3.min.js"><\/script>')
   </script>
-  <script src="scripts/vendor/angular.min.js"></script>
+  <script src="scripts/vendor/angular/angular.min.js"></script>
+  <script src="scripts/vendor/angular/angular-route.min.js"></script>
   <script src="scripts/vendor/slick.min.js"></script>
   <script src="scripts/vendor/chart.js"></script>
   <script src="scripts/main.min.js"></script>
+  <script src="scripts/controllers/maincontroller.js"></script>
 <!-- end SCRIPTS -->
 
 </body>

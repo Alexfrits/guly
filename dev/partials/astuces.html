@@ -1,0 +1,18 @@
+
+  <!--  MAIN
+  ==================================================================-->
+  <main ng-controller="HintsListCtrl" class="main_astuces">
+
+    <h1>Astuces</h1>
+
+    <ul>
+      <li ng-repeat="hint in hints">
+        <h3>{{hint.title}}</h3>
+        <p>{{hint.content}}</p>
+      </li>
+    </ul>
+
+  
+
+  </main>
+  <!-- end MAIN -->

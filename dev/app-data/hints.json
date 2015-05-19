@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Boire c’est bien",
+    "content" : "Boire de l’eau c’est bon pour la santé!",
+    "age" : 3
+  },
+ {
+    "title": "Buvez Plus!",
+    "content" : "Si vous buvez beaucoup d’eau, vous serez en bonne santé",
+    "age" : 1
+  },
+  {
+    "title": "L’eau c’est bien",
+    "content" : "Glouglouglou!",
+    "age" : 2
+  },
+  {
+    "title": "Hint 4",
+    "content" : "Plus aucune idée…",
+    "age" : 4
+  }
+]

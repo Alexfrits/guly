@@ -24,7 +24,7 @@
 	.nickname {
 		&:before {
 			content: '';
-			background: url(../../img/icon_profil.png) 0 0 no-repeat;
+			background: url(../../img/icon_profil.svg) 0 0 no-repeat;
 			background-size: 100%;
 			display: block;
   			width: 10vw;
@@ -35,8 +35,15 @@
 		}
 	}
 
-	#nickname {
+	#nickname,
+	#poids,
+	.switch_section {
 		width: 100%;
+		margin: 0 0 25px 0;
+
+	}
+
+	#nickname {
 		border: none;
 		border-bottom: 1px solid $main-color;
 
@@ -45,8 +52,25 @@
 			color: $main-color;
 		}
 	}
+	.weight {
+		padding: 0 15px 0 0;
+	}
+
+	select#poids {
+		width: 80%;
+		float: right;
+	}
+
 	.switch_section {
-		margin-top: 5vh;
+		clear: both;
+	}
+
+	#notifications:before {
+		content: 'dd';
+		background: url(../../img/icon_notif.svg) 0 0 no-repeat;
+		display: block;
+		width: 50px;
+		height: 50px;
 	}
 }
 

@@ -14,8 +14,7 @@
         <input type="text" id="nickname" name="nickname" placeholder="Prénom" required>
 
         <!-- Weight select -->
-
-        <label for="poids">Poids</label>
+        <label for="poids" class="weight">Poids</label>
 
         <?php
             // variables
@@ -33,7 +32,6 @@
 
         <div class="switch_section">
             <!-- Notifications switch button -->
-            <img src="img/icon_notif.jpg" height="149" width="150" alt="">
             <div class="onoffswitch">
                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="notifications" checked>
                 <label class="onoffswitch-label" for="notifications">
@@ -45,7 +43,7 @@
             <!-- Bouchon intelligent switch button -->
             <img src="img/icon_smartcap.png" height="55" width="55" alt="">
             <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="smartCap" checked>
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="smartCap">
                 <label class="onoffswitch-label" for="smartCap">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>

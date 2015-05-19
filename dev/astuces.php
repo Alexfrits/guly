@@ -4,11 +4,9 @@
     <!--  MAIN
     ==================================================================-->
     <main class="main_astuces">
-        <div class="row">
-            <div class="small-12 text-center columns">
-                <h1>Astuces</h1>
-            </div>
-        </div>
+
+        <h1>Astuces</h1>
+
 <div class="slide">
     <div class="item">
         <p>"Si vous êtes assise dans une pièce avec de l’air conditionné la plupart de la journée, votre corps et votre peau vont être déshydratés. Vous devez boire plus d’eau et vous mettre de la crème hydratante."</p>
@@ -98,11 +96,6 @@
 
     </main>
     <!-- end MAIN -->
-
-  <a class="exit-off-canvas"></a>
-  </div>
-</div>
-
 <?php
   include 'footer.php';
 ?>

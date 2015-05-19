@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" ng-app="gulyApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, user-scalable=no">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+
   <aside id="aside_nav" class="close">
     <!-- Menu Toogle -->
     <a href="#" id="menu_waves">
@@ -22,6 +23,7 @@
         M48,37c-5.2,5-16.7,5.8-23,2.1S7,36.4,2,41.3"/>
       </svg>
     </a>
+
     <nav>
       <h1>Menu</h1>
       <ul>

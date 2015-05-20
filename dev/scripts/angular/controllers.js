@@ -1,3 +1,4 @@
+// liste des astuces
 var hintsListControllers = angular.module('hintsListControllers', []);
 
 hintsListControllers.controller('HintsListCtrl', ['$scope', '$http',
@@ -14,5 +15,25 @@ hintsListControllers.controller('HintsListCtrl', ['$scope', '$http',
 hintsListControllers.controller('HintDetailCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
     $scope.astuceId = $routeParams.astuceId;
+  }
+]);
+
+// validation du form
+var formControllers = angular.module('formControllers', []);
+
+formControllers.controller('FormCtrl', ['$scope',
+  function($scope) {
+    // $scope.master = {};
+    // $scope.update = function(user) {
+    //   $scope.master = angular.copy(user);
+    // };
+  }
+]);
+
+// switch button (radio)
+var switchControllers = angular.module('switchControllers', []);
+switchControllers.controller('switchCtrl', ['$scope',
+  function switchCtrl($scope) {
+    $scope.switch = 'off';
   }
 ]);

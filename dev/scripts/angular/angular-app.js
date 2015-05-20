@@ -1,6 +1,9 @@
 var gulyApp = angular.module('gulyApp', [
   'ngRoute',
-  'hintsListControllers'
+  'hintsListControllers',
+  'formControllers',
+  'switchControllers',
+  'gulyFilters'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -9,6 +12,10 @@ gulyApp.config(['$routeProvider',
     $routeProvider
     .when('/astuces', {
         templateUrl: 'partials/astuces.html',
+        controller: 'HintsListCtrl'
+      })
+    .when('/profil', {
+        templateUrl: 'partials/profil.html',
         controller: 'HintsListCtrl'
       })
       .when('/water-tracker', {

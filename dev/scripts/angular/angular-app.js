@@ -36,11 +36,12 @@ gulyApp.config(['$routeProvider',
 
 
 gulyApp
+  // Menu to add a drink
   .directive('gulGooeyMenu', function() {
     return {
       restrict: 'E',
       templateUrl: 'widgets/gooey-menu.html',
-      
+
       link: function() {
         var $openButton = $('.gooey .gooey__open-button');
 
@@ -50,5 +51,14 @@ gulyApp
         });
       }
     };
+  }).directive('gulMainNav', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/main-nav.html',
+
+      link: function() {
+        
+      }
+    }
   });
 

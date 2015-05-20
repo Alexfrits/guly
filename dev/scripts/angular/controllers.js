@@ -30,9 +30,15 @@ formControllers.controller('FormCtrl', ['$scope',
   }
 ]);
 
-// switch button (radio)
-formControllers.controller('switchCtrl', ['$scope',
-  function switchCtrl($scope) {
-    $scope.switch = 'off';
-  }
-]);
+// switch button
+
+var switchControllers = angular.module('switchControllers', []);
+
+switchControllers.controller('uiSwitchCtrl', function($scope) {
+  $scope.notif = true;
+  $scope.smart = true;
+
+  $scope.changeCallback = function() {
+    //$scope.enabled = false;
+  };
+});

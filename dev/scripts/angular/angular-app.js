@@ -39,7 +39,16 @@ gulyApp
   .directive('gulGooeyMenu', function() {
     return {
       restrict: 'E',
-      templateUrl: 'widgets/gooey-menu.html'
+      templateUrl: 'widgets/gooey-menu.html',
+      
+      link: function() {
+        var $openButton = $('.gooey .gooey__open-button');
+
+        $openButton.on('click', function(e) {
+          e.preventDefault();
+          $(this).toggleClass('active');
+        });
+      }
     };
   });
 

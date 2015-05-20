@@ -1,0 +1,49 @@
+<main class="main_profil main-section main-wrapper" ng-controller="FormCtrl">
+    <div class="intro">
+        <h1>Hello !</h1>
+        <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
+    </div><!-- end of .intro -->
+
+	<div>
+		<form name="form" class="css-form profil_form" novalidate>
+
+        <!-- Nickname input -->
+        <label for="nickname" class="nickname"></label>
+	    <input type="text" ng-model="user.nickname" id="nickname" name="nickname" placeholder="Prénom" required="" />
+	    <br />
+	    <div ng-show="form.$submitted || form.nickname.$touched">
+	      <div ng-show="form.nickname.$error.required">Quel est ton prénom ?</div>
+	    </div>
+
+	     <!-- Weight select -->
+        <label for="poids" class="weight">Poids</label>
+	    <select name="poids" id="poids">
+  			<option
+            	ng-repeat="x in [] | range:0:250"
+            	value="{{x}}">{{x}}
+            </option>
+	    </select>
+
+		<div ng-controller="switchCtrl" class="switch_section">
+		    <!-- Notifications switch button -->
+			 <div class="toggle-bg {{switch}}" ng-init="switch = 'off'">
+			      <input type="radio" name="toggle" value="off" ng-model="switch" id="notifications_off" class="notifications">
+			      <input type="radio" name="toggle" value="on" ng-model="switch" id="notifications_on" class="notifications">
+			      <span class="switch {{switch}}"></span>
+			</div>
+			<p><strong>State</strong>: {{switch}}</p>
+
+		    <!-- Bouchon intelligent switch button -->
+			 <div class="toggle-bg {{switch}}" ng-init="switch = 'off'">
+			      <input type="radio" name="toggle" value="off" ng-model="switch" id="smartCap_off" class="smartCap">
+			      <input type="radio" name="toggle" value="on" ng-model="switch" id="smartCap_on" class="smartCap">
+			      <span class="switch {{switch}}"></span>
+			</div>
+			<p><strong>State</strong>: {{switch}}</p>
+		</div><!-- end of .switch_section -->
+
+		<!-- Submit button -->
+		<input type="submit" ng-click="update(user)" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" />
+	  </form>
+	</div>
+</main>

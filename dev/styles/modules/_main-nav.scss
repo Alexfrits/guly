@@ -1,7 +1,6 @@
 
 /*  SVG ICON
 ===================================================================*/
-
 .menu-icon--use {
   fill:none;
   stroke: $action-color;
@@ -13,21 +12,15 @@
                 MENU NAV
 =========================================*/
 
-.main-nav {
+.offcanvas {
   width: 100vw;
-  height: 92vh;
-  // background: url(../img/bg-nav.svg) 0 0 no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: left 1s ease;
+  background: $main-color;
+  color: $second-color;
   z-index: 1001;
 
   h1 {
     font-size: 10vw;
     font-weight: 400;
-    color: $second-color;
-
   }
 
   #menu_waves {
@@ -51,5 +44,5 @@
 }
 
 .close {
-  left: -78% !important;
+  background: pink;
 }

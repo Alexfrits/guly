@@ -43,6 +43,7 @@ gulyApp
       templateUrl: 'widgets/gooey-menu.html',
 
       link: function() {
+        // à ANGULARISER
         var $openButton = $('.gooey .gooey__open-button');
 
         $openButton.on('click', function(e) {
@@ -57,8 +58,8 @@ gulyApp
       templateUrl: 'widgets/main-nav.html',
 
       link: function() {
-        
+
       }
-    }
+    };
   });
 

@@ -1,11 +1,22 @@
+
+/*  SVG ICON
+===================================================================*/
+
+.menu-icon--use {
+  fill:none;
+  stroke: $action-color;
+  stroke-width:4;
+  stroke-linecap: round;
+}
+
 /* ======================================
                 MENU NAV
 =========================================*/
 
-#aside_nav {
+.main-nav {
   width: 100vw;
   height: 92vh;
-  background: url(../img/bg-nav.svg) 0 0 no-repeat;
+  // background: url(../img/bg-nav.svg) 0 0 no-repeat;
   position: absolute;
   top: 0;
   left: 0;

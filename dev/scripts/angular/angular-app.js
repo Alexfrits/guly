@@ -2,7 +2,6 @@ var gulyApp = angular.module('gulyApp', [
   'ngRoute',
   'hintsListControllers',
   'formControllers',
-  'switchControllers',
   'gulyFilters'
 ]);
 
@@ -31,3 +30,16 @@ gulyApp.config(['$routeProvider',
     });
   }
 ]);
+
+/*  DIRECTIVES (will be externalized in directives.js in a further version)
+===================================================================*/
+
+
+gulyApp
+  .directive('gulGooeyMenu', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/gooey-menu.html'
+    };
+  });
+

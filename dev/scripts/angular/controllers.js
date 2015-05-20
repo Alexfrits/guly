@@ -31,8 +31,7 @@ formControllers.controller('FormCtrl', ['$scope',
 ]);
 
 // switch button (radio)
-var switchControllers = angular.module('switchControllers', []);
-switchControllers.controller('switchCtrl', ['$scope',
+formControllers.controller('switchCtrl', ['$scope',
   function switchCtrl($scope) {
     $scope.switch = 'off';
   }

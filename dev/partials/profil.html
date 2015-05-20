@@ -1,4 +1,4 @@
-<main class="main_profil main-section main-wrapper" ng-controller="FormCtrl">
+<main class="main_profil main-section main-wrapper" data-ng-controller="FormCtrl" data-ng-controller="uiSwitchCtrl">
     <div class="intro">
         <h1>Hello !</h1>
         <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
@@ -9,41 +9,37 @@
 
         <!-- Nickname input -->
         <label for="nickname" class="nickname"></label>
-	    <input type="text" ng-model="user.nickname" id="nickname" name="nickname" placeholder="Prénom" required="" />
+	    <input type="text" data-ng-model="user.nickname" id="nickname" name="nickname" placeholder="Prénom" required="" />
 	    <br />
-	    <div ng-show="form.$submitted || form.nickname.$touched">
-	      <div ng-show="form.nickname.$error.required">Quel est ton prénom ?</div>
+	    <div data-ng-show="form.$submitted || form.nickname.$touched">
+	      <div data-ng-show="form.nickname.$error.required">Quel est ton prénom ?</div>
 	    </div>
 
 	     <!-- Weight select -->
         <label for="poids" class="weight">Poids</label>
 	    <select name="poids" id="poids">
   			<option
-            	ng-repeat="x in [] | range:0:250"
+            	data-ng-repeat="x in [] | range:0:250"
             	value="{{x}}">{{x}}
             </option>
 	    </select>
-
-		<div ng-controller="switchCtrl" class="switch_section">
+		<div class="switch_section">
 		    <!-- Notifications switch button -->
-			 <div class="toggle-bg {{switch}}" ng-init="switch = 'off'">
-			      <input type="radio" name="toggle" value="off" ng-model="switch" id="notifications_off" class="notifications">
-			      <input type="radio" name="toggle" value="on" ng-model="switch" id="notifications_on" class="notifications">
-			      <span class="switch {{switch}}"></span>
-			</div>
-			<p><strong>State</strong>: {{switch}}</p>
-
+			<label for="notifications" class="switch_label">Notifications
+			  <switch name="enabled" ng-model="enabled" ng-change="changeCallback" id="notifications"></switch>
+			  <br>{{ enabled }}
+			</label>
+		</div>
+		<div class="switch_section">
 		    <!-- Bouchon intelligent switch button -->
-			 <div class="toggle-bg {{switch}}" ng-init="switch = 'off'">
-			      <input type="radio" name="toggle" value="off" ng-model="switch" id="smartCap_off" class="smartCap">
-			      <input type="radio" name="toggle" value="on" ng-model="switch" id="smartCap_on" class="smartCap">
-			      <span class="switch {{switch}}"></span>
-			</div>
-			<p><strong>State</strong>: {{switch}}</p>
+			<label for="smartCap" ng-click="enabled=!enabled" class="switch_label">Guly SmartCap
+			  <switch name="enabled" ng-model="enabled" ng-change="changeCallback" id="smartCap"></switch>
+			  <br>{{ enabled }}
+			</label>
 		</div><!-- end of .switch_section -->
 
 		<!-- Submit button -->
-		<input type="submit" ng-click="update(user)" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" />
+		<input type="submit" data-ng-click="update(user)" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" />
 	  </form>
 	</div>
 </main>

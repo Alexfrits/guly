@@ -26,15 +26,13 @@
 		<div class="switch_section">
 		    <!-- Notifications switch button -->
 			<label for="notifications" class="switch_label">Notifications
-			  <switch name="enabled" ng-model="enabled" ng-change="changeCallback" id="notifications"></switch>
-			  <br>{{ enabled }}
+			  <switch name="notif" ng-model="notif" ng-change="changeCallback" id="notifications"></switch>
 			</label>
 		</div>
 		<div class="switch_section">
 		    <!-- Bouchon intelligent switch button -->
 			<label for="smartCap" ng-click="enabled=!enabled" class="switch_label">Guly SmartCap
-			  <switch name="enabled" ng-model="enabled" ng-change="changeCallback" id="smartCap"></switch>
-			  <br>{{ enabled }}
+			  <switch name="smart" ng-model="smart" ng-change="changeCallback" id="smartCap"></switch>
 			</label>
 		</div><!-- end of .switch_section -->
 

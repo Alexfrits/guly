@@ -1,6 +1,6 @@
     <!--  MAIN
     ==================================================================-->
-    <main class="page-tracker main-section main-wrapper" ng-controller="HintsListCtrl">
+    <main class="page-tracker main-section main-wrapper">
 
       <div class="mega-number__wrapper">
         <div class="mega-number">
@@ -8,21 +8,6 @@
         </div>
       </div>
 
-      <label for="">Search: 
-        <input ng-model="query">
-      </label>
-      <label for="">Sort: 
-        <select ng-model="orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="age">Newest</option>
-        </select>
-      </label>
-      <ul>
-        <li ng-repeat="hint in hints | filter:query | orderBy: orderProp">
-          <h3>{{ hint.title }}</h3>
-          <p>{{ hint.content }}</p>
-        </li>
-      </ul>
 
       <gul-gooey-menu></gul-gooey-menu>
     </main>

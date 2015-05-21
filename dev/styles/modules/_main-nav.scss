@@ -12,37 +12,54 @@
                 MENU NAV
 =========================================*/
 
-.offcanvas {
-  width: 100vw;
-  background: $main-color;
-  color: $second-color;
-  z-index: 1001;
+// .navOpened {
+//   background: $main-color;
+// }
 
-  h1 {
-    font-size: 10vw;
-    font-weight: 400;
-  }
-
-  #menu_waves {
-    width: 45px;
-    height: auto;
-    margin: 5px 10px 10px 10px;
-    position: absolute;
-    right: 5px;
-  }
-
-  nav li {
-    padding: 8px 0;
-  }
-
-  nav a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 8vw;
-    color: $second-color;
-  }
+.navOpened {
+  transition:0.5s linear all;
 }
+// .navOpened.on-add {
+//   background:white;
+// }
+// .navOpened.on {
+//   background:yellow;
+// }
+// .navOpened.on-remove {
+//   background:black;
+// }
 
-.close {
-  background: pink;
-}
+// .offcanvas {
+//   width: 100vw;
+//   background: $main-color;
+//   color: $second-color;
+//   z-index: 1001;
+
+//   h1 {
+//     font-size: 10vw;
+//     font-weight: 400;
+//   }
+
+//   #menu_waves {
+//     width: 45px;
+//     height: auto;
+//     margin: 5px 10px 10px 10px;
+//     position: absolute;
+//     right: 5px;
+//   }
+
+//   nav li {
+//     padding: 8px 0;
+//   }
+
+//   nav a {
+//     font-family: 'Lato', sans-serif;
+//     font-weight: 300;
+//     font-size: 8vw;
+//     color: $second-color;
+//   }
+// }
+
+// .close {
+//   background: pink;
+// }

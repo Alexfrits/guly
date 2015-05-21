@@ -1,5 +1,6 @@
 var gulyApp = angular.module('gulyApp', [
   'ngRoute',
+  'ngAnimate',
   'mainNavModule',
   'gooeyMenuModule',
   'pagesViewControllers',

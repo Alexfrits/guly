@@ -1,39 +1,57 @@
 var gulyApp = angular.module('gulyApp', [
   'ngRoute',
   'hintsListControllers',
+  'LocalStorageModule',
   'formControllers',
+  'switchControllers',
   'gulyFilters'
 ]);
 
-gulyApp.config(['$routeProvider',
+gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
 
-  function($routeProvider) {
+  // Navigation Routes
+  function($routeProvider, localStorageServiceProvider) {
     $routeProvider
-    .when('/astuces', {
-        templateUrl: 'partials/astuces.html',
-        controller: 'HintsListCtrl'
+      .when('/water-tracker', {
+        templateUrl: 'partials/water-tracker.html',
+        // controller: 'HintsListCtrl'
       })
     .when('/profil', {
         templateUrl: 'partials/profil.html',
         controller: 'HintsListCtrl'
       })
-      .when('/water-tracker', {
-        templateUrl: 'partials/water-tracker.html',
-        // controller: 'HintsListCtrl'
+    .when('/statistiques', {
+        templateUrl: 'partials/statistiques.html',
+        controller: 'HintsListCtrl'
+      })
+    .when('/astuces', {
+        templateUrl: 'partials/astuces.html',
+        controller: 'HintsListCtrl'
       })
       .when('/astuces/:astuceId', {
         templateUrl: 'partials/astuce-detail.html',
         controller: 'HintDetailCtrl'
       })
+    .when('/faq', {
+        templateUrl: 'partials/faq.html',
+        controller: 'HintsListCtrl'
+      })
+    .when('/boutique', {
+        templateUrl: 'partials/boutique.html',
+        controller: 'HintsListCtrl'
+      })
     .otherwise({
       redirectTo:'/water-tracker'
     });
+    // localStorage Config
+    localStorageServiceProvider
+      .setPrefix('guly')
+      .setNotify(true, true);
   }
 ]);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/
-
 
 gulyApp
   // Menu to add a drink
@@ -62,4 +80,11 @@ gulyApp
       }
     };
   });
+
+// // LocalStorage Config
+// gulyApp.config(function(localStorageServiceProvider) {
+//   localStorageServiceProvider
+//     .setPrefix('guly')
+//     .setNotify(true, true);
+// });
 

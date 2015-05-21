@@ -1,3 +1,12 @@
+gulyApp
+.controller('mainController', ['localStorageService',
+  function($scope, localStorageService) {
+  function submit(key, val) {
+    return localStorageService.set(key, val);
+  }
+
+}])
+
 // liste des astuces
 var hintsListControllers = angular.module('hintsListControllers', []);
 
@@ -31,14 +40,31 @@ formControllers.controller('FormCtrl', ['$scope',
 ]);
 
 // switch button
-
 var switchControllers = angular.module('switchControllers', []);
 
 switchControllers.controller('uiSwitchCtrl', function($scope) {
   $scope.notif = true;
-  $scope.smart = true;
+  $scope.smartcap = true;
 
   $scope.changeCallback = function() {
     //$scope.enabled = false;
   };
 });
+
+// LocalStorage supported controller
+// var lsControllers = angular.module('LocalStorageModule', []);
+
+// lsControllers.controller('lsCtrl',
+//   function($scope, localStorageService) {
+
+//     if (localStorageService.isSupported) {
+//       function submit(key, val) {
+//         return localStorageService.set(key, val);
+//       }
+//     } else {
+//       function submit(key, val) {
+//         return localStorageService.cookie.set(key, val);
+//       }
+//     }
+//   }
+// );

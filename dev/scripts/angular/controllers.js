@@ -1,7 +1,8 @@
-// liste des astuces
-var hintsListControllers = angular.module('hintsListControllers', []);
+/*  Liste des astuces
+===================================================================*/
 
-hintsListControllers.controller('HintsListCtrl', ['$scope', '$http',
+hintsListControllers
+.controller('HintsListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $http.get('app-data/hints.json')
     .success(function(data) {
@@ -10,35 +11,35 @@ hintsListControllers.controller('HintsListCtrl', ['$scope', '$http',
 
     $scope.orderProp = 'age';
   }
-]);
-
-hintsListControllers.controller('HintDetailCtrl', ['$scope', '$routeParams',
+])
+.controller('HintDetailCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
     $scope.astuceId = $routeParams.astuceId;
   }
 ]);
 
-// validation du form
-var formControllers = angular.module('formControllers', []);
+/*  validation du form
+===================================================================*/
 
-formControllers.controller('FormCtrl', ['$scope',
-  function($scope) {
-    // $scope.master = {};
-    // $scope.update = function(user) {
-    //   $scope.master = angular.copy(user);
-    // };
-  }
-]);
+formControllers
+  .controller('FormCtrl', ['$scope',
+    function($scope) {
+      // $scope.master = {};
+      // $scope.update = function(user) {
+      //   $scope.master = angular.copy(user);
+      // };
+    }
+  ]);
 
-// switch button
+/*  switch button
+===================================================================*/
 
-var switchControllers = angular.module('switchControllers', []);
+switchControllers
+  .controller('uiSwitchCtrl', function($scope) {
+    $scope.notif = true;
+    $scope.smart = true;
 
-switchControllers.controller('uiSwitchCtrl', function($scope) {
-  $scope.notif = true;
-  $scope.smart = true;
-
-  $scope.changeCallback = function() {
-    //$scope.enabled = false;
-  };
-});
+    $scope.changeCallback = function() {
+      //$scope.enabled = false;
+    };
+  });

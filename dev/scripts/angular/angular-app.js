@@ -1,8 +1,11 @@
 var gulyApp = angular.module('gulyApp', [
   'ngRoute',
+  'mainNavModule',
+  'gooeyMenuModule',
   'hintsListControllers',
   'formControllers',
-  'gulyFilters'
+  'gulyFilters',
+  'switchControllers'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -31,19 +34,27 @@ gulyApp.config(['$routeProvider',
   }
 ]);
 
+
+/*  DEPENDENCIES
+===================================================================*/
+
+var hintsListControllers  = angular.module('hintsListControllers', []);
+var formControllers       = angular.module('formControllers', []);
+var switchControllers     = angular.module('switchControllers', []);
+var mainNavModule         = angular.module('mainNavModule', []);
+var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
+
+
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/
 
-
-gulyApp
-  // Menu to add a drink
+gooeyMenuModule
   .directive('gulGooeyMenu', function() {
     return {
       restrict: 'E',
       templateUrl: 'widgets/gooey-menu.html',
 
       link: function() {
-        // à ANGULARISER
         var $openButton = $('.gooey .gooey__open-button');
 
         $openButton.on('click', function(e) {
@@ -52,7 +63,10 @@ gulyApp
         });
       }
     };
-  }).directive('gulMainNav', function() {
+  });
+
+mainNavModule
+  .directive('gulMainNavModule', function() {
     return {
       restrict: 'E',
       templateUrl: 'widgets/main-nav.html',

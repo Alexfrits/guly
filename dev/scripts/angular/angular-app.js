@@ -2,7 +2,7 @@ var gulyApp = angular.module('gulyApp', [
   'ngRoute',
   'ngAnimate',
   'mainNavModule',
-  'gooeyMenuModule',
+  'waterMeterModule',
   'pagesViewControllers',
   'LocalStorageModule',
   'formControllers',
@@ -56,18 +56,27 @@ var pagesViewControllers  = angular.module('pagesViewControllers', []);
 var formControllers       = angular.module('formControllers', []);
 var switchControllers     = angular.module('switchControllers', []);
 var mainNavModule         = angular.module('mainNavModule', []);
+var waterMeterModule      = angular.module('waterMeterModule', ['gooeyMenuModule']);
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/
+
+waterMeterModule
+  .directive('gulWaterMeter', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/water-meter.html',
+      controller: 'waterMeterController'
+    };
+  });
 
 gooeyMenuModule
   .directive('gulGooeyMenu', function() {
     return {
       restrict: 'E',
       templateUrl: 'widgets/gooey-menu.html',
-      controller: 'gooeyMenuController',
-      controllerAs: 'gooey'
+      controller: 'gooeyMenuController'
     };
   });
 

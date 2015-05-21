@@ -91,6 +91,17 @@ switchControllers
     };
   });
 
+
+/*  Water Meter
+===================================================================*/
+
+waterMeterModule
+  .controller('waterMeterController', ['$scope',
+    function($scope) {
+      $scope.quantity = 2;
+    }
+  ]);
+
 /*  Gooey Menu
 ===================================================================*/
 gooeyMenuModule

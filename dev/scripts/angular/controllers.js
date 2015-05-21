@@ -1,4 +1,16 @@
+
 /*  Liste des astuces
+===================================================================*/
+gulyApp
+.controller('mainController', ['localStorageService',
+  function($scope, localStorageService) {
+  function submit(key, val) {
+    return localStorageService.set(key, val);
+  }
+
+}]);
+
+/*  liste des astuces
 ===================================================================*/
 
 hintsListControllers

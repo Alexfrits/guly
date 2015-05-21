@@ -3,37 +3,48 @@ var gulyApp = angular.module('gulyApp', [
   'mainNavModule',
   'gooeyMenuModule',
   'hintsListControllers',
+  'LocalStorageModule',
   'formControllers',
-  'gulyFilters',
-  'switchControllers'
+  'switchControllers',
+  'gulyFilters'
 ]);
 
-gulyApp.config(['$routeProvider',
+gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
 
-  function($routeProvider) {
+  // Navigation Routes
+  function($routeProvider, localStorageServiceProvider) {
     $routeProvider
-    .when('/astuces', {
-        templateUrl: 'partials/astuces.html',
-        controller: 'HintsListCtrl'
-      })
-    .when('/profil', {
-        templateUrl: 'partials/profil.html',
-        controller: 'HintsListCtrl'
-      })
       .when('/water-tracker', {
         templateUrl: 'partials/water-tracker.html',
-        // controller: 'HintsListCtrl'
       })
+      .when('/profil', {
+          templateUrl: 'partials/profil.html',
+        })
+      .when('/statistiques', {
+          templateUrl: 'partials/statistiques.html',
+        })
+      .when('/astuces', {
+          templateUrl: 'partials/astuces.html',
+          controller: 'HintsListCtrl'
+        })
       .when('/astuces/:astuceId', {
         templateUrl: 'partials/astuce-detail.html',
-        controller: 'HintDetailCtrl'
       })
-    .otherwise({
-      redirectTo:'/water-tracker'
-    });
+      .when('/faq', {
+          templateUrl: 'partials/faq.html',
+        })
+      .when('/boutique', {
+          templateUrl: 'partials/boutique.html',
+        })
+      .otherwise({
+        redirectTo:'/water-tracker'
+      });
+    // localStorage Config
+    localStorageServiceProvider
+      .setPrefix('guly')
+      .setNotify(true, true);
   }
 ]);
-
 
 /*  DEPENDENCIES
 ===================================================================*/
@@ -43,7 +54,6 @@ var formControllers       = angular.module('formControllers', []);
 var switchControllers     = angular.module('switchControllers', []);
 var mainNavModule         = angular.module('mainNavModule', []);
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
-
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/
@@ -66,4 +76,3 @@ mainNavModule
       controller: 'mainNavController'
     };
   });
-

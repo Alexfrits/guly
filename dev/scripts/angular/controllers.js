@@ -96,23 +96,11 @@ switchControllers
 gooeyMenuModule
   .controller('gooeyMenuController', ['$scope', '$element',
     function($scope, $element) {
+      $scope.title = 'GOOEY!!';
 
       $element.on('click', function(e) {
         e.preventDefault();
-        console.log($scope);
       });
     }
   ]);
 
-/*  Main Nav
-===================================================================*/
-
-mainNavModule
-  .controller('mainNavController', function() {
-    var $menuOpenButton = $('#main-nav__toggle-button');
-
-    $menuOpenButton.on('click', function(e) {
-      e.preventDefault();
-    });
-
-  });

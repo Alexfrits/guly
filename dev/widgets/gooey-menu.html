@@ -1,9 +1,11 @@
 <!-- GOOEY MENU -->
+
+<div>{{title}}</div>
 <div class="gooey__wrapper">
   <ul class="gooey">
 
-    <li class="gooey__open-button">
-      <a href="" class="gooey__item__content">
+    <li class="gooey__open-button" ng-class="{opened:onOff}">
+      <a href="" class="gooey__item__content" ng-click="onOff = !onOff">
         <i class="fa fa-plus"></i>
       </a>
     </li>

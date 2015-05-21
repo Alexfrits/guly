@@ -54,7 +54,7 @@ $open-distance: (1.5 * $item-width);
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: 400ms;
 
-    &.active {
+    &.opened {
       transform: rotate(45deg);    
       
       & ~ .gooey__item {

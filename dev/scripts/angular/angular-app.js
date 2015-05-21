@@ -76,6 +76,5 @@ mainNavModule
     return {
       restrict: 'E',
       templateUrl: 'widgets/main-nav.html',
-      controller: 'mainNavController'
     };
   });

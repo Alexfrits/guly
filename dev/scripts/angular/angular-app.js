@@ -2,7 +2,6 @@ var gulyApp = angular.module('gulyApp', [
   'ngRoute',
   'hintsListControllers',
   'formControllers',
-  'switchControllers',
   'gulyFilters'
 ]);
 
@@ -31,3 +30,36 @@ gulyApp.config(['$routeProvider',
     });
   }
 ]);
+
+/*  DIRECTIVES (will be externalized in directives.js in a further version)
+===================================================================*/
+
+
+gulyApp
+  // Menu to add a drink
+  .directive('gulGooeyMenu', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/gooey-menu.html',
+
+      link: function() {
+        // à ANGULARISER
+        var $openButton = $('.gooey .gooey__open-button');
+
+        $openButton.on('click', function(e) {
+          e.preventDefault();
+          $(this).toggleClass('active');
+        });
+      }
+    };
+  }).directive('gulMainNav', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/main-nav.html',
+
+      link: function() {
+
+      }
+    };
+  });
+

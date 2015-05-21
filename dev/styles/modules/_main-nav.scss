@@ -1,65 +1,86 @@
-
-/*  SVG ICON
+/*  VARIABLES
 ===================================================================*/
-.menu-icon--use {
-  fill:none;
-  stroke: $action-color;
-  stroke-width:4;
-  stroke-linecap: round;
+
+$offcanvas-z-index: 1000;
+
+
+.offcanvas {
+  z-index: $offcanvas-z-index;
+
+  /*  SVG ICON
+  ===================================================================*/
+  .menu-icon--use {
+    fill:none;
+    stroke: $action-color;
+    stroke-width:4;
+    stroke-linecap: round;
+  }
+
+  /*  MENU NAV
+  ===================================================================*/
+
+  /*
+  *
+  * MAIN NAV animation
+  * The cycle goes:
+  *   1. <initialClass>(static)
+  *           |
+  *       {click to add}
+  *           |
+  *   2. <initialClass.newClass-add>     
+  *           |
+  *   3. <initialClass.newClass-add-active>     
+  *           |
+  *   4. <initialClass.newClass> (static)
+  *           |
+  *       {click to remove}
+  *           |
+  *   5. <initialClass.newClass-remove>
+  *           |
+  *   6. (back to step 1)
+  *  
+  */
+
+  .main-nav {
+    /* 1. Initial State (static step) */
+    transition:0.2s ease-out all;
+    background: yellow;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    padding: 3rem 1rem 0;
+
+    /* 2. RIGHT when the item IS CLICKED (dynamic step) */
+    &.navOpened-add {
+      background:green;
+    }
+
+    /* 3. while the class is being added (dynamic step)*/
+    &.navOpened-add-active {
+      background:black;
+    }
+
+    /* 4. the class is set (static step) */
+    &.navOpened {
+      background:red;
+      left: 0;
+    }
+
+    /* 5.  the class is being removed (dynamic step) */
+    &.navOpened-remove {
+      background:blue;
+      color: white;
+    }
+
+    /*  TOGGLE BUTTON
+    ===================================================================*/
+
+  }
+
+  #main-nav__toggle-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: ($offcanvas-z-index + 1);
+  }
 }
-
-/* ======================================
-                MENU NAV
-=========================================*/
-
-// .navOpened {
-//   background: $main-color;
-// }
-
-.navOpened {
-  transition:0.5s linear all;
-}
-// .navOpened.on-add {
-//   background:white;
-// }
-// .navOpened.on {
-//   background:yellow;
-// }
-// .navOpened.on-remove {
-//   background:black;
-// }
-
-// .offcanvas {
-//   width: 100vw;
-//   background: $main-color;
-//   color: $second-color;
-//   z-index: 1001;
-
-//   h1 {
-//     font-size: 10vw;
-//     font-weight: 400;
-//   }
-
-//   #menu_waves {
-//     width: 45px;
-//     height: auto;
-//     margin: 5px 10px 10px 10px;
-//     position: absolute;
-//     right: 5px;
-//   }
-
-//   nav li {
-//     padding: 8px 0;
-//   }
-
-//   nav a {
-//     font-family: 'Lato', sans-serif;
-//     font-weight: 300;
-//     font-size: 8vw;
-//     color: $second-color;
-//   }
-// }
-
-// .close {
-//   background: pink;
-// }

@@ -21,30 +21,14 @@
     </svg>
   </a>
 
-<!--  TEST
-==================================================================-->
-<!--   <div ng-show="bool" class="fade">
-  Show and hide me
-</div>
-<button ng-click="bool= !bool">Toggle</button>
-
-<style>
-.fade.ng-hide {
-  transition:0.5s linear all;
-  opacity:0;
-}
-</style> -->
-<!--==================================================================-->
-
-
-  <nav ng-class="{navOpened:onOff}">
+  <nav ng-class="{navOpened:onOff}" class="main-nav">
     <ul>
-      <li><a ng-click="toggle = false" href="#/water-tracker">Water Tracker</a></li>
-      <li><a ng-click="toggle = false" href="#/profil">Profil</a></li>
-      <li><a ng-click="toggle = false" href="#/statistiques">Statistiques</a></li>
-      <li><a ng-click="toggle = false" href="#/astuces">Astuces</a></li>
-      <li><a ng-click="toggle = false" href="#/faq">FAQ</a></li>
-      <li><a ng-click="toggle = false" href="#/boutique">Boutique</a></li>
+      <li><a ng-click="onOff = false" href="#/water-tracker">Water Tracker</a></li>
+      <li><a ng-click="onOff = false" href="#/profil">Profil</a></li>
+      <li><a ng-click="onOff = false" href="#/statistiques">Statistiques</a></li>
+      <li><a ng-click="onOff = false" href="#/astuces">Astuces</a></li>
+      <li><a ng-click="onOff = false" href="#/faq">FAQ</a></li>
+      <li><a ng-click="onOff = false" href="#/boutique">Boutique</a></li>
     </ul>
   </nav>
 </aside>

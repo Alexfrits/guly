@@ -53,15 +53,8 @@ gooeyMenuModule
     return {
       restrict: 'E',
       templateUrl: 'widgets/gooey-menu.html',
-
-      link: function() {
-        var $openButton = $('.gooey .gooey__open-button');
-
-        $openButton.on('click', function(e) {
-          e.preventDefault();
-          $(this).toggleClass('active');
-        });
-      }
+      controller: 'gooeyMenuController',
+      controllerAs: 'gooey'
     };
   });
 
@@ -70,10 +63,7 @@ mainNavModule
     return {
       restrict: 'E',
       templateUrl: 'widgets/main-nav.html',
-
-      link: function() {
-
-      }
+      controller: 'mainNavController'
     };
   });
 

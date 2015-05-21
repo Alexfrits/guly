@@ -43,3 +43,29 @@ switchControllers
       //$scope.enabled = false;
     };
   });
+
+/*  Gooey Menu
+===================================================================*/
+gooeyMenuModule
+.controller('gooeyMenuController', function($scope) {
+  var $openButton = $('.gooey .gooey__open-button');
+
+  $openButton.on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+  });
+});
+
+/*  Main Nav
+===================================================================*/
+
+mainNavModule
+.controller('mainNavController', function($scope) {
+  var $menuOpenButton = $('#main-nav__toggle-button');
+
+  $menuOpenButton.on('click', function(e) {
+    e.preventDefault();
+    console.log('click');
+  });
+
+});

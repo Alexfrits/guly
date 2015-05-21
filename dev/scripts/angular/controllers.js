@@ -1,5 +1,5 @@
 
-/*  Liste des astuces
+/*  Contrôleur principal
 ===================================================================*/
 gulyApp
 .controller('mainController', ['localStorageService',
@@ -7,28 +7,63 @@ gulyApp
   function submit(key, val) {
     return localStorageService.set(key, val);
   }
-
 }]);
+
+/*  Contrôleurs de pages
+===================================================================*/
+
+pagesViewControllers
+// adds a page-'pagename' class to the ng-view div
+.controller('WaterTrackerCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'tracker';
+  }
+])
+.controller('ProfileCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'profil';
+  }
+])
+.controller('StatsCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'stats';
+  }
+])
+.controller('HintsCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'hints';
+  }
+])
+.controller('FaqCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'faq';
+  }
+])
+.controller('ShopCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'shop';
+  }
+]);
 
 /*  liste des astuces
 ===================================================================*/
 
-hintsListControllers
-.controller('HintsListCtrl', ['$scope', '$http',
-  function($scope, $http) {
-    $http.get('app-data/hints.json')
-    .success(function(data) {
-      $scope.hints = data;
-    });
+// hintsListControllers
+// .controller('HintsListCtrl', ['$scope', '$http',
+//   function($scope, $http) {
+//     $http.get('app-data/hints.json')
+//     .success(function(data) {
+//       $scope.hints = data;
+//     });
 
-    $scope.orderProp = 'age';
-  }
-])
-.controller('HintDetailCtrl', ['$scope', '$routeParams',
-  function($scope, $routeParams) {
-    $scope.astuceId = $routeParams.astuceId;
-  }
-]);
+//     $scope.orderProp = 'age';
+//   }
+// ])
+// .controller('HintDetailCtrl', ['$scope', '$routeParams',
+//   function($scope, $routeParams) {
+//     $scope.astuceId = $routeParams.astuceId;
+//   }
+// ]);
 
 /*  validation du form
 ===================================================================*/
@@ -59,25 +94,25 @@ switchControllers
 /*  Gooey Menu
 ===================================================================*/
 gooeyMenuModule
-.controller('gooeyMenuController', function($scope) {
-  var $openButton = $('.gooey .gooey__open-button');
+  .controller('gooeyMenuController', ['$scope', '$element',
+    function($scope, $element) {
 
-  $openButton.on('click', function(e) {
-    e.preventDefault();
-    $(this).toggleClass('active');
-  });
-});
+      $element.on('click', function(e) {
+        e.preventDefault();
+        console.log($scope);
+      });
+    }
+  ]);
 
 /*  Main Nav
 ===================================================================*/
 
 mainNavModule
-.controller('mainNavController', function($scope) {
-  var $menuOpenButton = $('#main-nav__toggle-button');
+  .controller('mainNavController', function() {
+    var $menuOpenButton = $('#main-nav__toggle-button');
 
-  $menuOpenButton.on('click', function(e) {
-    e.preventDefault();
-    console.log('click');
+    $menuOpenButton.on('click', function(e) {
+      e.preventDefault();
+    });
+
   });
-
-});

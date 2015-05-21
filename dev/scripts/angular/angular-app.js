@@ -2,7 +2,7 @@ var gulyApp = angular.module('gulyApp', [
   'ngRoute',
   'mainNavModule',
   'gooeyMenuModule',
-  'hintsListControllers',
+  'pagesViewControllers',
   'LocalStorageModule',
   'formControllers',
   'switchControllers',
@@ -16,25 +16,27 @@ gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
     $routeProvider
       .when('/water-tracker', {
         templateUrl: 'partials/water-tracker.html',
+        controller:'WaterTrackerCtrl'
       })
       .when('/profil', {
           templateUrl: 'partials/profil.html',
+          controller:'ProfileCtrl'
         })
       .when('/statistiques', {
           templateUrl: 'partials/statistiques.html',
+          controller:'StatsCtrl'
         })
       .when('/astuces', {
-          templateUrl: 'partials/astuces.html',
-          controller: 'HintsListCtrl'
-        })
-      .when('/astuces/:astuceId', {
-        templateUrl: 'partials/astuce-detail.html',
+        templateUrl: 'partials/astuces.html',
+        controller:'HintsCtrl'
       })
       .when('/faq', {
           templateUrl: 'partials/faq.html',
+          controller:'FaqCtrl'
         })
       .when('/boutique', {
           templateUrl: 'partials/boutique.html',
+          controller:'ShopCtrl'
         })
       .otherwise({
         redirectTo:'/water-tracker'
@@ -49,7 +51,7 @@ gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
 /*  DEPENDENCIES
 ===================================================================*/
 
-var hintsListControllers  = angular.module('hintsListControllers', []);
+var pagesViewControllers  = angular.module('pagesViewControllers', []);
 var formControllers       = angular.module('formControllers', []);
 var switchControllers     = angular.module('switchControllers', []);
 var mainNavModule         = angular.module('mainNavModule', []);

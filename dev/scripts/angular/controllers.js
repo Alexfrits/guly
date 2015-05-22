@@ -2,12 +2,46 @@
 /*  Contrôleur principal
 ===================================================================*/
 gulyApp
-.controller('mainController', ['localStorageService',
+.controller('storageCtrl', ['$scope', 'localStorageService',
   function($scope, localStorageService) {
-  function submit(key, val) {
-    return localStorageService.set(key, val);
+    // definir model (variables)
+    var nickname = $scope.nickname = localStorageService.get('nickname');
+
+    // User informations
+    var guly = $scope.guly = {};
+    guly.user = {
+      'nickname' : nickname,
+      'weight' : $scope.weightVal,
+      'wn' : $scope.wnVal
+    };
+
+    // écouter les changements et set in ls
+    $scope.$watch('nickname', function(value) {
+      localStorageService.set('nickname', value);
+      $scope.nicknameVal = localStorageService.get('nickname');
+    });
+
+    // localStorage type
+    $scope.storageType = 'Local storage';
+
+    // if localStorage not supported
+    if (!localStorageService.isSupported) {
+      $scope.storageType = 'Cookie';
+    }
+
+    // renvoyer les data du localStorage
+    $scope.$watch(function() {
+      return localStorageService.get('nickname');
+    }, function(value) {
+      $scope.nickname = value;
+    });
+
+    console.log(guly.user);
+    // function submit(guly, nicknameVal) {
+    //   return localStorageService.set(guly, nicknameVal);
+    // }
   }
-}]);
+  ]);
 
 /*  Contrôleurs de pages
 ===================================================================*/
@@ -22,6 +56,11 @@ pagesViewControllers
 .controller('ProfileCtrl', ['$scope',
   function($scope) {
     $scope.pageClass = 'profil';
+  }
+])
+.controller('wnCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'wn';
   }
 ])
 .controller('StatsCtrl', ['$scope',
@@ -90,7 +129,6 @@ switchControllers
       //$scope.enabled = false;
     };
   });
-
 
 /*  Water Meter
 ===================================================================*/

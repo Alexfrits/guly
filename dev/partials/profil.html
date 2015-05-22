@@ -5,35 +5,39 @@
     </div><!-- end of .intro -->
 
 	<div>
-		<form name="form" class="css-form profil_form" novalidate>
+		<form action="#/water-need" method="post" name="form" class="css-form profil_form" novalidate>
 
         <!-- Nickname input -->
-        <label for="nickname" class="nickname"></label>
-	    <input type="text" data-ng-model="user.nickname" id="nickname" name="nickname" placeholder="Prénom" required="" />
-	    <br />
 	    <div data-ng-show="form.$submitted || form.nickname.$touched">
 	      <div data-ng-show="form.nickname.$error.required">Quel est ton prénom ?</div>
 	    </div>
+        <label for="nickname" class="nickname"></label>
+	    <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required="" />
+	    <br />
+	    <p>Welcome, {{nickname}}</p>
 
 	     <!-- Weight select -->
-        <label for="poids" class="weight">Poids</label>
-	    <select name="poids" id="poids">
+        <label for="weight" class="weight">Poids</label>
+	    <select name="weight" id="weight" data-ng-model="weight">
   			<option
             	data-ng-repeat="x in [] | range:0:250"
             	value="{{x}}">{{x}}
             </option>
 	    </select>
+
+	    <!-- Notifications switch button -->
 		<div class="switch_section">
-		    <!-- Notifications switch button -->
 			<label for="notifications" class="switch_label">Notifications
 			  <switch name="notif" ng-model="notif" ng-change="changeCallback" id="notifications"></switch>
 			</label>
 		</div>
+
+		<!-- Bouchon intelligent switch button -->
 		<div class="switch_section">
-		    <!-- Bouchon intelligent switch button -->
 			<label for="smartCap" ng-click="enabled=!enabled" class="switch_label">Guly SmartCap
 			  <switch name="smartcap" ng-model="smart" ng-change="changeCallback" id="smartCap"></switch>
 			</label>
+			<p>Connecte ton bouchon intelligent !</p>
 		</div><!-- end of .switch_section -->
 
 		<!-- Submit button -->

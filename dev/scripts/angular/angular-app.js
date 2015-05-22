@@ -1,19 +1,19 @@
 var gulyApp = angular.module('gulyApp', [
+  'LocalStorageModule',
   'ngRoute',
   'ngAnimate',
   'mainNavModule',
   'waterMeterModule',
   'pagesViewControllers',
-  'LocalStorageModule',
   'formControllers',
   'switchControllers',
   'gulyFilters'
 ]);
 
-gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
+gulyApp.config(['$routeProvider',
 
   // Navigation Routes
-  function($routeProvider, localStorageServiceProvider) {
+  function($routeProvider) {
     $routeProvider
       .when('/water-tracker', {
         templateUrl: 'partials/water-tracker.html',
@@ -22,6 +22,10 @@ gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
       .when('/profil', {
           templateUrl: 'partials/profil.html',
           controller:'ProfileCtrl'
+        })
+      .when('/water-need', {
+          templateUrl: 'partials/water-need.html',
+          controller:'wnCtrl'
         })
       .when('/statistiques', {
           templateUrl: 'partials/statistiques.html',
@@ -42,10 +46,18 @@ gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
       .otherwise({
         redirectTo:'/water-tracker'
       });
-    // localStorage Config
+
+  }
+]);
+// localStorage Config
+gulyApp.config(['localStorageServiceProvider',
+  function(localStorageServiceProvider) {
+
     localStorageServiceProvider
       .setPrefix('guly')
-      .setNotify(true, true);
+      .setNotify(true, true)
+      .setStorageCookie(360, '/')
+      .setStorageCookieDomain('http://www.guly.cepegra.be')
   }
 ]);
 

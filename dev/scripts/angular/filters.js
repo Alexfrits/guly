@@ -1,9 +1,16 @@
-angular.module('gulyFilters', [])
-.filter('checkmark', function() {
-  return function(input) {
-   return input ? '\u2713' : '\u2718';
- };
+gulyFiltersModule
+.filter('unit', function() {
+  return function(input, unitSuffix) {
+
+    if (unitSuffix === 'liters') {
+      input = input + 'l';
+    } else {
+      input = input + 'litres';
+    }
+    return input;
+  };
 })
+// range for selects
 .filter('range', function() {
   return function(input, min, max) {
     min = parseInt(min); //Make string input int
@@ -13,5 +20,4 @@ angular.module('gulyFilters', [])
     }
     return input;
   };
-})
-;
+});

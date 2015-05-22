@@ -7,7 +7,7 @@ var gulyApp = angular.module('gulyApp', [
   'LocalStorageModule',
   'formControllers',
   'switchControllers',
-  'gulyFilters'
+  'gulyFiltersModule'
 ]);
 
 gulyApp.config(['$routeProvider', 'localStorageServiceProvider',
@@ -58,6 +58,7 @@ var switchControllers     = angular.module('switchControllers', []);
 var mainNavModule         = angular.module('mainNavModule', []);
 var waterMeterModule      = angular.module('waterMeterModule', ['gooeyMenuModule']);
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
+var gulyFiltersModule     = angular.module('gulyFiltersModule', []);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/

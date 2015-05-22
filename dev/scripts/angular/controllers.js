@@ -105,12 +105,13 @@ waterMeterModule
 /*  Gooey Menu
 ===================================================================*/
 gooeyMenuModule
-  .controller('gooeyMenuController', ['$scope', '$element',
-    function($scope, $element) {
+  .controller('gooeyMenuController', ['$scope', '$element', '$rootScope',
+    function($scope, $element, $rootScope) {
       $scope.title = 'GOOEY!!';
 
       $element.on('click', function(e) {
         e.preventDefault();
+        console.log($scope.$$watchers);
       });
     }
   ]);

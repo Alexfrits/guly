@@ -108,10 +108,11 @@ gooeyMenuModule
   .controller('gooeyMenuController', ['$scope', '$element', '$rootScope',
     function($scope, $element, $rootScope) {
       $scope.title = 'GOOEY!!';
+      var openButton = $element.find('.gooey__open-button');
 
-      $element.on('click', function(e) {
+      openButton.on('click', function(e) {
         e.preventDefault();
-        console.log($scope.$$watchers);
+        console.log('click');
       });
     }
   ]);

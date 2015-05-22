@@ -1,8 +1,89 @@
+/*===================================================================
+  FONTS
+===================================================================*/
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2014 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Mårten Nettelbladt
+ * License URL: http://www.fontspring.com/licenses/marten-nettelbladt/webfont
+ *
+ *
+ */
+
+/*  1. FONTS IMPORTS
+===================================================================*/
+
+@font-face {
+    font-family: 'misolight';
+    src: url('/fonts/miso-light-webfont.eot');
+    src: url('/fonts/miso-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/miso-light-webfont.woff2') format('woff2'),
+         url('/fonts/miso-light-webfont.woff') format('woff'),
+         url('/fonts/miso-light-webfont.ttf') format('truetype'),
+         url('/fonts/miso-light-webfont.svg#misolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'misoregular';
+    src: url('/fonts/miso-regular-webfont.eot');
+    src: url('/fonts/miso-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/miso-regular-webfont.woff2') format('woff2'),
+         url('/fonts/miso-regular-webfont.woff') format('woff'),
+         url('/fonts/miso-regular-webfont.ttf') format('truetype'),
+         url('/fonts/miso-regular-webfont.svg#misoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'misobold';
+    src: url('/fonts/miso-bold-webfont.eot');
+    src: url('/fonts/miso-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/miso-bold-webfont.woff2') format('woff2'),
+         url('/fonts/miso-bold-webfont.woff') format('woff'),
+         url('/fonts/miso-bold-webfont.ttf') format('truetype'),
+         url('/fonts/miso-bold-webfont.svg#misobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/*  2. FONTS CONFIG
+===================================================================*/
+
+// font stacks
+
+$miso-light   : 'misolight'  , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
+$miso-regular : 'misoregular', 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
+$miso-bold    : 'misobold'   , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
+
+
+
+/*  3. FONTS USAGE
+===================================================================*/
+
 body {
 	font-size: 5.2vw;
 }
-
-h1 {
-	font-size: 12vw;
-	padding: 5px 0;
+.mega-number {
+  font-family: $miso-light;
 }

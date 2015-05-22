@@ -82,8 +82,8 @@ $miso-bold    : 'misobold'   , 'Arial Narrow','Helvetica Condensed', Helvetica, 
 ===================================================================*/
 
 body {
-	font-size: 5.2vw;
+  font-size: 5.2vw;
+  font-family: $miso-regular;
 }
 .mega-number {
-  font-family: $miso-light;
 }

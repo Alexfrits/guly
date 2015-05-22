@@ -99,6 +99,7 @@ waterMeterModule
   .controller('waterMeterController', ['$scope',
     function($scope) {
       $scope.quantity = 2;
+      $scope.unit = 'l';
     }
   ]);
 

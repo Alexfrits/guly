@@ -1,7 +1,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
   <def>
   <g>
-    <path id="wave" d="M28.427,5.484 C25.409,8.386,18.695,8.892,15,6.721S4.514,5.13,1.573,7.958"/>
+    <path id="wave" d="M28.2,3c-3,4.8-9.5,5.6-13.2,2S4.7,2.4,1.8,7.1"/>/>
   </g>
   <symbol id="menu-icon--def">
     <use xlink:href="#wave" id="wave-1"></use>
@@ -11,15 +11,16 @@
   </def>
 </svg>
 
-  <aside class="offcanvas">
 
-  <!-- Menu Toogle -->
-  <a href="" ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button">
-    <svg width="30" height="30">
-      <use class="menu-icon--use" xlink:href="#menu-icon--def" x="0" y="0"  viewbox="0 0 30 30"></use>
-    </svg>
-  </a>
+<!-- Menu Toogle -->
+<a href="" ng-class="{navOpened:mainNavOn}" ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button">
+  <svg width="30" height="30">
+    <use class="menu-icon--use" xlink:href="#menu-icon--def" x="0" y="0"  viewbox="0 0 30 30"></use>
+  </svg>
+</a>
 
+<aside class="offcanvas">
+  
   <nav ng-class="{navOpened:mainNavOn}" class="main-nav">
     <ul>
       <li><a ng-click="mainNavOn = false" href="#/water-tracker">Water Tracker</a></li>

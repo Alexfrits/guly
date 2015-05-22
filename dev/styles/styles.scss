@@ -2,11 +2,12 @@
 @import 'vendor/font-awesome';
 
 @import 'helpers/reset';
+@import 'helpers/variables';
 @import 'helpers/colors';
 @import 'helpers/fonts';
+@import 'helpers/trigo';
 @import 'helpers/slick-theme';
 @import 'helpers/slick';
-@import 'helpers/trigo';
 
 @import 'partials/water-tracker';
 @import 'partials/profil';
@@ -15,7 +16,7 @@
 @import 'partials/faq';
 @import 'partials/notifications';
 
-
+@import 'modules/header';
 @import 'modules/main-nav';
 @import 'modules/gooey-menu';
 @import 'modules/orientation';

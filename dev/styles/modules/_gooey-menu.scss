@@ -5,10 +5,10 @@ $item-height: $item-width;
 $open-distance: (1.5 * $item-width);
 
 .gooey__wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
   .gooey {
     filter: url("#shadowed-goo");
     width: 100%;
@@ -26,11 +26,6 @@ $open-distance: (1.5 * $item-width);
 
     background: $action-color;
     transition: transform ease-out 200ms;
-
-    &:hover {
-      // background: white;
-      // color: red;
-    }
 
     @for $i from 1 through $menu-items {
       &:nth-child(#{$i+1}) {

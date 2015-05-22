@@ -1,6 +1,7 @@
-
+<div class="water-meter"></div>
       <div class="mega-number__wrapper">
         <div class="mega-number">
-          <strong>{{quantity | unit : 'liters' }}</strong>
+          <strong class="number">{{ quantity }}</strong>
+          <span class="suffix">{{ unit | uppercase }}</span>
         </div>
       </div>

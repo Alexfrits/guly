@@ -1,0 +1,22 @@
+<main class="main_faq main-section" ng-controller="faqitemCtrl as faq">
+	<h1>FAQ</h1>
+	<slick dots=true arrows=false infinite=false touch-move=true slides-to-scroll=1 class="slide">
+	    <div ng-repeat="item in faq.faqitems">
+	        <h2>{{item.question}}</h2>
+	        <p>"{{item.reponse}}"</p>
+	    </div>
+	    <div>
+	    	<h2>J'ai une question !</h2>
+	        <p>Envoyer nous  votre question et nous y répondrons dans les plus bref délais !</p>
+
+	        <form action="#/" method="post" name="contact_form" class="css-form contact_form" novalidate>
+	        	<input type="mail" name="mail" id="mail" placeholder="Entrer votre mail" required>
+	        	<textarea id="question" placeholder="Quelle est votre question ?" required></textarea>
+
+	        	<input type="submit" value="Envoyer" class="button" id="submit_question" />
+	        </form>
+
+	        <p>Ou Appelez nous au 02 497 279</p>
+	    </div>
+	</slick>
+</main>

@@ -12,3 +12,9 @@ $blue-2: rgb(68, 192, 216);
 $blue-3: rgb(51, 174, 220);
 $blue-4: rgb(34, 156, 223);
 $blue-5: rgb(17, 137, 227);
+
+
+$degrade-1: linear-gradient(to bottom, $blue-3 12%, $blue-1 12%, $action-color 90%, $action-color 90%);
+;
+
+

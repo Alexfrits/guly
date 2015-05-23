@@ -6,19 +6,18 @@
 @import 'helpers/colors';
 @import 'helpers/fonts';
 @import 'helpers/trigo';
-@import 'helpers/slick-theme';
-@import 'helpers/slick';
 
 @import 'partials/water-tracker';
 @import 'partials/profil';
 @import 'partials/graphe';
+@import 'partials/notifications';
 @import 'partials/astuces';
 @import 'partials/faq';
-@import 'partials/notifications';
 
 @import 'modules/header';
 @import 'modules/main-nav';
 @import 'modules/gooey-menu';
 @import 'modules/orientation';
 @import 'modules/buttons';
-
+@import 'modules/slick-theme';
+@import 'modules/slick';

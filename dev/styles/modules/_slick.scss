@@ -1,4 +1,8 @@
 /* Slider */
+.slide {
+    position: relative;
+    height: 100vh;
+}
 
 .slick-slider {
     position: relative;
@@ -21,6 +25,7 @@
     display: block;
     margin: 0;
     padding: 0;
+    height: 100vh;
 
     &:focus {
         outline: none;
@@ -45,6 +50,8 @@
     left: 0;
     top: 0;
     display: block;
+    height: 100vh;
+
 
     &:before,
     &:after {

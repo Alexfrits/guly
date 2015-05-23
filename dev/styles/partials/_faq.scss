@@ -1,14 +1,47 @@
-// /* ==============================================
-// 				SLIDER ASTUCES / FAQ
-//  ============================================== */
-
-// voir astuces slider pour scss
-
-#main_faq div.columns h2{
-	font-size: 8px;
+/* =============================
+	FAQ
+============================= */
+.page-faq {
+	width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: -20px 0 0 0;
+   	background: $degrade-1;
 }
 
-#main_faq > div.slide.slick-initialized.slick-slider > div > div > div.item.slick-slide.slick-active > h2{
-	font-size: 18px;
-	font-weight: bold;
+.main_faq {
+	color: white;
+	height: 100vh;
+	padding: 2vh 5vw;
+
+	h2 {
+		text-transform: uppercase;
+		padding: 0 0 12px 0;
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 22px;
+	}
+
+	.contact_form input,
+	.contact_form textarea {
+		width: 100%;
+		display: block;
+		background: transparent;
+		border: 1px solid white;
+		margin: 25px 0; 
+	}
+
+	#mail {
+		
+	}
+
+	#question {
+
+	}
+
+	#submit_question {
+
+	}
 }

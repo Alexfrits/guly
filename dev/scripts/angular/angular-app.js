@@ -7,7 +7,8 @@ var gulyApp = angular.module('gulyApp', [
   'pagesViewControllers',
   'formControllers',
   'switchControllers',
-  'gulyFiltersModule'
+  'gulyFiltersModule',
+  'slick'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -33,7 +34,7 @@ gulyApp.config(['$routeProvider',
         })
       .when('/astuces', {
         templateUrl: 'partials/astuces.html',
-        controller:'HintsCtrl'
+        controller:'AstucesCtrl'
       })
       .when('/faq', {
           templateUrl: 'partials/faq.html',

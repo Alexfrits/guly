@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr" ng-app="gulyApp" ng-controller="storageCtrl">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, user-scalable=no">
     <title>Guly | Water Tracker</title>
@@ -8,19 +9,17 @@
 </head>
 <body>
 <header>
-  <h1 class="page__title">PAGE NAME</h1>
+  <!-- <h1 class="page__title">PAGE NAME</h1> -->
 </header>
 
 <gul-main-nav-module></gul-main-nav-module>
-<!-- end HEADER -->
-  <div ng-view class="page-{{pageClass}}"></div>
+  <div ng-view class="page-{{pageClass}}">
+  </div>
 </div>
+
 <!--  FOOTER
 ==================================================================-->
-<footer>
-
-</footer>
-<!-- end FOOTER -->
+<footer></footer>
 
 <!--  SCRIPTS
 ==================================================================-->
@@ -39,6 +38,7 @@
   <script src="scripts/angular/angular-ui-switch.js"></script>
 
   <script src="scripts/vendor/slick.min.js"></script>
+  <script src="scripts/vendor/slick-carrousel.min.js"></script>
   <script src="scripts/vendor/chart.js"></script>
   <script src="scripts/main.min.js"></script>
 

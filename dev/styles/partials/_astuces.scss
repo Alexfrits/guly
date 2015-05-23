@@ -1,57 +1,21 @@
-// /* ==============================================
-// 				SLIDER ASTUCES / FAQ
-//  ============================================== */
-
-.slick-slider {
-	height: 84vh;
-	margin-bottom: 0 !important;
+/* =============================
+	FAQ
+============================= */
+.page-astuces {
+	width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: -20px 0 0 0;
+   	background: $degrade-1;
 }
 
-.slide {
-	margin: 0 5vw;
-}
+.main_astuces {
+	color: white;
+	height: 100vh;
+	padding: 2vh 5vw;
 
-/* Prev & Next arrows */
-
-// .slick-prev:before, 
-// .slick-next:before {
-//   color: black !important;
-
-//   bottom: -41vh;
-//   left: 0;
-// }
-
-// .slick-prev:before {
-//   content: "<" !important;
-// }
-
-// .slick-next:before {
-//   content: ">" !important;
-// }
-
-// .slick-prev {
-// 	left: 0 !important;
-// }
-
-// .slick-next {
-// 	right: 0 !important;
-// }
-
-
-/* Dots */
-
-.slick-dots {
-	bottom: 8vh !important;
-	margin: 0 auto !important;
-}
-
-.slick-dots li {
-	border: 1px solid black;
-	border-radius: 50%;
-	margin: 0 auto;
-}
-
-.slick-active button[type="button"] {
-	background: black;
-	border-radius: 50%;
+	p {
+		font-size: 18px;
+		line-height: 22px;
+	}
 }

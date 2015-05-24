@@ -210,26 +210,40 @@ var faq_items = [
   }
 ];
 
-/*  validation du form
+/*  validation du form profil @ 
 ===================================================================*/
 
-formControllers
-  .controller('FormCtrl', ['$scope',
+gulyApp
+.controller('profilformCtrl', ['$scope',
     function($scope) {
-      // $scope.master = {};
-      // $scope.update = function(user) {
-      //   $scope.master = angular.copy(user);
-      // };
+      this.profil = {};
+      $scope.submitForm = function(isValid) {
+        if (isValid) {
+          alert('our form is amazing');
+        }
+      };
     }
-  ]);
+]);
+
+
+gulyApp
+.controller('contactformCtrl', function($scope){
+  this.contact = {};
+  $scope.submitForm = function(isValid) {
+    if (isValid) {
+      alert('our form is amazing');
+    }
+  };
+});
+
 
 /*  switch button
 ===================================================================*/
 
-switchControllers
-  .controller('uiSwitchCtrl', function($scope) {
+gulyApp
+.controller('uiSwitchCtrl', function($scope) {
     $scope.notif = true;
-    $scope.smart = true;
+    $scope.smart = false;
 
     $scope.changeCallback = function() {
       //$scope.enabled = false;

@@ -1,16 +1,16 @@
-<main class="main_profil main-section main-wrapper" data-ng-controller="FormCtrl" data-ng-controller="uiSwitchCtrl">
+<main class="main_profil main-section main-wrapper" data-ng-controller="uiSwitchCtrl">
     <div class="intro">
         <h1>Hello !</h1>
         <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
     </div><!-- end of .intro -->
 
 	<div>
-		<form action="#/water-need" method="post" name="form" class="css-form profil_form" novalidate>
+		<form action="#/water-need" method="post" 
+		name="profil_form" 
+		class="css-form profil_form" 
+		data-ng-controller="profilformCtrl as profilform" data-ng-submit="submitForm(profil_form.$valid)"novalidate>
 
         <!-- Nickname input -->
-	    <div data-ng-show="form.$submitted || form.nickname.$touched">
-	      <div data-ng-show="form.nickname.$error.required">Quel est ton prénom ?</div>
-	    </div>
         <label for="nickname" class="nickname"></label>
 	    <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required="" />
 	    <br />
@@ -41,7 +41,8 @@
 		</div><!-- end of .switch_section -->
 
 		<!-- Submit button -->
-		<input type="submit" data-ng-click="update(user)" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" />
+		<input type="submit" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" ng-disabled="profil_form.$invalid" />
+		<div>profil_form is {{profil_form.$valid}}</div>
 	  </form>
 	</div>
 </main>

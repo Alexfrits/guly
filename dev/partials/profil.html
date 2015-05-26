@@ -14,7 +14,12 @@
         <label for="nickname" class="nickname"></label>
 	    <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required="" />
 	    <br />
-	    <p>Welcome, {{nickname}}</p>
+	    
+      <blockquote class="well" ng-show="nicknameVal">
+        <p ng-bind="nicknameVal"></p>
+        <small>{{storageType}} value</small>
+        <p>{{nickname}}</p>
+      </blockquote>
 
 	     <!-- Weight select -->
         <label for="weight" class="weight">Poids</label>
@@ -42,7 +47,6 @@
 
 		<!-- Submit button -->
 		<input type="submit" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" ng-disabled="profil_form.$invalid" />
-		<div>profil_form is {{profil_form.$valid}}</div>
 	  </form>
 	</div>
 </main>

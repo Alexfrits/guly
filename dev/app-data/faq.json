@@ -1,4 +1,4 @@
-faq_item = [
+faq_items = [
   {
     "question" : "Comment Guly calcule-il mon besoin hydrolique quotidien ?",
     "reponse" : "Votre besoin hydrolique quotidien est calculé sur base de votre poids et évolue en fonction de la chaleur ainsi que de vos efforts physiques accomplis." 

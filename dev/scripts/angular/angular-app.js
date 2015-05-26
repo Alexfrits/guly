@@ -1,4 +1,4 @@
-var gulyApp = angular.module('gulyApp', [
+var gulyApp = window.angular.module('gulyApp', [
   'LocalStorageModule',
   'ngRoute',
   'ngAnimate',
@@ -8,7 +8,9 @@ var gulyApp = angular.module('gulyApp', [
   'formControllers',
   'switchControllers',
   'gulyFiltersModule',
-  'slick'
+  'slick',
+  'weatherControllers', 
+  'weatherServices'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -44,6 +46,10 @@ gulyApp.config(['$routeProvider',
           templateUrl: 'partials/boutique.html',
           controller:'ShopCtrl'
         })
+      .when('/weather-test', {
+          templateUrl: 'partials/weather-test.html',
+          controller:'WeatherCtrl'
+        })
       .otherwise({
         redirectTo:'/water-tracker'
       });
@@ -56,9 +62,10 @@ gulyApp.config(['localStorageServiceProvider',
 
     localStorageServiceProvider
       .setPrefix('guly')
+      .setStorageType('localStorage')
       .setNotify(true, true)
-      .setStorageCookie(360, '/')
-      .setStorageCookieDomain('http://www.guly.cepegra.be')
+      // .setStorageCookie(360, '/')
+      // .setStorageCookieDomain('http://www.guly.cepegra.be')
   }
 ]);
 
@@ -72,6 +79,9 @@ var mainNavModule         = angular.module('mainNavModule', []);
 var waterMeterModule      = angular.module('waterMeterModule', ['gooeyMenuModule']);
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
 var gulyFiltersModule     = angular.module('gulyFiltersModule', []);
+var wavesModule           = angular.module('waves', []);
+var weatherControllers    = angular.module("weatherControllers", []);
+var weatherServices       = angular.module('weatherServices', []);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/

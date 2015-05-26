@@ -10,45 +10,22 @@ gulyApp
 /*  Contrôleur LocalStorage
 ===================================================================*/
 
-gulyApp
-.controller('storageCtrl', ['$scope', 'localStorageService',
+gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   function($scope, localStorageService) {
-    // definir model (variables)
-    var nickname = $scope.nickname = localStorageService.get('nickname');
+   // récupéré au load()
+    $scope.nickname = localStorageService.get('nickname');
 
-    // User informations
-    var guly = $scope.guly = {};
-    guly.user = {
-      'nickname' : nickname,
-      'weight' : $scope.weightVal,
-      'wn' : $scope.wnVal
-    };
-
-    // écouter les changements et set in ls
-    $scope.$watch('nickname', function(value) {
-      localStorageService.set('nickname', value);
+    // set et get function
+    $scope.$watch('nickname', function(value){
+      localStorageService.set('nickname',value);
       $scope.nicknameVal = localStorageService.get('nickname');
     });
 
-    // localStorage type
-    $scope.storageType = 'Local storage';
-
-    // if localStorage not supported
     if (!localStorageService.isSupported) {
       $scope.storageType = 'Cookie';
     }
 
-    // renvoyer les data du localStorage
-    $scope.$watch(function() {
-      return localStorageService.get('nickname');
-    }, function(value) {
-      $scope.nickname = value;
-    });
-
-    console.log(guly.user);
-    // function submit(guly, nicknameVal) {
-    //   return localStorageService.set(guly, nicknameVal);
-    // }
+    console.log($scope.guly);
   }
   ]);
 
@@ -96,6 +73,11 @@ pagesViewControllers
   function($scope) {
     $scope.pageClass = 'shop';
   }
+])
+.controller('WeatherCtrl', ['$scope',
+  function($scope) {
+    $scope.pageClass = 'weather';
+  }
 ]);
 
 /*  liste des astuces
@@ -129,6 +111,7 @@ controller('astucesCtrl', ['$scope', '$http',
   }
 ]);
 
+// should be in a database...
 var astuces = [
   {
     strong: "",
@@ -169,12 +152,13 @@ var astuces = [
 
 gulyApp.
 controller('faqitemCtrl', ['$scope', '$http', 
-  function() {
-    // $http.get('app-data/faq.json')
-    //     .success(function(data) {
-    //       $scope.faqitems = data;
-    //     });
+  function($scope, $http) {
     this.faqitems = faq_items;
+    // $scope.faq_items = [];
+    // $http.get('../../app-data/faq.json')
+    //   .success(function(data) {
+    //     $scope.faqitems = data;
+    //   });
   }
 ]);
 
@@ -244,10 +228,6 @@ gulyApp
 .controller('uiSwitchCtrl', function($scope) {
     $scope.notif = true;
     $scope.smart = false;
-
-    $scope.changeCallback = function() {
-      //$scope.enabled = false;
-    };
   });
 
 /*  Water Meter
@@ -276,3 +256,79 @@ gooeyMenuModule
     }
   ]);
 
+/*  Weather Api
+===================================================================*/
+// weatherControllers.controller("AppController", ['$route', '$routeParams', '$location',
+//   function($route, $routeParams, $location) {
+
+//   }
+// ]);
+
+weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
+  function($scope, weatherApi) {
+    $scope.currentTime = moment().format('h:mm a');
+    weatherApi.getLocation().then(function(res) {            
+      weatherApi.getWeeklyWeather(res.data.city+","+res.data.country_code).then(function(response) {
+        $scope.data = response.data;
+        if ($scope.data.list.length) {
+          $scope.data.list.forEach(function(i, v) {
+            var date = moment(i.dt * 1000);
+            i.dt = {
+              day: date.format("ddd")
+            };
+            if (moment().format("d") == date.format("d")) {
+              i.dt.today = true;
+            }
+          });
+        }
+      });
+    });
+  }
+]);
+
+weatherServices.factory('weatherApi', ['myHttp',
+  function(myHttp) {
+    return {
+      getLocation: function() {
+        return myHttp.jsonp("http://muslimsalat.com/daily.json?callback=JSON_CALLBACK");
+      },
+      getWeeklyWeather: function(city) {        
+        return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='+city+'&mode=json&units=metric');
+      }
+    }
+  }
+]);
+
+
+weatherServices.factory('myHttp', ['$http', 'myCache',
+  function($http, myCache) {
+
+    var headers = {
+      'cache': myCache,
+      'dataType': 'json'
+    };
+    var APPID = "2f105d521c5bb6af5e35da3eb53ce954";
+    return {
+      config: headers,
+      get: function(url, success, fail) {
+        return $http.get(url + "&APPID=" + APPID, this.config);
+      },
+      getLocal: function(url, success, fail) {
+        return $http.get(url);
+      },
+      jsonp: function(url, success, fail) {
+        return $http.jsonp(url, this.config);
+      }
+    };
+  }
+]);
+
+weatherServices.factory('myCache', function($cacheFactory) {
+  return $cacheFactory('myCache', {
+    capacity: 100
+  });
+});
+
+function JSON_CALLBACK(){
+  // Nothing
+}

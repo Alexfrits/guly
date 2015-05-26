@@ -97,7 +97,7 @@ pagesViewControllers
 
 gulyApp.
 controller('astucesCtrl', ['$scope', '$http', 
-  function() {
+  function($scope, $http) {
     // $http.get('app-data/astuces.json')
     //     .success(function(data) {
     //       $scope.astucesitems = data;
@@ -150,9 +150,9 @@ controller('faqitemCtrl', ['$scope', '$http',
   function($scope, $http) {
     this.faqitems = faq_items;
     // $scope.faq_items = [];
-    // $http.get('../../app-data/faq.json')
+    // $http.get('app-data/faq_items.json')
     //   .success(function(data) {
-    //     $scope.faqitems = data;
+    //     $scope.faq_items = data;
     //   });
   }
 ]);
@@ -222,6 +222,7 @@ gulyApp
 gulyApp
 .controller('uiSwitchCtrl', function($scope) {
     $scope.notif = true;
+    $scope.sport = false;
     $scope.smart = false;
   });
 

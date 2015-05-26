@@ -1,5 +1,5 @@
 /* ======================================
-                BUTTONS
+                BUTTONS SUBMIT
 =========================================*/
 // Submit
 input.action_btn{
@@ -27,7 +27,10 @@ input[type="text"]:focus {
   right: 10px;
 }
 
-// Switch button
+
+/* ======================================
+                SWITCH BUTTONS
+=========================================*/
 .switch_label {
   display: block;
   width: 100%;
@@ -113,3 +116,20 @@ input[type="text"]:focus {
 
 }
 
+/* ======================================
+                TEMOIN CONNEXION
+=========================================*/
+.temoin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #dfdfdf;
+  background: rgb(100, 189, 99);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.temoin_off {
+  background: #dfdfdf;
+}

@@ -1,0 +1,7 @@
+<main class="main_weather main-section" data-ng-controller="GetWeatherCtrl">
+	<div ng-repeat="day in data.list | filter:!dt.today">
+		<span class="temp-title">
+		  Temp.: {{day.temp.day}}&deg;
+		</span>
+	</div>
+</main>

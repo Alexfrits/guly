@@ -73,11 +73,6 @@ pagesViewControllers
   function($scope) {
     $scope.pageClass = 'shop';
   }
-])
-.controller('WeatherCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'weather';
-  }
 ]);
 
 /*  liste des astuces

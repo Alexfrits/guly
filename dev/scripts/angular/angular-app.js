@@ -111,3 +111,12 @@ mainNavModule
       templateUrl: 'widgets/main-nav.html',
     };
   });
+
+weatherControllers
+  .directive('gulWeather', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/weather.html',
+      controller: 'GetWeatherCtrl'
+    };
+  });

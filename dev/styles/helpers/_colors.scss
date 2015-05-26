@@ -2,9 +2,10 @@
   COLORS
 ===================================================================*/
 
-$main-color: rgb(0, 119, 230);      // deep blue
-$second-color: rgb(11, 46, 88);    // dark blue
-$action-color: rgb(102, 229, 209);  // turquoise flash
+$main-color: rgb(0, 119, 230);       // deep blue
+$second-color: rgb(11, 46, 88);      // dark blue
+$action-color: rgb(102, 229, 209);   // turquoise flash
+$white-color: rgb(255, 255, 255);    // white
 
 // gradient from $action-color to $main-color
 $blue-1: rgb(85, 211, 213);
@@ -15,6 +16,3 @@ $blue-5: rgb(17, 137, 227);
 
 
 $degrade-1: linear-gradient(to bottom, $blue-3 12%, $blue-1 12%, $action-color 90%, $action-color 90%);
-;
-
-

@@ -13,14 +13,16 @@
 
 
 <!-- Menu Toogle -->
-<a href="" ng-class="{navOpened:mainNavOn}" ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button">
-  <svg width="30" height="30">
-    <use class="menu-icon--use" xlink:href="#menu-icon--def" x="0" y="0"  viewbox="0 0 30 30"></use>
+<a href="" ng-class="{navOpened:mainNavOn}" ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button" class="main-nav__toggle-button">
+  <svg class="menu-icon__wrapper" width="30" height="30">
+    <use class="menu-icon--use" id="wave-1" xlink:href="#wave"></use>
+    <use class="menu-icon--use" id="wave-2" xlink:href="#wave" y="10"></use>
+    <use class="menu-icon--use" id="wave-3" xlink:href="#wave" y="20"></use>
   </svg>
 </a>
 
 <aside class="offcanvas">
-  
+
   <nav ng-class="{navOpened:mainNavOn}" class="main-nav">
     <ul>
       <li><a ng-click="mainNavOn = false" href="#/water-tracker">Water Tracker</a></li>

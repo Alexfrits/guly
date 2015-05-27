@@ -23,19 +23,21 @@
     <fieldset class="switch_section">
       <label for="notifications" class="switch_label">
         <span>Notifications</span>
-        <switch name="notif" ng-model="notif" ng-change="changeCallback" id="notifications"></switch>
+        <switch name="notif" ng-model="notif" ng-check="{{ notif }}" ng-change="changeCallback" id="notifications"></switch>
       </label>
+
+      <pre>{{ notif }}</pre>
 
       <!-- Sport mode switch button -->
       <label for="sport" class="switch_label">
         <span>Sport</span>
-        <switch name="sport" ng-model="sport" ng-change="changeCallback" id="sport"></switch>
+        <switch name="sport" ng-model="sport" ng-check="{{ sport }}" ng-change="changeCallback" id="sport"></switch>
       </label>
 
       <!-- Bouchon intelligent switch button -->
       <label for="smartCap" ng-click="enabled=!enabled" class="switch_label">
         <span>Guly SmartCap</span>
-        <switch name="smartcap" ng-model="smart" ng-change="changeCallback" id="smartCap"></switch>
+        <switch name="smartcap" ng-model="smart" ng-check="{{ smart }}" ng-change="changeCallback" id="smartCap"></switch>
         <small>Connecte ton bouchon intelligent !</small>
       </label>
 

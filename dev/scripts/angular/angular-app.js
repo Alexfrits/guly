@@ -10,7 +10,8 @@ var gulyApp = window.angular.module('gulyApp', [
   'gulyFiltersModule',
   'slick',
   'weatherControllers',
-  'weatherServices'
+  'weatherServices',
+  'tc.chartjs'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -63,7 +64,7 @@ gulyApp.config(['localStorageServiceProvider',
     localStorageServiceProvider
       .setPrefix('guly')
       .setStorageType('localStorage')
-      .setNotify(true, true)
+      .setNotify(true, true);
     // .setStorageCookie(360, '/')
     // .setStorageCookieDomain('http://www.guly.cepegra.be')
   }

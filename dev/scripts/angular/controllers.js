@@ -15,41 +15,46 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
     $scope.weight = localStorageService.get('weight');
-    $scope.notif = localStorageService.get('notif');
-    $scope.sport = localStorageService.get('sport');
-    $scope.smart = localStorageService.get('smart');
 
-    // set et get function
-    $scope.$watch('nickname', function(value) {
-      localStorageService.set('nickname', value);
+    // initialise les boutons avec une valeur
+    $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
+    $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
+    $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
+
+    // // set et get function
+    // $scope.$watch('nickname', function(value) {
+    //   localStorageService.set('nickname', value);
+    //   $scope.nicknameVal = localStorageService.get('nickname');
+    // });
+
+    // $scope.$watch('weight', function(value) {
+    //   localStorageService.set('weight', value);
+    //   $scope.weightVal = localStorageService.get('weight');
+    // });
+
+    // $scope.$watch('notif', function(value) {
+    //   localStorageService.set('notif', value);
+    //   $scope.notifVal = localStorageService.get('notif');
+    // });
+
+    // $scope.$watch('sport', function(value) {
+    //   localStorageService.set('sport', value);
+    //   $scope.sportVal = localStorageService.get('sport');
+    // });
+
+    // $scope.$watch('smart', function(value) {
+    //   localStorageService.set('smart', value);
+    //   $scope.smartVal = localStorageService.get('smart');
+    // });
+
+    // if (!localStorageService.isSupported) {
+    //   $scope.storageType = 'Cookie';
+    // }
+
+    $scope.$watch(function(value) {
+      localStorageService.set('nickname', value.nickname);
       $scope.nicknameVal = localStorageService.get('nickname');
     });
-
-    $scope.$watch('weight', function(value) {
-      localStorageService.set('weight', value);
-      $scope.weightVal = localStorageService.get('weight');
-    });
-
-    $scope.$watch('notif', function(value) {
-      localStorageService.set('notif', value);
-      $scope.notifVal = localStorageService.get('notif');
-    });
-
-    $scope.$watch('sport', function(value) {
-      localStorageService.set('sport', value);
-      $scope.sportVal = localStorageService.get('sport');
-    });
-
-    $scope.$watch('smart', function(value) {
-      localStorageService.set('smart', value);
-      $scope.smartVal = localStorageService.get('smart');
-    });
-
-    if (!localStorageService.isSupported) {
-      $scope.storageType = 'Cookie';
-    }
-
-    //console.log($scope.guly);
   }
   ]);
 
@@ -120,28 +125,8 @@ pagesViewControllers
   }
 ]);
 
-/*  liste des astuces
-===================================================================*/
-
-// hintsListControllers
-// .controller('HintsListCtrl', ['$scope', '$http',
-//   function($scope, $http) {
-//     $http.get('app-data/hints.json')
-//     .success(function(data) {
-//       $scope.hints = data;
-//     });
-
-//     $scope.orderProp = 'age';
-//   }
-// ])
-// .controller('HintDetailCtrl', ['$scope', '$routeParams',
-//   function($scope, $routeParams) {
-//     $scope.astuceId = $routeParams.astuceId;
-//   }
-// ]);
-
 gulyApp.
-controller('astucesCtrl', ['$scope', '$http', 
+controller('astucesCtrl', ['$scope', '$http',
   function($scope, $http) {
     // $http.get('app-data/astuces.json')
     //     .success(function(data) {
@@ -191,50 +176,21 @@ var astuces = [
 ===================================================================*/
 
 gulyApp.
-controller('faqitemCtrl', ['$scope', '$http', 
+controller('faqitemCtrl', ['$scope', '$http',
   function($scope, $http) {
-    this.faqitems = faq_items;
-    // $scope.faq_items = [];
-    // $http.get('app-data/faq_items.json')
-    //   .success(function(data) {
-    //     $scope.faq_items = data;
-    //   });
+
+    $scope.faqItems = [];
+
+    $http.get('app-data/faq_items.json')
+      .success(function(data) {
+        $scope.faqItems = data;
+      }).error(function(resp) {
+
+      });
   }
 ]);
 
-// should be in a database...
-var faq_items = [
-  {
-    question : "Comment Guly calcule-il mon besoin hydrolique quotidien ?",
-    reponse : "Votre besoin hydrolique quotidien est calculé sur base de votre poids et évolue en fonction de la chaleur ainsi que de vos efforts physiques accomplis." 
-  },
-  {
-    question : "Comment utiliser Guly manuellement ?",
-    reponse : "Pour atteindre votre objectif quotidien, videz votre quotas d'eau en laissant votre doigt enfoncé sur la touche principale du tracking, faites ensuite glisser votre doigt sur une des bulles qui vient d'apparaitre." 
-  },
-  {
-    question : "Comment utiliser le Guly SmartCap ?",
-    reponse : "Assurez-vous que le Guly SmartCap est bien connecté à l'application. Placez-le sur votre bouteille et... Buvez ! Le bouchon-intelligent calcule votre consommation en temps réel et transmet les données à l'application." 
-  },
- {
-    question : "Comment connecter le Guly SmartCap ?",
-    reponse : "Activez le bluetooth de votre smartphone. Dans l'application Guly, activez le Guly SmartCap dans les paramètres de votre profil. Guly se connectera alors à votre SmartCap. Vous recevrez une notification lorsque la connexion sera bien établie et la goutte d'eau dans le tracker apparaitra alors en bleue."
-  },
- {
-    question : "Pourquoi utiliser le Guly SmartCap ?",
-    reponse : "Pour rendre votre expérience avec Guly optimale, Guly vous propose de connecter un bouchon intelligent et autonome qui calculera automatiquement ce que vous buvez et ces informations seront directement transmisent à l'application." 
-  },
- {
-    question : "Quelles sont les dimensions du Guly SmartCap ?",
-    reponse : "Le Guly SmartCap s'adapte à la plupart des bouteilles. Dimensions : 24 mm de diamètre." 
-  },
- {
-    question : "Comment nettoyer mon Guly SmartCap ?",
-    reponse : "Pour une bonne hygiène, le Guly SmartCap doit être laver tous les jours. Il est évidemment waterproof mais pour éviter d'endommager les composants électroniques contenus à l'intérieur, évitez de le mettre au lave-vaiselle." 
-  }
-];
-
-/*  validation du form profil @ 
+/*  validation du form profil @
 ===================================================================*/
 
 gulyApp
@@ -242,11 +198,6 @@ gulyApp
     function($scope) {
       $scope.test = 'ceci est un test';
       this.profil = {};
-
-      // $scope.notif = true;
-      // $scope.sport = false;
-      // $scope.smart = false;
-      // console.log($scope.notif);
 
       $scope.submitForm = function(isValid) {
         if (isValid) {
@@ -266,15 +217,6 @@ gulyApp
   };
 });
 
-/*  switch button
-===================================================================*/
-
-gulyApp
-.controller('uiSwitchCtrl', function($scope) {
-    $scope.notif = true;
-    $scope.sport = false;
-    $scope.smart = false;
-  });
 
 /*  Water Meter
 ===================================================================*/
@@ -308,6 +250,7 @@ gooeyMenuModule
 weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
   function($scope, weatherApi) {
     $scope.currentTime = moment().format('h:mm a');
+
     weatherApi.getLocation().then(function(res) {
 
       weatherApi.getWeeklyWeather(res.data.city + "," + res.data.country_code).then(function(response) {
@@ -374,3 +317,46 @@ function JSON_CALLBACK() {
   // Nothing
 }
 
+
+/*  Graphe
+===================================================================*/
+
+gulyApp
+  .controller('chartController', ['$scope', '$http',
+    function($scope, $http) {
+      // for the line graph
+
+      $scope.data = {
+        labels: [
+                'January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'January', 'February', 'March', 'April', 'May', 'June', 'July'
+                ],
+        datasets: [
+          {
+            label: 'line chart dataset',
+            fillColor: 'rgba(0, 0, 0, 0)',
+            strokeColor: 'rgb(0, 119, 230)',
+            pointColor: 'rgb(102, 229, 209)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data: [
+                    81, 56, 55, 65, 59, 80, 40,
+                    65, 59, 59, 80, 55, 40, 65,
+                    59, 40, 81, 56, 55, 40, 65,
+                    80, 81, 56, 55, 80, 81, 56
+                  ]
+          }
+        ]
+      };
+
+      // Options for the line graph
+      $scope.options = {
+        scaleShowGridLines : false,
+        showScale: false,
+        scaleBeginAtZero: true,
+      };
+
+    }
+  ]);

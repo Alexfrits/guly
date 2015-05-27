@@ -10,8 +10,7 @@ var gulyApp = window.angular.module('gulyApp', [
   'gulyFiltersModule',
   'slick',
   'weatherControllers',
-  'weatherServices',
-  'chart.js'
+  'weatherServices'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -65,25 +64,23 @@ gulyApp.config(['localStorageServiceProvider',
       .setPrefix('guly')
       .setStorageType('localStorage')
       .setNotify(true, true)
-      // .setStorageCookie(360, '/')
-      // .setStorageCookieDomain('http://www.guly.cepegra.be')
+    // .setStorageCookie(360, '/')
+    // .setStorageCookieDomain('http://www.guly.cepegra.be')
   }
 ]);
+
 
 /*  DEPENDENCIES
 ===================================================================*/
 
 var pagesViewControllers  = angular.module('pagesViewControllers', []);
 var formControllers       = angular.module('formControllers', []);
-var switchControllers     = angular.module('switchControllers', []);
 var mainNavModule         = angular.module('mainNavModule', []);
 var waterMeterModule      = angular.module('waterMeterModule', ['gooeyMenuModule']);
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
 var gulyFiltersModule     = angular.module('gulyFiltersModule', []);
-var wavesModule           = angular.module('waves', []);
 var weatherControllers    = angular.module('weatherControllers', []);
 var weatherServices       = angular.module('weatherServices', []);
-var chartsController      = angular.module('chart.js', []);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/
@@ -120,5 +117,15 @@ weatherControllers
       restrict: 'E',
       templateUrl: 'widgets/weather.html',
       controller: 'GetWeatherCtrl'
+    };
+  });
+
+formControllers
+  .directive('profilForm', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'widgets/profil-form.html',
+      controller: 'profilformCtrl',
+      controllerAs: 'profilform'
     };
   });

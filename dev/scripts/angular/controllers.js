@@ -21,31 +21,26 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 
     // set et get function
     $scope.$watch('nickname', function(value) {
-      console.log(value);
       localStorageService.set('nickname', value);
       $scope.nicknameVal = localStorageService.get('nickname');
     });
 
     $scope.$watch('weight', function(value) {
-      console.log(value);
       localStorageService.set('weight', value);
       $scope.weightVal = localStorageService.get('weight');
     });
 
     $scope.$watch('notif', function(value) {
-      console.log(value);
       localStorageService.set('notif', value);
       $scope.notifVal = localStorageService.get('notif');
     });
 
     $scope.$watch('sport', function(value) {
-      console.log(value);
       localStorageService.set('sport', value);
       $scope.sportVal = localStorageService.get('sport');
     });
 
     $scope.$watch('smart', function(value) {
-      console.log(value);
       localStorageService.set('smart', value);
       $scope.smartVal = localStorageService.get('smart');
     });
@@ -224,10 +219,17 @@ var faq_items = [
 gulyApp
 .controller('profilformCtrl', ['$scope',
     function($scope) {
+      $scope.test = 'ceci est un test';
       this.profil = {};
+
+      // $scope.notif = true;
+      // $scope.sport = false;
+      // $scope.smart = false;
+      // console.log($scope.notif);
+
       $scope.submitForm = function(isValid) {
         if (isValid) {
-          alert('our form is amazing');
+          console.log('formulaire envoyé');
         }
       };
     }
@@ -238,7 +240,7 @@ gulyApp
   this.contact = {};
   $scope.submitForm = function(isValid) {
     if (isValid) {
-      alert('our form is amazing');
+      console.log('formulaire envoyé');
     }
   };
 });
@@ -281,16 +283,12 @@ gooeyMenuModule
 
 /*  Weather Api
 ===================================================================*/
-// weatherControllers.controller("AppController", ['$route', '$routeParams', '$location',
-//   function($route, $routeParams, $location) {
-
-//   }
-// ]);
 
 weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
   function($scope, weatherApi) {
     $scope.currentTime = moment().format('h:mm a');
-    weatherApi.getLocation().then(function(res) {            
+    weatherApi.getLocation().then(function(res) {
+
       weatherApi.getWeeklyWeather(res.data.city + "," + res.data.country_code).then(function(response) {
         $scope.data = response.data;
         if ($scope.data.list.length) {
@@ -315,7 +313,7 @@ weatherServices.factory('weatherApi', ['myHttp',
       getLocation: function() {
         return myHttp.jsonp("http://muslimsalat.com/daily.json?callback=JSON_CALLBACK");
       },
-      getWeeklyWeather: function(city) {        
+      getWeeklyWeather: function(city) {
         return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&mode=json&units=metric');
       }
     }
@@ -355,21 +353,5 @@ function JSON_CALLBACK() {
   // Nothing
 }
 
-/*  Charts
-===================================================================*/
 
-chartsController
-  .controller('LineCtrl', ['$scope', '$timeout',
-    function($scope, $timeout) {
 
-      $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-      $scope.series = ['Series A', 'Series B'];
-      $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-      ];
-      $scope.onClick = function(points, evt) {
-        console.log(points, evt);
-      };
-    }
-  ]);

@@ -14,28 +14,41 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   function($scope, localStorageService) {
     // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
+    $scope.weight = localStorageService.get('weight');
+    $scope.notif = localStorageService.get('notif');
+    $scope.sport = localStorageService.get('sport');
+    $scope.smart = localStorageService.get('smart');
 
     // set et get function
     $scope.$watch('nickname', function(value) {
-      console.log($scope);
-      // localStorageService.set('nickname', value);
-      // $scope.nicknameVal = localStorageService.get('nickname');
+
+      localStorageService.set('nickname', value);
+      $scope.nicknameVal = localStorageService.get('nickname');
     });
 
-    $scope.$watch('foo', function(value) {
-      console.log(value);
+    $scope.$watch('weight', function(value) {
+      localStorageService.set('weight', value);
+      $scope.weightVal = localStorageService.get('weight');
     });
 
-    // $scope.change = function(value) {
-    //     // localStorageService.set('nickname', value);
-    //   console.log($scope.value);
-    // };
+    $scope.$watch('notif', function(value) {
+      localStorageService.set('notif', value);
+      $scope.notifVal = localStorageService.get('notif');
+    });
+
+    $scope.$watch('sport', function(value) {
+      localStorageService.set('sport', value);
+      $scope.sportVal = localStorageService.get('sport');
+    });
+
+    $scope.$watch('smart', function(value) {
+      localStorageService.set('smart', value);
+      $scope.smartVal = localStorageService.get('smart');
+    });
 
     if (!localStorageService.isSupported) {
       $scope.storageType = 'Cookie';
     }
-
-    console.log('scope.nickname ' + $scope.nickname);
   }
   ]);
 
@@ -85,25 +98,6 @@ pagesViewControllers
   }
 ]);
 
-/*  liste des astuces
-===================================================================*/
-
-// hintsListControllers
-// .controller('HintsListCtrl', ['$scope', '$http',
-//   function($scope, $http) {
-//     $http.get('app-data/hints.json')
-//     .success(function(data) {
-//       $scope.hints = data;
-//     });
-
-//     $scope.orderProp = 'age';
-//   }
-// ])
-// .controller('HintDetailCtrl', ['$scope', '$routeParams',
-//   function($scope, $routeParams) {
-//     $scope.astuceId = $routeParams.astuceId;
-//   }
-// ]);
 
 gulyApp.
 controller('astucesCtrl', ['$scope', '$http', 
@@ -176,10 +170,17 @@ controller('faqitemCtrl', ['$scope', '$http',
 gulyApp
 .controller('profilformCtrl', ['$scope',
     function($scope) {
+      $scope.test = 'ceci est un test';
       this.profil = {};
+
+      // $scope.notif = true;
+      // $scope.sport = false;
+      // $scope.smart = false;
+      // console.log($scope.notif);
+
       $scope.submitForm = function(isValid) {
         if (isValid) {
-          alert('our form is amazing');
+          console.log('formulaire envoyé');
         }
       };
     }
@@ -190,7 +191,7 @@ gulyApp
   this.contact = {};
   $scope.submitForm = function(isValid) {
     if (isValid) {
-      alert('our form is amazing');
+      console.log('formulaire envoyé');
     }
   };
 });
@@ -233,16 +234,13 @@ gooeyMenuModule
 
 /*  Weather Api
 ===================================================================*/
-// weatherControllers.controller("AppController", ['$route', '$routeParams', '$location',
-//   function($route, $routeParams, $location) {
-
-//   }
-// ]);
 
 weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
   function($scope, weatherApi) {
     $scope.currentTime = moment().format('h:mm a');
-    weatherApi.getLocation().then(function(res) {            
+
+    weatherApi.getLocation().then(function(res) {
+
       weatherApi.getWeeklyWeather(res.data.city + "," + res.data.country_code).then(function(response) {
         $scope.data = response.data;
         if ($scope.data.list.length) {
@@ -267,7 +265,7 @@ weatherServices.factory('weatherApi', ['myHttp',
       getLocation: function() {
         return myHttp.jsonp("http://muslimsalat.com/daily.json?callback=JSON_CALLBACK");
       },
-      getWeeklyWeather: function(city) {        
+      getWeeklyWeather: function(city) {
         return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&mode=json&units=metric');
       }
     }

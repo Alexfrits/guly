@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" ng-app="gulyApp" ng-controller="storageCtrl">
+<html lang="fr" ng-app="gulyApp">
 <head>
 
     <meta charset="utf-8" />
@@ -7,7 +7,7 @@
     <title>Guly | Water Tracker</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body ng-controller="storageCtrl">
 <header>
   <!-- <h1 class="page__title">PAGE NAME</h1> -->
 </header>
@@ -40,7 +40,6 @@
   <script src="scripts/vendor/slick.min.js"></script>
   <script src="scripts/vendor/slick-carrousel.min.js"></script>
   <script src="scripts/vendor/moment.min.js"></script>
-  <script src="scripts/vendor/chart.js"></script>
   <script src="scripts/main.min.js"></script>
 
 <!-- end SCRIPTS -->

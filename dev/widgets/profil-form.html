@@ -1,0 +1,46 @@
+ <form action="#/water-need"
+        name="profil_form"
+        class="css-form profil_form"
+        data-ng-controller="profilformCtrl"
+        data-ng-submit="submitForm(profil_form.$valid)"
+        novalidate>
+
+	<div ng-controller="storageCtrl" ng-controller="uiSwitchCtrl">
+    <!-- Nickname input -->
+    <label for="nickname" class="nickname">
+      <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required/>
+    </label>
+
+    <!-- Weight select -->
+    <label for="weight" class="weight">
+      <span>Poids</span>
+      <select name="weight" id="weight" data-ng-model="weight">
+        <option data-ng-repeat="x in [] | range:0:250" value="{{x}}">{{x}}</option>
+      </select>
+    </label>
+
+    <!-- Notifications switch button -->
+    <fieldset class="switch_section">
+      <label for="notifications" class="switch_label">
+        <span>Notifications</span>
+        <switch name="notif" ng-model="notif" ng-change="changeCallback" id="notifications"></switch>
+      </label>
+
+      <!-- Sport mode switch button -->
+      <label for="sport" class="switch_label">
+        <span>Sport</span>
+        <switch name="sport" ng-model="sport" ng-change="changeCallback" id="sport"></switch>
+      </label>
+
+      <!-- Bouchon intelligent switch button -->
+      <label for="smartCap" ng-click="enabled=!enabled" class="switch_label">
+        <span>Guly SmartCap</span>
+        <switch name="smartcap" ng-model="smart" ng-change="changeCallback" id="smartCap"></switch>
+        <small>Connecte ton bouchon intelligent !</small>
+      </label>
+
+    </fieldset><!-- end of .switch_section -->
+	</div><!-- end of .ng-storageCtrl -->
+    <!-- Submit button -->
+    <input type="submit" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" ng-disabled="profil_form.$invalid" />
+  </form>

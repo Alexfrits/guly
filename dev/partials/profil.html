@@ -1,8 +1,8 @@
 <main class="main_profil main-section main-wrapper" data-ng-controller="uiSwitchCtrl">
-    <div class="intro">
-        <h1>Hello !</h1>
-        <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
-    </div><!-- end of .intro -->
+  <div class="intro">
+    <h1>Hello !</h1>
+    <p>Bienvenue sur Guly, ton coach personnel en matière d’hydratation !</p>
+  </div><!-- end of .intro -->
 
   <form action="#/water-need"
         method="post" 
@@ -15,11 +15,6 @@
     <!-- Nickname input -->
     <label for="nickname" class="nickname">
       <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required/>
-    </label>
-
-    <label for="">
-    <span>input test</span>
-    <input type="text" ng-model="foo" name="foo">
     </label>
       
     <blockquote class="well" ng-show="nicknameVal">
@@ -36,8 +31,9 @@
       </select>
     </label>
 
-    <!-- Notifications switch button -->
     <fieldset class="switch_section">
+    
+      <!-- Notifications switch button -->
       <label for="notifications" class="switch_label">
         <span>Notifications</span>
         <switch name="notif" ng-model="notif" ng-change="changeCallback" id="notifications"></switch>

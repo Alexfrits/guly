@@ -3,7 +3,7 @@
 ===================================================================*/
 
 gulyApp
-.controller('MainCtrl', function(){
+.controller('MainCtrl', function() {
 
 });
 
@@ -12,20 +12,30 @@ gulyApp
 
 gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   function($scope, localStorageService) {
-   // récupéré au load()
+    // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
 
     // set et get function
-    $scope.$watch('nickname', function(value){
-      localStorageService.set('nickname',value);
-      $scope.nicknameVal = localStorageService.get('nickname');
+    $scope.$watch('nickname', function(value) {
+      console.log($scope);
+      // localStorageService.set('nickname', value);
+      // $scope.nicknameVal = localStorageService.get('nickname');
     });
+
+    $scope.$watch('foo', function(value) {
+      console.log(value);
+    });
+
+    // $scope.change = function(value) {
+    //     // localStorageService.set('nickname', value);
+    //   console.log($scope.value);
+    // };
 
     if (!localStorageService.isSupported) {
       $scope.storageType = 'Cookie';
     }
 
-    console.log($scope.guly);
+    console.log('scope.nickname ' + $scope.nickname);
   }
   ]);
 
@@ -146,50 +156,21 @@ var astuces = [
 ===================================================================*/
 
 gulyApp.
-controller('faqitemCtrl', ['$scope', '$http', 
+controller('faqitemCtrl', ['$scope', '$http',
   function($scope, $http) {
-    this.faqitems = faq_items;
-    // $scope.faq_items = [];
-    // $http.get('app-data/faq_items.json')
-    //   .success(function(data) {
-    //     $scope.faq_items = data;
-    //   });
+
+    $scope.faqItems = [];
+
+    $http.get('app-data/faq_items.json')
+      .success(function(data) {
+        $scope.faqItems = data;
+      }).error(function(resp) {
+
+      });
   }
 ]);
 
-// should be in a database...
-var faq_items = [
-  {
-    question : "Comment Guly calcule-il mon besoin hydrolique quotidien ?",
-    reponse : "Votre besoin hydrolique quotidien est calculé sur base de votre poids et évolue en fonction de la chaleur ainsi que de vos efforts physiques accomplis." 
-  },
-  {
-    question : "Comment utiliser Guly manuellement ?",
-    reponse : "Pour atteindre votre objectif quotidien, videz votre quotas d'eau en laissant votre doigt enfoncé sur la touche principale du tracking, faites ensuite glisser votre doigt sur une des bulles qui vient d'apparaitre." 
-  },
-  {
-    question : "Comment utiliser le Guly SmartCap ?",
-    reponse : "Assurez-vous que le Guly SmartCap est bien connecté à l'application. Placez-le sur votre bouteille et... Buvez ! Le bouchon-intelligent calcule votre consommation en temps réel et transmet les données à l'application." 
-  },
- {
-    question : "Comment connecter le Guly SmartCap ?",
-    reponse : "Activez le bluetooth de votre smartphone. Dans l'application Guly, activez le Guly SmartCap dans les paramètres de votre profil. Guly se connectera alors à votre SmartCap. Vous recevrez une notification lorsque la connexion sera bien établie et la goutte d'eau dans le tracker apparaitra alors en bleue."
-  },
- {
-    question : "Pourquoi utiliser le Guly SmartCap ?",
-    reponse : "Pour rendre votre expérience avec Guly optimale, Guly vous propose de connecter un bouchon intelligent et autonome qui calculera automatiquement ce que vous buvez et ces informations seront directement transmisent à l'application." 
-  },
- {
-    question : "Quelles sont les dimensions du Guly SmartCap ?",
-    reponse : "Le Guly SmartCap s'adapte à la plupart des bouteilles. Dimensions : 24 mm de diamètre." 
-  },
- {
-    question : "Comment nettoyer mon Guly SmartCap ?",
-    reponse : "Pour une bonne hygiène, le Guly SmartCap doit être laver tous les jours. Il est évidemment waterproof mais pour éviter d'endommager les composants électroniques contenus à l'intérieur, évitez de le mettre au lave-vaiselle." 
-  }
-];
-
-/*  validation du form profil @ 
+/*  validation du form profil @
 ===================================================================*/
 
 gulyApp
@@ -204,9 +185,8 @@ gulyApp
     }
 ]);
 
-
 gulyApp
-.controller('contactformCtrl', function($scope){
+.controller('contactformCtrl', function($scope) {
   this.contact = {};
   $scope.submitForm = function(isValid) {
     if (isValid) {
@@ -214,7 +194,6 @@ gulyApp
     }
   };
 });
-
 
 /*  switch button
 ===================================================================*/
@@ -264,7 +243,7 @@ weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
   function($scope, weatherApi) {
     $scope.currentTime = moment().format('h:mm a');
     weatherApi.getLocation().then(function(res) {            
-      weatherApi.getWeeklyWeather(res.data.city+","+res.data.country_code).then(function(response) {
+      weatherApi.getWeeklyWeather(res.data.city + "," + res.data.country_code).then(function(response) {
         $scope.data = response.data;
         if ($scope.data.list.length) {
           $scope.data.list.forEach(function(i, v) {
@@ -289,12 +268,11 @@ weatherServices.factory('weatherApi', ['myHttp',
         return myHttp.jsonp("http://muslimsalat.com/daily.json?callback=JSON_CALLBACK");
       },
       getWeeklyWeather: function(city) {        
-        return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='+city+'&mode=json&units=metric');
+        return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&mode=json&units=metric');
       }
     }
   }
 ]);
-
 
 weatherServices.factory('myHttp', ['$http', 'myCache',
   function($http, myCache) {
@@ -325,6 +303,6 @@ weatherServices.factory('myCache', function($cacheFactory) {
   });
 });
 
-function JSON_CALLBACK(){
+function JSON_CALLBACK() {
   // Nothing
 }

@@ -15,9 +15,11 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
     $scope.weight = localStorageService.get('weight');
-    $scope.notif = localStorageService.get('notif');
-    $scope.sport = localStorageService.get('sport');
-    $scope.smart = localStorageService.get('smart');
+
+    // initialise les boutons avec une valeur
+    $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
+    $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
+    $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
     // set et get function
     $scope.$watch('nickname', function(value) {
@@ -98,9 +100,8 @@ pagesViewControllers
   }
 ]);
 
-
 gulyApp.
-controller('astucesCtrl', ['$scope', '$http', 
+controller('astucesCtrl', ['$scope', '$http',
   function($scope, $http) {
     // $http.get('app-data/astuces.json')
     //     .success(function(data) {
@@ -173,11 +174,6 @@ gulyApp
       $scope.test = 'ceci est un test';
       this.profil = {};
 
-      // $scope.notif = true;
-      // $scope.sport = false;
-      // $scope.smart = false;
-      // console.log($scope.notif);
-
       $scope.submitForm = function(isValid) {
         if (isValid) {
           console.log('formulaire envoyé');
@@ -196,15 +192,6 @@ gulyApp
   };
 });
 
-/*  switch button
-===================================================================*/
-
-gulyApp
-.controller('uiSwitchCtrl', function($scope) {
-    $scope.notif = true;
-    $scope.sport = false;
-    $scope.smart = false;
-  });
 
 /*  Water Meter
 ===================================================================*/

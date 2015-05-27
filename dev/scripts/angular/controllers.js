@@ -53,6 +53,27 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   }
   ]);
 
+/*  Calculer l'objectif (waterneed)
+===================================================================*/
+
+// gulyApp.service('wnResult', function() {
+//   this.objectif = function(a, b) {
+//     return a * b;
+//   };
+// });
+
+gulyApp.controller('wnCtrl', ['$scope',
+      function($scope) {
+        // var wnResult = parseInt($scope.weight * (0.038 * 1) + 'L');
+        var a =  $scope.weight;
+        var b = (0.038 * 1);
+
+        var wnResult = a * b;
+        console.log(a + ' x ' + b + ' = ' + wnResult);
+        // console.log(typeof wnResult === 'number');
+      }
+    ]);
+
 /*  Contrôleurs de pages
 ===================================================================*/
 
@@ -352,6 +373,4 @@ weatherServices.factory('myCache', function($cacheFactory) {
 function JSON_CALLBACK() {
   // Nothing
 }
-
-
 

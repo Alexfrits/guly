@@ -9,8 +9,9 @@ var gulyApp = window.angular.module('gulyApp', [
   'switchControllers',
   'gulyFiltersModule',
   'slick',
-  'weatherControllers', 
-  'weatherServices'
+  'weatherControllers',
+  'weatherServices',
+  'chart.js'
 ]);
 
 gulyApp.config(['$routeProvider',
@@ -80,8 +81,9 @@ var waterMeterModule      = angular.module('waterMeterModule', ['gooeyMenuModule
 var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
 var gulyFiltersModule     = angular.module('gulyFiltersModule', []);
 var wavesModule           = angular.module('waves', []);
-var weatherControllers    = angular.module("weatherControllers", []);
+var weatherControllers    = angular.module('weatherControllers', []);
 var weatherServices       = angular.module('weatherServices', []);
+var chartsController      = angular.module('chart.js', []);
 
 /*  DIRECTIVES (will be externalized in directives.js in a further version)
 ===================================================================*/

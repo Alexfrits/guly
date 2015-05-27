@@ -3,7 +3,7 @@
 ===================================================================*/
 
 gulyApp
-.controller('MainCtrl', function(){
+.controller('MainCtrl', function() {
 
 });
 
@@ -12,20 +12,49 @@ gulyApp
 
 gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   function($scope, localStorageService) {
-   // récupéré au load()
+    // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
+    $scope.weight = localStorageService.get('weight');
+    $scope.notif = localStorageService.get('notif');
+    $scope.sport = localStorageService.get('sport');
+    $scope.smart = localStorageService.get('smart');
 
     // set et get function
-    $scope.$watch('nickname', function(value){
-      localStorageService.set('nickname',value);
+    $scope.$watch('nickname', function(value) {
+      console.log(value);
+      localStorageService.set('nickname', value);
       $scope.nicknameVal = localStorageService.get('nickname');
+    });
+
+    $scope.$watch('weight', function(value) {
+      console.log(value);
+      localStorageService.set('weight', value);
+      $scope.weightVal = localStorageService.get('weight');
+    });
+
+    $scope.$watch('notif', function(value) {
+      console.log(value);
+      localStorageService.set('notif', value);
+      $scope.notifVal = localStorageService.get('notif');
+    });
+
+    $scope.$watch('sport', function(value) {
+      console.log(value);
+      localStorageService.set('sport', value);
+      $scope.sportVal = localStorageService.get('sport');
+    });
+
+    $scope.$watch('smart', function(value) {
+      console.log(value);
+      localStorageService.set('smart', value);
+      $scope.smartVal = localStorageService.get('smart');
     });
 
     if (!localStorageService.isSupported) {
       $scope.storageType = 'Cookie';
     }
 
-    console.log($scope.guly);
+    //console.log($scope.guly);
   }
   ]);
 
@@ -204,9 +233,8 @@ gulyApp
     }
 ]);
 
-
 gulyApp
-.controller('contactformCtrl', function($scope){
+.controller('contactformCtrl', function($scope) {
   this.contact = {};
   $scope.submitForm = function(isValid) {
     if (isValid) {
@@ -214,7 +242,6 @@ gulyApp
     }
   };
 });
-
 
 /*  switch button
 ===================================================================*/
@@ -264,7 +291,7 @@ weatherControllers.controller("GetWeatherCtrl", ['$scope', 'weatherApi',
   function($scope, weatherApi) {
     $scope.currentTime = moment().format('h:mm a');
     weatherApi.getLocation().then(function(res) {            
-      weatherApi.getWeeklyWeather(res.data.city+","+res.data.country_code).then(function(response) {
+      weatherApi.getWeeklyWeather(res.data.city + "," + res.data.country_code).then(function(response) {
         $scope.data = response.data;
         if ($scope.data.list.length) {
           $scope.data.list.forEach(function(i, v) {
@@ -289,12 +316,11 @@ weatherServices.factory('weatherApi', ['myHttp',
         return myHttp.jsonp("http://muslimsalat.com/daily.json?callback=JSON_CALLBACK");
       },
       getWeeklyWeather: function(city) {        
-        return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='+city+'&mode=json&units=metric');
+        return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&mode=json&units=metric');
       }
     }
   }
 ]);
-
 
 weatherServices.factory('myHttp', ['$http', 'myCache',
   function($http, myCache) {
@@ -325,6 +351,25 @@ weatherServices.factory('myCache', function($cacheFactory) {
   });
 });
 
-function JSON_CALLBACK(){
+function JSON_CALLBACK() {
   // Nothing
 }
+
+/*  Charts
+===================================================================*/
+
+chartsController
+  .controller('LineCtrl', ['$scope', '$timeout',
+    function($scope, $timeout) {
+
+      $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+      $scope.series = ['Series A', 'Series B'];
+      $scope.data = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+      ];
+      $scope.onClick = function(points, evt) {
+        console.log(points, evt);
+      };
+    }
+  ]);

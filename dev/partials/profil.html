@@ -10,16 +10,10 @@
 		class="css-form profil_form" 
 		data-ng-controller="profilformCtrl as profilform" data-ng-submit="submitForm(profil_form.$valid)"novalidate>
 
+	<div ng-controller="storageCtrl">
         <!-- Nickname input -->
         <label for="nickname" class="nickname"></label>
 	    <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required="" />
-	    <br />
-	    
-      <blockquote class="well" ng-show="nicknameVal">
-        <p ng-bind="nicknameVal"></p>
-        <small>{{storageType}} value</small>
-        <p>{{nickname}}</p>
-      </blockquote>
 
 	     <!-- Weight select -->
         <label for="weight" class="weight">Poids</label>
@@ -51,6 +45,7 @@
 			</label>
 			<p>Connecte ton bouchon intelligent !</p>
 		</div><!-- end of .switch_section -->
+	</div><!-- end of .ng-storageCtrl -->
 
 		<!-- Submit button -->
 		<input type="submit" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" ng-disabled="profil_form.$invalid" />

@@ -21,36 +21,40 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
     $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
-    // set et get function
-    $scope.$watch('nickname', function(value) {
+    // // set et get function
+    // $scope.$watch('nickname', function(value) {
+    //   localStorageService.set('nickname', value);
+    //   $scope.nicknameVal = localStorageService.get('nickname');
+    // });
 
-      localStorageService.set('nickname', value);
+    // $scope.$watch('weight', function(value) {
+    //   localStorageService.set('weight', value);
+    //   $scope.weightVal = localStorageService.get('weight');
+    // });
+
+    // $scope.$watch('notif', function(value) {
+    //   localStorageService.set('notif', value);
+    //   $scope.notifVal = localStorageService.get('notif');
+    // });
+
+    // $scope.$watch('sport', function(value) {
+    //   localStorageService.set('sport', value);
+    //   $scope.sportVal = localStorageService.get('sport');
+    // });
+
+    // $scope.$watch('smart', function(value) {
+    //   localStorageService.set('smart', value);
+    //   $scope.smartVal = localStorageService.get('smart');
+    // });
+
+    // if (!localStorageService.isSupported) {
+    //   $scope.storageType = 'Cookie';
+    // }
+
+    $scope.$watch(function(value) {
+      localStorageService.set('nickname', value.nickname);
       $scope.nicknameVal = localStorageService.get('nickname');
     });
-
-    $scope.$watch('weight', function(value) {
-      localStorageService.set('weight', value);
-      $scope.weightVal = localStorageService.get('weight');
-    });
-
-    $scope.$watch('notif', function(value) {
-      localStorageService.set('notif', value);
-      $scope.notifVal = localStorageService.get('notif');
-    });
-
-    $scope.$watch('sport', function(value) {
-      localStorageService.set('sport', value);
-      $scope.sportVal = localStorageService.get('sport');
-    });
-
-    $scope.$watch('smart', function(value) {
-      localStorageService.set('smart', value);
-      $scope.smartVal = localStorageService.get('smart');
-    });
-
-    if (!localStorageService.isSupported) {
-      $scope.storageType = 'Cookie';
-    }
   }
   ]);
 
@@ -291,3 +295,47 @@ weatherServices.factory('myCache', function($cacheFactory) {
 function JSON_CALLBACK() {
   // Nothing
 }
+
+
+/*  Graphe
+===================================================================*/
+
+gulyApp
+  .controller('chartController', ['$scope', '$http',
+    function($scope, $http) {
+      // for the line graph
+
+      $scope.data = {
+        labels: [
+                'January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'January', 'February', 'March', 'April', 'May', 'June', 'July'
+                ],
+        datasets: [
+          {
+            label: 'line chart dataset',
+            fillColor: 'rgba(0, 0, 0, 0)',
+            strokeColor: 'rgb(0, 119, 230)',
+            pointColor: 'rgb(102, 229, 209)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data: [
+                    81, 56, 55, 65, 59, 80, 40,
+                    65, 59, 59, 80, 55, 40, 65,
+                    59, 40, 81, 56, 55, 40, 65,
+                    80, 81, 56, 55, 80, 81, 56
+                  ]
+          }
+        ]
+      };
+
+      // Options for the line graph
+      $scope.options = {
+        scaleShowGridLines : false,
+        showScale: false,
+        scaleBeginAtZero: true,
+      };
+
+    }
+  ]);

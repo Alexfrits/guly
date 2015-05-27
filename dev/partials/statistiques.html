@@ -1,6 +1,13 @@
 <main class="main_stats main-section">
 	<h1>Statistiques</h1>
 
+  <div ng-controller="chartController as chart">
+    <canvas tc-chartjs-line chart-data="20" chart-options="options"></canvas>
+    <pre>{{ data }}</pre>
+  </div>
+
+
+
 	<ul class="badges">
 		<li><img src="img/badge_100.png" alt=""></li>
 		<li><img src="img/badge_80.png" height="100" width="100" alt=""></li>

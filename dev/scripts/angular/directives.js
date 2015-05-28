@@ -1,4 +1,4 @@
-/*  DIRECTIVES (will be externalized in directives.js in a further version)
+/*  DIRECTIVES
 ===================================================================*/
 
 waterMeterModule
@@ -14,8 +14,7 @@ gooeyMenuModule
   .directive('gulGooeyMenu', function() {
     return {
       restrict: 'E',
-      templateUrl: 'widgets/gooey-menu.html',
-      controller: 'gooeyMenuController'
+      templateUrl: 'widgets/gooey-menu.html'
     };
   });
 

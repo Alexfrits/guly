@@ -11,7 +11,7 @@ var gulyApp = window.angular.module('gulyApp', [
   'slick',
   'weatherControllers',
   'weatherServices',
-  'tc.chartjs'
+  'tc.chartjs',
 ]);
 
 /*  DEPENDENCIES
@@ -79,4 +79,5 @@ gulyApp
       // .setStorageCookie(360, '/')
       // .setStorageCookieDomain('http://www.guly.cepegra.be')
     }
-  ]);
+  ])
+;

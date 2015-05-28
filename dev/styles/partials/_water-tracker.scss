@@ -1,31 +1,53 @@
 /*===================================================================
   MAIN PAGE (water tracker)
 ===================================================================*/
+
+// config
+$wt-rad: 140vmax;
+
+
 .main-wrapper {
-  height: 90vh;
+
+}
+
+.water-meter__round-wrapper {
+  position: absolute;
+  // moitié de la largeur-longueur de l'écran moins moitié de la longueur du round wrapper
+  // ce calcule ne peut être fait avec une variable (variable non interpréter)
+  top: calc(50vh - 70vmax);
+  left: calc(50vw - 70vmax);
+  width: $wt-rad;
+  height: $wt-rad;
+
+  transition: .2s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
+  transform: rotate(0);
+
   display: flex;
-  flex-direction: column;
+  flex-direction: columns;
+  align-items: flex-end;
+
+  background: #007CFF;
+
+  .water-meter__level {
+    display: block;
+    width: 100%;
+    background: #A3FFC8;
+    transition: 1s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
+  }
 }
 
 .mega-number__wrapper {
-    flex-grow: 2;
-    text-align: center;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   // the big water tracker number
   .mega-number {
-    strong {
-      font-size: 8rem;
-      font-weight: 300;
-    }
+    font-size: 8rem;
   }
-
-  // the unit suffix of the big number
-  .suffix {
-    font-size: 4rem;
-    text-transform: uppercase;
-  }
-}
-.tip__wrapper {
-  flex-grow: 1.5;
-  text-align: center;
 }

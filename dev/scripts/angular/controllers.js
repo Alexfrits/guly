@@ -22,32 +22,6 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
     $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
-    // set et get function
-    // $scope.$watch('nickname', function(value) {
-    //   localStorageService.set('nickname', value);
-    //   $scope.nicknameVal = localStorageService.get('nickname');
-    // });
-
-    // $scope.$watch('weight', function(value) {
-    //   localStorageService.set('weight', value);
-    //   $scope.weightVal = localStorageService.get('weight');
-    // });
-
-    // $scope.$watch('notif', function(value) {
-    //   localStorageService.set('notif', value);
-    //   $scope.notifVal = localStorageService.get('notif');
-    // });
-
-    // $scope.$watch('sport', function(value) {
-    //   localStorageService.set('sport', value);
-    //   $scope.sportVal = localStorageService.get('sport');
-    // });
-
-    // $scope.$watch('smart', function(value) {
-    //   localStorageService.set('smart', value);
-    //   $scope.smartVal = localStorageService.get('smart');
-    // });
-
     $scope.$watch(function(value) {
       localStorageService.set('nickname', value.nickname);
       $scope.nicknameVal = localStorageService.get('nickname');
@@ -183,27 +157,71 @@ gulyApp
 ===================================================================*/
 
 waterMeterModule
-  .controller('waterMeterController', ['$scope',
-    function($scope) {
-      $scope.quantity = 2;
-      $scope.unit = 'l';
+  .controller('waterMeterController', [
+    '$scope',
+    '$element',
+    '$window',
+    'localStorageService',
+    'deviceOrentationListener',
+    function($scope, $element, $window, localStorageService, deviceOrientationListener) {
+
+      /* INITIALISATION */
+      var goal = localStorageService.get('wnResult');
+      // get the value in the LS; if doesn't exists, sets it equal to the daily goal
+      var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
+      var $waterLevel = $element.find('.water-meter__level');
+
+      var waterLevelHeight = toDrink / goal * 100;
+      // init the watermeter level
+      setWaterLevel(waterLevelHeight);
+
+      function setWaterLevel (height) {
+        $waterLevel.css('height', height + '%');
+      }
+
+      function initToDrink (quantity) {
+        localStorageService.set('wnToDrink', quantity);
+      }
+
+      /* ACTIONS */
+
+      $scope.updateToDrink = function(quantity) {
+        // get the value in the localstorage
+        var toDrink = 1000 * localStorageService.get('wnToDrink');
+        var newToDrink = (toDrink - quantity) / 1000;
+
+        if (newToDrink > 0) {
+          newToDrink = newToDrink;
+        }else {
+          newToDrink = 0;
+        }
+        var waterLevelHeight = newToDrink / goal * 100;
+
+        setWaterLevel(waterLevelHeight);
+        localStorageService.set('wnToDrink', newToDrink);
+      };
+
+      /* ROTATION */
+
+      // $element.find('.water-meter__round-wrapper').css('rotate', function () {
+      //   return
+      // });
+
+      // $window.addEventListener('deviceorientation', function(e) {
+
+      //   orientation.lr = e.gamma;
+
+      //   // beta is the front-to-back tilt in degrees, where front is positive
+      //   orientation.fb = e.beta;
+
+      //   // alpha is the compass direction the device is facing in degrees
+      //   orientation.dir = e.alpha;
+
+      // });
     }
+
   ]);
 
-/*  Gooey Menu
-===================================================================*/
-gooeyMenuModule
-  .controller('gooeyMenuController', ['$scope', '$element', '$rootScope',
-    function($scope, $element, $rootScope) {
-      $scope.title = 'GOOEY!!';
-      var openButton = $element.find('.gooey__open-button');
-
-      openButton.on('click', function(e) {
-        e.preventDefault();
-        console.log('click');
-      });
-    }
-  ]);
 
 /*  Weather Api
 ===================================================================*/
@@ -330,8 +348,6 @@ gulyApp
                           }
                         ]
                       };
-
-
 
       localStorageService.set('chartsData', JSON.stringify(testDatas));
 

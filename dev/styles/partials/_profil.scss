@@ -7,6 +7,7 @@
   width: 100%;
   height: 100vh;
   padding: 0 15px;
+  overflow: auto;
 }
 
 .intro {
@@ -17,7 +18,7 @@
 		font-family: $miso-bold;
 		font-size: 35px;
 		letter-spacing: 2px;
-		margin: 32px 0 0px 0;
+		margin: 8% 0 0 0;
 		color: $action-color;
 	}
 
@@ -39,15 +40,15 @@
 	label:before {
 		content: '';
 		display: block;
-  		width: 10vw;
-  		height: 10vh;
+  		width: 35px;
+  		height: 35px;
   		position: absolute;
 	}
 	.nickname {
 		&:before {
 			background: url(../img/icon_profil.svg) 0 0 no-repeat;
 			background-size: 100%;
-			margin: -15px 0 0 0;
+			margin: -4% 0 0 0;
 
 		}
 	}
@@ -56,7 +57,7 @@
 		&:before {
 			background: url(../img/icon_weight.svg) 0 0 no-repeat;
 			background-size: 100%;
-			margin: -10px 0 0 0;
+			margin: -2% 0 0 0;
 
 		}
 		&:after {
@@ -89,14 +90,13 @@
 		margin: 0 0 0 50px;
 		border: none;
 		border-radius: none;
-		background: transparent;
 	}
 	
 	// switch buttons
 	.switch_section {
 		clear: both;
 		border: none;
-		padding: 30px 15px 0 0;
+		padding: 14% 0 0 0;
 
 		.switch_label {
 			small {
@@ -107,49 +107,46 @@
 		}
 	}
 
-	// #notifications:before {
-	// 	content: 'dd';
-	// 	background: url(../../img/icon_notif.svg) 0 0 no-repeat;
-	// 	display: block;
-	// 	width: 50px;
-	// 	height: 50px;
-	// }
+	.button {
+		margin: 25px 0 0 0;
+	}
 }
 
 /* =============================
-	LIGHTBOX RESULT OBJECTIF
+		RESULT OBJECTIF
 ============================= */
 
-.lightbox_objectif_off {
-	display: none;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	width: 0;
-	height: 0;
-	z-index:1001;
-	overflow: hidden;
-}
+.main_wn {
+	.result_section {
+		text-align: center;
 
-.lightbox_objectif_on {
-	display: block;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100vh;
-	background: rgba(0,0,0,.8);
-	color: white;
-	z-index:1001;
+		h2 {
+			font-family: $miso-bold;
+			font-size: 35px;
+			letter-spacing: 2px;
+			margin: 32px 0 15px 0;
+			//color: $action-color;
+		}
 
-	h2 {
-		color: white;
-		font-size: 12%;
-		padding: 6vh 0 0 0;
+		.ObjTitle {
+			font-size: 28px;
+		}
 
+		.WN {
+			font-family: $miso-regular;
+			font-size: 80px;
+			color: $action-color;
+			padding: 25px 0 0 0;
+		}
+
+		strong {
+			font-family: $miso-bold;
+			//font-size: 20px;
+			//color: $action-color;
+		}
 	}
 
-	.BH {
-		font-size: 30%;
+	.button {
+		text-align: center;
 	}
 }

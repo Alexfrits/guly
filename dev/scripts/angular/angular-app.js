@@ -52,7 +52,7 @@ gulyApp.config(['$routeProvider',
           controller:'WeatherCtrl'
         })
       .otherwise({
-        redirectTo:'/water-tracker'
+        redirectTo:'/profil'
       });
 
   }

@@ -2,15 +2,17 @@
                 BUTTONS SUBMIT
 =========================================*/
 // Submit
-input.action_btn{
-  position: absolute;
+.action_btn{
+  position: fixed;
   left: 0;
   bottom: 0;
   border: none;
   display: block;
   width: 100%;
   background: $action-color;
+  opacity: 1;
   padding: 12px 0;
+  font-size: 24px;
 }
 
 input[type="text"]:focus {
@@ -20,7 +22,7 @@ input[type="text"]:focus {
 
 // Return btn from water-need
 .return_btn {
-  font-size: 40px;
+  font-size: 30px;
   color: $action-color;
   position: absolute;
   top: 10px;
@@ -114,22 +116,4 @@ input[type="text"]:focus {
 .switch.checked .on {
   display:block;
 
-}
-
-/* ======================================
-                TEMOIN CONNEXION
-=========================================*/
-.temoin {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid #dfdfdf;
-  background: rgb(100, 189, 99);
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.temoin_off {
-  background: #dfdfdf;
 }

@@ -3,7 +3,7 @@
 	<div class="result_section">
          <h2 class="result_nickname">{{ nickname }},</h2>
          <p>Guly te conseille de boire en moyenne</p>
-         <p class="BH">{{ wnResult | number:2}}</p>
+         <p class="WN" ng-model="wnResult">{{ wnResult | number:1}} L</p>
          <p>d'eau par jour</p>
      </div><!-- end of .result_section -->
      <a role="button" href="#/water-tracker" class="button action_btn .notif">Commencer</a>

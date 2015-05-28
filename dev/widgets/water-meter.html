@@ -1,7 +1,6 @@
 <div class="water-meter"></div>
       <div class="mega-number__wrapper">
         <div class="mega-number">
-          <strong class="number">{{ quantity }}</strong>
-          <span class="suffix">{{ unit | uppercase }}</span>
+           <p class="number" ng-model="wnResult">{{ wnResult | number:1}} L</p>
         </div>
       </div>

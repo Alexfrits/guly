@@ -15,13 +15,14 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
     $scope.weight = localStorageService.get('weight');
+    $scope.wnResult = localStorageService.get('wnResult');
 
     // initialise les boutons avec une valeur
     $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
     $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
     $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
-    // // set et get function
+    // set et get function
     // $scope.$watch('nickname', function(value) {
     //   localStorageService.set('nickname', value);
     //   $scope.nicknameVal = localStorageService.get('nickname');
@@ -47,13 +48,21 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     //   $scope.smartVal = localStorageService.get('smart');
     // });
 
-    // if (!localStorageService.isSupported) {
-    //   $scope.storageType = 'Cookie';
-    // }
-
     $scope.$watch(function(value) {
       localStorageService.set('nickname', value.nickname);
       $scope.nicknameVal = localStorageService.get('nickname');
+
+      localStorageService.set('weight', value.weight);
+      $scope.weightVal = localStorageService.get('weight');
+
+      localStorageService.set('notif', value.notif);
+      $scope.notifVal = localStorageService.get('notif');
+
+      localStorageService.set('smart', value.smart);
+      $scope.smartVal = localStorageService.get('smart');
+
+      localStorageService.set('wnResult', value.wnResult);
+      $scope.wnResultVal = localStorageService.get('wnResult');
     });
   }
   ]);
@@ -61,21 +70,12 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 /*  Calculer l'objectif (waterneed)
 ===================================================================*/
 
-// gulyApp.service('wnResult', function() {
-//   this.objectif = function(a, b) {
-//     return a * b;
-//   };
-// });
-
 gulyApp.controller('wnCtrl', ['$scope',
       function($scope) {
-        // var wnResult = parseInt($scope.weight * (0.038 * 1) + 'L');
-        var a =  $scope.weight;
-        var b = (0.038 * 1);
+        var a =  parseInt($scope.weight);
+        var b = 0.038;
 
-        var wnResult = a * b;
-        console.log(a + ' x ' + b + ' = ' + wnResult);
-        // console.log(typeof wnResult === 'number');
+        $scope.wnResult = a * b;
       }
     ]);
 

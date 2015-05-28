@@ -5,7 +5,7 @@
         data-ng-submit="submitForm(profil_form.$valid)"
         novalidate>
 
-	<div ng-controller="storageCtrl" ng-controller="uiSwitchCtrl">
+	<div data-ng-controller="storageCtrl" data-ng-controller="uiSwitchCtrl">
     <!-- Nickname input -->
     <label for="nickname" class="nickname">
       <input type="text" data-ng-model="nickname" id="nickname" name="nickname" placeholder="Prénom" autofocus required/>
@@ -13,7 +13,6 @@
 
     <!-- Weight select -->
     <label for="weight" class="weight">
-      <span>Poids</span>
       <select name="weight" id="weight" data-ng-model="weight">
         <option data-ng-repeat="x in [] | range:0:250" value="{{x}}">{{x}}</option>
       </select>
@@ -24,14 +23,6 @@
       <label for="notifications" class="switch_label">
         <span>Notifications</span>
         <switch name="notif" ng-model="notif" ng-check="{{ notif }}" ng-change="changeCallback" id="notifications"></switch>
-      </label>
-
-      <pre>{{ notif }}</pre>
-
-      <!-- Sport mode switch button -->
-      <label for="sport" class="switch_label">
-        <span>Sport</span>
-        <switch name="sport" ng-model="sport" ng-check="{{ sport }}" ng-change="changeCallback" id="sport"></switch>
       </label>
 
       <!-- Bouchon intelligent switch button -->

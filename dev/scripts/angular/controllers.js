@@ -179,7 +179,6 @@ gulyApp
   };
 });
 
-
 /*  Water Meter
 ===================================================================*/
 
@@ -279,7 +278,6 @@ function JSON_CALLBACK() {
   // Nothing
 }
 
-
 /*  Graphe
 ===================================================================*/
 
@@ -287,9 +285,27 @@ gulyApp
   .controller('chartController', ['$scope', '$http', 'localStorageService',
     function($scope, $http, localStorageService) {
 
+      // getting today's date
+
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      if (dd < 10) {
+        dd = '0' + dd;
+      }
+
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+
+      today = mm + '/' + dd + '/' + yyyy;
+      console.log(today);
+
       var testDatas = {
                         'labels': [
-                        'January', 'February', 'March', 'April', 'May', 'June', 'July'
+                        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'TEST', 'TEST', 'TEST'
                         ],
                         'datasets': [
                           {
@@ -305,8 +321,8 @@ gulyApp
                           {
                             'label': 'line chart 2 dataset',
                             'fillColor': 'rgba(0, 0, 0, 0)',
-                            'strokeColor': 'rgb(255, 119, 230)',
-                            'pointColor': 'rgb(255, 20, 70)',
+                            'strokeColor': 'rgb(255, 20, 70)',
+                            'pointColor': 'rgb(255, 119, 230)',
                             'pointStrokeColor': '#fff',
                             'pointHighlightFill': '#fff',
                             'pointHighlightStroke': 'rgba(220,220,220,1)',
@@ -314,6 +330,8 @@ gulyApp
                           }
                         ]
                       };
+
+
 
       localStorageService.set('chartsData', JSON.stringify(testDatas));
 

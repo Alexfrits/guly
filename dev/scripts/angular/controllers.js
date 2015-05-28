@@ -83,120 +83,82 @@ gulyApp.controller('wnCtrl', ['$scope',
 ===================================================================*/
 
 pagesViewControllers
-// adds a page-'pagename' class to the ng-view div
-.controller('WaterTrackerCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'tracker';
-  }
-])
-.controller('ProfileCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'profil';
-  }
-])
-.controller('wnCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'water-need';
-  }
-])
-.controller('StatsCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'stats';
-  }
-])
-// .controller('HintsCtrl', ['$scope',
-//   function($scope) {
-//     $scope.pageClass = 'hints';
-//   }
-// ])
-.controller('AstucesCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'astuces';
-  }
-])
-.controller('FaqCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'faq';
-  }
-])
-.controller('ShopCtrl', ['$scope',
-  function($scope) {
-    $scope.pageClass = 'shop';
-  }
-]);
+  // adds a page-'pagename' class to the ng-view div
+  .controller('WaterTrackerCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'tracker';
+    }
+  ])
+  .controller('ProfileCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'profil';
+    }
+  ])
+  .controller('wnCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'water-need';
+    }
+  ])
+  .controller('StatsCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'stats';
+    }
+  ])
+  .controller('AstucesCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'astuces';
+    }
+  ])
+  .controller('FaqCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'faq';
+    }
+  ])
+  .controller('ShopCtrl', ['$scope',
+    function($scope) {
+      $scope.pageClass = 'shop';
+    }
+  ]);
 
 gulyApp.
-controller('astucesCtrl', ['$scope', '$http',
-  function($scope, $http) {
-    // $http.get('app-data/astuces.json')
-    //     .success(function(data) {
-    //       $scope.astucesitems = data;
-    //     });
-    this.astuces = astuces;
-  }
-]);
+  controller('astucesCtrl', ['$scope', '$http',
+    function($scope, $http) {
+      $scope.astuces = [];
 
-// should be in a database...
-var astuces = [
-  {
-    strong: "",
-    astuce: "Si vous êtes assise dans une pièce avec de l’air conditionné la plupart de la journée, votre corps et votre peau vont être déshydratés. Vous devez boire plus d’eau et vous mettre de la crème hydratante."
-  },
-  {
-    strong: "",
-    astuce: "Vous aimez la compétition ? Défiez vos amis ou vos collègues et découvrez qui atteindra son quota en premier"
-  },
-    {
-    strong: "",
-    astuce: "Faites des eaux aromatisées en remplissant un pichet d’eau et en y ajoutant des rondelles de citron ou des feuilles de menthe. Dans certains endroits (Inde), on peut acheter des racines de vétiver (appelées 'kus') à rajouter à de l’eau pour avoir un arôme et un parfum délicieux. Mettez au réfrigérateur pendant 4 à 8 heures. Puis enlevez les fruits, ou herbes pour ne pas que l’arôme soit trop fort."
-  },
-  {
-    strong: "",
-    astuce: "Mettez l’eau au frais si vous la préférez ainsi. Gardez un pichet d’eau au réfrigérateur. Mettez des glaçons ou de l’eau gelée dans une petite bouteille avant de l’emmener avec vous, cela fondra et restera froid. L’eau froide demande de l’énergie à votre corps pour réguler sa température, ça lui fait donc brûler des calories. L’eau à température ambiante est meilleure si vous êtes déshydraté. Votre corps peut ainsi absorber l’eau immédiatement au lieu d’avoir à élever la température de l’eau d’abord pour pouvoir l’absorber."
-  },
-  {
-    strong: "",
-    astuce: "Le climat change drastiquement votre besoin en eau. Lorsqu’il fait chaud et que vous devez sortir, vous devez boire plus d’eau pour contrer celle que vous perdez à travers votre sueur. Cela gardera votre corps hydraté, mais aussi vous empêchera de souffrir d’un coup de chaud. Mais il est tout aussi important de boire suffisamment sous un climat froid et sec. Le corps humain marche beaucoup mieux quand il est bien hydraté. Une ration quotidienne d’eau insuffisante va d’abord affecter les fonctions cérébrales, ce qui peut s’avérer très dangereux."
-  },
-  {
-    strong: "",
-    astuce: "Une bonne idée est de consommer un verre d’eau avant chaque repas, car cela deviendra plus difficile d’oublier et contribuera à stimuler le métabolisme des repas."
-  },
-  {
-    strong: "",
-    astuce: "Les infusions, eaux gazeuses et soupes comptent dans le calcul de votre ration d’eau quotidienne."
-  },
-  {
-    strong: "",
-    astuce: "Si votre urine est très claire, vous buvez trop d’eau et vous perdez des électrolytes. Cependant si votre urine est foncée et/ou est très odorante, vous n’avez pas bu assez d’eau. Le juste milieu est une urine jaune clair, peu odorante"
-  }
-];
+      $http.get('app-data/astuces.json')
+        .success(function(data) {
+          $scope.astuces = data;
+        })
+        .error(function(resp) {
+          console.log('attention, erreur: ' + resp);
+        });
+    }
+  ]);
 
 /*  liste des faq
 ===================================================================*/
 
-gulyApp.
-controller('faqitemCtrl', ['$scope', '$http',
-  function($scope, $http) {
+gulyApp
+  .controller('faqitemCtrl', ['$scope', '$http',
+    function($scope, $http) {
 
-    $scope.faqItems = [];
+      $scope.faqItems = [];
 
-    $http.get('app-data/faq_items.json')
-      .success(function(data) {
-        $scope.faqItems = data;
-      }).error(function(resp) {
+      $http.get('app-data/faq_items.json')
+        .success(function(data) {
+          $scope.faqItems = data;
+        }).error(function(resp) {
+          console.log('attention, erreur: ' + resp);
+        });
+    }
+  ]);
 
-      });
-  }
-]);
-
-/*  validation du form profil @
+/*  validation du form profil
 ===================================================================*/
 
 gulyApp
 .controller('profilformCtrl', ['$scope',
     function($scope) {
-      $scope.test = 'ceci est un test';
       this.profil = {};
 
       $scope.submitForm = function(isValid) {
@@ -322,34 +284,40 @@ function JSON_CALLBACK() {
 ===================================================================*/
 
 gulyApp
-  .controller('chartController', ['$scope', '$http',
-    function($scope, $http) {
-      // for the line graph
+  .controller('chartController', ['$scope', '$http', 'localStorageService',
+    function($scope, $http, localStorageService) {
 
-      $scope.data = {
-        labels: [
-                'January', 'February', 'March', 'April', 'May', 'June', 'July',
-                'January', 'February', 'March', 'April', 'May', 'June', 'July',
-                'January', 'February', 'March', 'April', 'May', 'June', 'July'
-                ],
-        datasets: [
-          {
-            label: 'line chart dataset',
-            fillColor: 'rgba(0, 0, 0, 0)',
-            strokeColor: 'rgb(0, 119, 230)',
-            pointColor: 'rgb(102, 229, 209)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
-            data: [
-                    81, 56, 55, 65, 59, 80, 40,
-                    65, 59, 59, 80, 55, 40, 65,
-                    59, 40, 81, 56, 55, 40, 65,
-                    80, 81, 56, 55, 80, 81, 56
-                  ]
-          }
-        ]
-      };
+      var testDatas = {
+                        'labels': [
+                        'January', 'February', 'March', 'April', 'May', 'June', 'July'
+                        ],
+                        'datasets': [
+                          {
+                            'label': 'line chart dataset',
+                            'fillColor': 'rgba(0, 0, 0, 0)',
+                            'strokeColor': 'rgb(0, 119, 230)',
+                            'pointColor': 'rgb(102, 229, 209)',
+                            'pointStrokeColor': '#fff',
+                            'pointHighlightFill': '#fff',
+                            'pointHighlightStroke': 'rgba(220,220,220,1)',
+                            'data': [81, 56, 55, 65, 59, 80, 40]
+                          },
+                          {
+                            'label': 'line chart 2 dataset',
+                            'fillColor': 'rgba(0, 0, 0, 0)',
+                            'strokeColor': 'rgb(255, 119, 230)',
+                            'pointColor': 'rgb(255, 20, 70)',
+                            'pointStrokeColor': '#fff',
+                            'pointHighlightFill': '#fff',
+                            'pointHighlightStroke': 'rgba(220,220,220,1)',
+                            'data': [23, 46, 75, 25, 89, 33, 12]
+                          }
+                        ]
+                      };
+
+      localStorageService.set('chartsData', JSON.stringify(testDatas));
+
+      $scope.data = JSON.parse(localStorageService.get('chartsData'));
 
       // Options for the line graph
       $scope.options = {

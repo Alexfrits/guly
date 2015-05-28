@@ -169,14 +169,14 @@ waterMeterModule
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
-      var $waterLevel = $element.find('.water-meter__level');
+      var $waterLevel = $element.find('.water-meter__round-wrapper');
 
       var waterLevelHeight = toDrink / goal * 100;
       // init the watermeter level
       setWaterLevel(waterLevelHeight);
 
       function setWaterLevel (height) {
-        $waterLevel.css('height', height + '%');
+        $waterLevel.css('background-size', '100%' + height + '%');
       }
 
       function initToDrink (quantity) {

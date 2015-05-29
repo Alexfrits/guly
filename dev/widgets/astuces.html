@@ -1,0 +1,15 @@
+<div class="slider">
+  <div class="slide" ng-repeat="astuce in astuces" ng-show="astuce.visible">
+    <p><strong>{{astuce.strong}}</strong></p>
+	<p>"{{astuce.astuce}}"</p>
+	<ul class="socialnetwork">
+		<li><a href="#"></a>facebook</li>
+		<li><a href="#"></a>twitter</li>
+		<li><a href="#"></a>envoyer à un ami</li>
+	</ul>
+  </div>
+  <div class="arrows">
+    <a href="#" ng-click="prev()">&lt;</a>
+    <a href="#" ng-click="next()">&gt;</a>
+  </div>
+</div>

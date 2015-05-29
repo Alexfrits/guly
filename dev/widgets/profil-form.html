@@ -16,7 +16,7 @@
     <label for="weight" class="weight">
       <select name="weight" id="weight" data-ng-model="weight" required>
         <option value="" disabled selected>Poids en Kg</option>
-        <option data-ng-repeat="x in [] | range:0:250" value="{{x}}">{{x}}</option>
+        <option data-ng-repeat="x in [] | range:0:250" value="{{x}}" ng-selected="{{ x == weight }}">{{x}}</option>
       </select>
     </label>
 

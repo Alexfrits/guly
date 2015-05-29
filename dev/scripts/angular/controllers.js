@@ -24,6 +24,20 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
     $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
+    // executes calculate the first time
+    $scope.wnResult = wnCalc();
+
+    // calculates the water need based on the weight
+    function wnCalc($) {
+      var weight =  parseInt($scope.weight);
+      var indice = 38;
+      // water you get eating food
+      var aliments = (900 / 65) * weight;
+
+      wnResult = (weight * indice) - aliments;
+      return wnResult;
+    }
+
     // Watch, set & get value
     $scope.$watch(function(value) {
       localStorageService.set('nickname', value.nickname);
@@ -37,22 +51,13 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 
       localStorageService.set('smart', value.smart);
       $scope.smartVal = localStorageService.get('smart');
+
+      // recalculates the value of wnResult & stocks it on change;
+      localStorageService.set('wnResult', wnCalc());
+      $scope.wnResultVal = localStorageService.get('wnResult');
     });
   }
   ]);
-
-/*  Calculer l'objectif (waterneed)
-===================================================================*/
-
-gulyApp.controller('wnCtrl', ['$scope',
-      function($scope) {
-        var a =  parseInt($scope.weight);
-        var b = 38;
-        var c = 900;
-
-        $scope.wnResult = (a * b) - c;
-      }
-    ]);
 
 /*  Contrôleurs de pages
 ===================================================================*/
@@ -136,10 +141,16 @@ gulyApp
 ===================================================================*/
 
 gulyApp
-.controller('profilformCtrl', ['$scope',
-    function($scope) {
+.controller('profilformCtrl', ['$scope', 'localStorageService',
+    function($scope, localStorageService) {
       this.profil = {};
 
+      // initialise les boutons avec une valeur
+      $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
+      $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
+      $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
+
+      // validation du form
       $scope.submitForm = function(isValid) {
         if (isValid) {
           console.log('formulaire envoyé');

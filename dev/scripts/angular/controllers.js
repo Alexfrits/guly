@@ -100,7 +100,6 @@ pagesViewControllers
     }
   ]);
 
-
 /*  liste des astuces
 ===================================================================*/
 
@@ -197,7 +196,7 @@ waterMeterModule
 
       $scope.wnToDrink = toDrink;
 
-      $scope.waterLevelHeight ={'height': toDrink / goal * 100+'%'};
+      $scope.waterLevelHeight = {'height': toDrink / goal * 100 + '%'};
       // init the watermeter level
 
       // function setWaterLevel (height) {
@@ -220,7 +219,7 @@ waterMeterModule
         }else {
           newToDrink = 0;
         }
-        $scope.waterLevelHeight = {'height': newToDrink / goal * 100+'%'};
+        $scope.waterLevelHeight = {'height': newToDrink / goal * 100 + '%'};
 
         // setWaterLevel($scope.waterLevelHeight)
         $scope.wnToDrink = newToDrink;
@@ -235,21 +234,15 @@ waterMeterModule
 
       if ($window.DeviceOrientationEvent) {
         $window.addEventListener('deviceorientation', function(e) {
-          tiltLR = Math.round(e.gamma*100)/100; //arrondi à 2 décimales
-          tiltFB = e.beta;
+          tiltLR = Math.round(e.gamma * 100) / 100; //arrondi à 2 décimales
+          $scope.tiltFB = e.beta;
           North = e.alpha;
-          // $waterLevel.css(
-          //   'background',
-          //   'repeating-linear-gradient(' + -1 * tiltLR + 'deg, transparent, transparent 20px, rgb(0, 119, 230) 20px, rgb(0, 119, 230) 25px, transparent 25px, transparent 45px)'
-          // );
 
           $waterLevelWrapper.attr('style', 'transform: rotate(' + tiltLR + ');');
         });
       }
     }
-
   ]);
-
 
 /*  Weather Api
 ===================================================================*/

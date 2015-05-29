@@ -18,6 +18,6 @@
 
 <div class="mega-number__wrapper">
   <div class="mega-number">
-     <p class="number" ng-model="wnResult">{{ wnResult | number:1}} L</p>
+     <p class="number" data-ng-controller="wnCtrl" ng-model="wnResult">{{ (wnResult) | litres | number:1}} L</p>
   </div>
 </div>

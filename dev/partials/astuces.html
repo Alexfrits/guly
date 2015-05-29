@@ -1,6 +1,6 @@
 <main class="main_astuces main-section" ng-controller="astucesCtrl as astuces">
 	<h1>Astuces</h1>
-	<slick dots=true arrows=false infinite=false touch-move=true slides-to-scroll=1 class="slide">
+	<slick init-onload=true data="app-data/astuces.json" dots=true arrows=false infinite=false touch-move=true slides-to-scroll=1 mobileFirst="true">
 	    <div ng-repeat="item in astuces">
 	        <p><strong>{{item.strong}}</strong></p>
 	        <p>"{{item.astuce}}"</p>

@@ -2,9 +2,10 @@
     <a href="#/profil"><i class="fa fa-arrow-left return_btn"></i></a>
 	<div class="result_section">
          <h2 class="result_nickname">{{ nickname }},</h2>
-         <p>Guly te conseille de boire en moyenne</p>
+         <p class="ObjTitle">Ton objectif est de boire</p>
          <p class="WN" ng-model="wnResult">{{ wnResult | number:1}} L</p>
-         <p>d'eau par jour</p>
+         <p><strong>d'eau</strong> tout au long de la journée.</p>
+         <p>(Hors alimentation)</p>
      </div><!-- end of .result_section -->
-     <a role="button" href="#/water-tracker" class="button action_btn .notif">Commencer</a>
+     <a role="button" href="#/water-tracker" class="button action_btn">Commencer</a>
 </main>

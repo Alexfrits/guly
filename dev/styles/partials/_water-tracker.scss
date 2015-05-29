@@ -72,3 +72,41 @@ $wt-rad: 140vmax;
     font-size: 8rem;
   }
 }
+
+
+/* ======================================
+                SPORT MODE
+=========================================*/
+.sport {
+  &:before {
+    content: '';
+    background: url(../img/icon_sport.svg) 0 0 no-repeat;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    position: absolute;
+    top: 8%;
+    right: 2%;
+  }
+}
+
+/* ======================================
+                TEMOIN CONNEXION
+=========================================*/
+.temoin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #dfdfdf;
+  background: rgb(100, 189, 99);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.temoin_off {
+  background: #dfdfdf;
+  border: 1px solid #ADADAD;
+
+}

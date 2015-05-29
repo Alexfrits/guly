@@ -3,9 +3,12 @@
 ===================================================================*/
 
 gulyApp
-.controller('MainCtrl', function() {
-
-});
+.controller('MainCtrl', ['$scope',
+  // function($scope) {
+  //   $scope.nickname == null && $scope.weight == null;
+  //   $window.location.href = '../partials/profil.html';
+  // }
+]);
 
 /*  Contrôleur LocalStorage
 ===================================================================*/
@@ -15,13 +18,13 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
     // récupéré au load()
     $scope.nickname = localStorageService.get('nickname');
     $scope.weight = localStorageService.get('weight');
-    $scope.wnResult = localStorageService.get('wnResult');
 
     // initialise les boutons avec une valeur
     $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
     $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
     $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
+    // Watch, set & get value
     $scope.$watch(function(value) {
       localStorageService.set('nickname', value.nickname);
       $scope.nicknameVal = localStorageService.get('nickname');
@@ -34,9 +37,6 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 
       localStorageService.set('smart', value.smart);
       $scope.smartVal = localStorageService.get('smart');
-
-      localStorageService.set('wnResult', value.wnResult);
-      $scope.wnResultVal = localStorageService.get('wnResult');
     });
   }
   ]);
@@ -48,8 +48,9 @@ gulyApp.controller('wnCtrl', ['$scope',
       function($scope) {
         var a =  parseInt($scope.weight);
         var b = 0.038;
+        var c = 0.9;
 
-        $scope.wnResult = a * b;
+        $scope.wnResult = (a * b) - c;
       }
     ]);
 
@@ -93,6 +94,10 @@ pagesViewControllers
       $scope.pageClass = 'shop';
     }
   ]);
+
+
+/*  liste des astuces
+===================================================================*/
 
 gulyApp.
   controller('astucesCtrl', ['$scope', '$http',

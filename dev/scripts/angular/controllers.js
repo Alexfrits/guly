@@ -186,6 +186,7 @@ waterMeterModule
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
       var $waterLevel = $element.find('.water-meter__round-wrapper');
+      $scope.wnToDrink = toDrink;
 
       var waterLevelHeight = toDrink / goal * 100;
       // init the watermeter level
@@ -203,8 +204,8 @@ waterMeterModule
 
       $scope.updateToDrink = function(quantity) {
         // get the value in the localstorage
-        var toDrink = 1000 * localStorageService.get('wnToDrink');
-        var newToDrink = (toDrink - quantity) / 1000;
+        var toDrink = localStorageService.get('wnToDrink');
+        var newToDrink = toDrink - quantity;
 
         if (newToDrink > 0) {
           newToDrink = newToDrink;
@@ -214,6 +215,8 @@ waterMeterModule
         var waterLevelHeight = newToDrink / goal * 100;
 
         setWaterLevel(waterLevelHeight);
+        $scope.wnToDrink = newToDrink;
+
         localStorageService.set('wnToDrink', newToDrink);
       };
 

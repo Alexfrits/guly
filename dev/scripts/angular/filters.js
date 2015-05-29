@@ -10,3 +10,13 @@ gulyFiltersModule
     return input;
   };
 });
+
+gulyFiltersModule
+// range for selects
+.filter('litres', function() {
+  return function(input) {
+    input = input/1000;
+
+    return input;
+  };
+});

@@ -47,8 +47,8 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 gulyApp.controller('wnCtrl', ['$scope',
       function($scope) {
         var a =  parseInt($scope.weight);
-        var b = 0.038;
-        var c = 0.9;
+        var b = 38;
+        var c = 900;
 
         $scope.wnResult = (a * b) - c;
       }

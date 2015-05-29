@@ -24,38 +24,33 @@
 //   ])
 // ;
 
-//WindowEventsService
+// //WindowEventsService
 gulyApp
   .service('deviceOrentationListener', ['$window',
     function($window) {
-      var orientation  = {};
+        // var windowEvent = {};
+        // this.test = 'test value';
+        // this.test2 = 'testval 2';
+  
+        // function testFun(input) {
+        //   input = input + ' added';
+        //   return input;
+        // }
+  
+        // this.test = testFun(this.test);
 
-      function getDeviceOrientation () {
-        $window.addEventListener('deviceorientation', function(e) {
 
-          function tiltLR (e) {
-            orientation.lr = e.gamma;
-            return orientation.lr;
-          }
+        // $window.addEventListener('deviceorientation', function(e) {
+        //   return function(e) {
+        //     windowEvent = e;
+        //   }
+        // });
+        // console.log(windowEvent);
 
-          function tiltFB (e) {
-            // beta is the front-to-back tilt in degrees, where front is positive
-            orientation.fb = e.beta;
-            return orientation.fb;
-          }
-
-          function direction (e) {
-            // alpha is the compass direction the device is facing in degrees
-            orientation.dir = e.alpha;
-            return orientation.dir;
-          }
-
-          return orientation;
-        });
-          return orientation;
-
-        console.log(orientation);
-      }
-          return orientation;
-    }
-  ]);
+  
+        // // this.tiltLR = function(e) {
+        // //   orientation.lr = e.gamma;
+        // //   return orientation.lr;
+        // // }
+        // return this;
+    }]);

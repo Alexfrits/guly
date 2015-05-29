@@ -179,9 +179,19 @@ waterMeterModule
     '$window',
     'localStorageService',
     'deviceOrentationListener',
-    function($scope, $element, $window, localStorageService, deviceOrientationListener) {
+    function(
+      $scope,
+      $element,
+      $window,
+      localStorageService,
+      deviceOrientationListener
+    ) {
 
       /* INITIALISATION */
+      var tiltLR;
+      var tiltFB;
+      var North;
+
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
@@ -222,21 +232,18 @@ waterMeterModule
 
       /* ROTATION */
 
-      // $element.find('.water-meter__round-wrapper').css('rotate', function () {
-      //   return
-      // });
 
-      // $window.addEventListener('deviceorientation', function(e) {
-
-      //   orientation.lr = e.gamma;
-
-      //   // beta is the front-to-back tilt in degrees, where front is positive
-      //   orientation.fb = e.beta;
-
-      //   // alpha is the compass direction the device is facing in degrees
-      //   orientation.dir = e.alpha;
-
-      // });
+      if ($window.DeviceOrientationEvent) {
+        $window.addEventListener('deviceorientation', function(e) {
+          tiltLR = Math.round(e.gamma*100)/100; //arrondi à 2 décimales
+          tiltFB = e.beta;
+          North = e.alpha;
+          $waterLevel.css(
+            'background',
+            'repeating-linear-gradient(' + -1 * tiltLR + 'deg, transparent, transparent 20px, rgb(0, 119, 230) 20px, rgb(0, 119, 230) 25px, transparent 25px, transparent 45px)'
+          );
+        });
+      }
     }
 
   ]);

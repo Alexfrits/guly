@@ -26,7 +26,11 @@ $wt-rad: 140vmax;
   flex-direction: columns;
   align-items: flex-end;
 
-  background: repeating-linear-gradient(
+
+  .water-meter__level {
+    display: block;
+    width: 100%;
+    background: repeating-linear-gradient(
                 315deg,
                 transparent,
                 transparent 20px,
@@ -35,16 +39,10 @@ $wt-rad: 140vmax;
                 transparent 25px,
                 transparent 45px
               );
-  background-size: 100% 100%;
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
-
-  // .water-meter__level {
-  //   display: block;
-  //   width: 100%;
-  //   background: #A3FFC8;
-  //   transition: 2s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
-  // }
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    transition: 2s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
+  }
 
 // fUnction to generate a stripped bg automatically
   // @function stripped-bg($first-color, $second-color) {

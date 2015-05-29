@@ -188,23 +188,21 @@ waterMeterModule
     ) {
 
       /* INITIALISATION */
-      var tiltLR;
-      var tiltFB;
-      var North;
 
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
-      var $waterLevel = $element.find('.water-meter__round-wrapper');
+      var $waterLevel = $element.find('.water-meter__level');
+      var $waterLevelWrapper = $element.find('.water-meter__round-wrapper');
+
       $scope.wnToDrink = toDrink;
 
-      var waterLevelHeight = toDrink / goal * 100;
+      $scope.waterLevelHeight ={'height': toDrink / goal * 100+'%'};
       // init the watermeter level
-      setWaterLevel(waterLevelHeight);
 
-      function setWaterLevel (height) {
-        $waterLevel.css('background-size', '100%' + height + '%');
-      }
+      // function setWaterLevel (height) {
+      //   $waterLevel.css('height', Math.round(height * 100)/100 + '%');
+      // }
 
       function initToDrink (quantity) {
         localStorageService.set('wnToDrink', quantity);
@@ -222,26 +220,30 @@ waterMeterModule
         }else {
           newToDrink = 0;
         }
-        var waterLevelHeight = newToDrink / goal * 100;
+        $scope.waterLevelHeight = {'height': newToDrink / goal * 100+'%'};
 
-        setWaterLevel(waterLevelHeight);
+        // setWaterLevel($scope.waterLevelHeight)
         $scope.wnToDrink = newToDrink;
 
         localStorageService.set('wnToDrink', newToDrink);
       };
 
       /* ROTATION */
-
+      var tiltLR;
+      var tiltFB;
+      var North;
 
       if ($window.DeviceOrientationEvent) {
         $window.addEventListener('deviceorientation', function(e) {
           tiltLR = Math.round(e.gamma*100)/100; //arrondi à 2 décimales
           tiltFB = e.beta;
           North = e.alpha;
-          $waterLevel.css(
-            'background',
-            'repeating-linear-gradient(' + -1 * tiltLR + 'deg, transparent, transparent 20px, rgb(0, 119, 230) 20px, rgb(0, 119, 230) 25px, transparent 25px, transparent 45px)'
-          );
+          // $waterLevel.css(
+          //   'background',
+          //   'repeating-linear-gradient(' + -1 * tiltLR + 'deg, transparent, transparent 20px, rgb(0, 119, 230) 20px, rgb(0, 119, 230) 25px, transparent 25px, transparent 45px)'
+          // );
+
+          $waterLevelWrapper.attr('style', 'transform: rotate(' + tiltLR + ');');
         });
       }
     }

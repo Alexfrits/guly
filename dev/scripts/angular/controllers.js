@@ -378,3 +378,19 @@ gulyApp
 
     }
   ]);
+
+
+gulyApp
+  .controller('badgesCtrl', ['$scope', '$http',
+    function($scope, $http) {
+
+      $scope.badges = [];
+
+      $http.get('app-data/badges.json')
+        .success(function(data) {
+          $scope.badges = data;
+        }).error(function(resp) {
+          console.log('attention, erreur: ' + resp);
+        });
+    }
+  ]);

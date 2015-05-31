@@ -148,13 +148,16 @@ gulyApp
 ===================================================================*/
 
 gulyApp
-.controller('profilformCtrl', ['$scope',
-    function($scope) {
+.controller('profilformCtrl', ['$scope', 'localStorageService',
+    function($scope, LocalStorageService) {
       this.profil = {};
 
       $scope.submitForm = function(isValid) {
+        // starts the logged session when form is validated
         if (isValid) {
+          logged = true;
           console.log('formulaire envoyé');
+          LocalStorageService.set('logged', logged);
         }
       };
     }
@@ -217,26 +220,7 @@ waterMeterModule
         setWaterLevel(waterLevelHeight);
         localStorageService.set('wnToDrink', newToDrink);
       };
-
-      /* ROTATION */
-
-      // $element.find('.water-meter__round-wrapper').css('rotate', function () {
-      //   return
-      // });
-
-      // $window.addEventListener('deviceorientation', function(e) {
-
-      //   orientation.lr = e.gamma;
-
-      //   // beta is the front-to-back tilt in degrees, where front is positive
-      //   orientation.fb = e.beta;
-
-      //   // alpha is the compass direction the device is facing in degrees
-      //   orientation.dir = e.alpha;
-
-      // });
     }
-
   ]);
 
 /*  Weather Api

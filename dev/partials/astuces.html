@@ -1,4 +1,9 @@
-<main class="main_astuces main-section" ng-controller="astucesCtrl as astuces">
+<main class="main_astuces main-section" controller="astucesController as testctrl">
+{{ testctrl.test }}
 	<h1>Astuces</h1>
-  	<slider astuces="astuces" />
+  <p>Retrouve ici la liste des astuces que tu as déjà débloquées!</p>
+  <ul>
+    <li ng-repeat="astuce in astuces">
+  </ul>
+
 </main>

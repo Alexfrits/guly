@@ -104,14 +104,16 @@ $nav-bg-open-close: $time-med all ease-out;
   ul {
 
     li {
-      transition: $nav-li-open-close;
       position: absolute;
       left: -100%;
+      transition: $nav-li-open-close;
 
       margin: calc(5% + 5rem) 5% 0;
       padding: 1.4rem 0;
       padding-left: 2rem;
+
       font-size: 2.4rem;
+      text-transform: uppercase;
 
 
       @for $i from 0 to ($main-menu-items) {

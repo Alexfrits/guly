@@ -44,7 +44,7 @@ $nav-bg-open-close: $time-med all ease-out;
 .main-nav__toggle-button {
   position: absolute;
   top: 3%;
-  left: 5%;
+  left: 3%;
   background: $action-color;
   border-radius: 50px;
   border-top-left-radius: 0;
@@ -67,9 +67,6 @@ $nav-bg-open-close: $time-med all ease-out;
     stroke-linecap: round;
 
     &:first-child {
-/*       stroke: blue;
-transform-origin: 0 50%;
-transform: rotate(45deg); */
     }
 
   }

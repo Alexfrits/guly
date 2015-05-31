@@ -44,13 +44,21 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 /*  Calculer l'objectif (waterneed)
 ===================================================================*/
 
-gulyApp.controller('wnCtrl', ['$scope',
-      function($scope) {
-        var a =  parseInt($scope.weight);
-        var b = 38;
-        var c = 900;
+gulyApp.controller('wnCtrl', ['$scope', 'localStorageService',
+      function($scope, localStorageService) {
+        var weight =  parseInt($scope.weight);
+        var constante = 38;
+        var food = weight * (900 / 65); // the amount of water you get eating food
+        // gets the to drink of the LS if it exists
+        var toDrink = (localStorageService.get('wnToDrink')) ? localStorageService.get('wnToDrink') : false;
 
-        $scope.wnResult = (a * b) - c;
+        $scope.wnResult = (weight * constante) - food;
+
+        localStorageService.set('wnResult', $scope.wnResult);
+        // if wnToDrink doesn't exists, sets it equal to the daily goal
+        if (!toDrink) {
+          localStorageService.set('wnToDrink', $scope.wnResult);
+        }
       }
     ]);
 
@@ -180,23 +188,33 @@ waterMeterModule
   .controller('waterMeterController', [
     '$scope',
     '$element',
-    '$window',
     'localStorageService',
     'deviceOrentationListener',
-    function($scope, $element, $window, localStorageService, deviceOrientationListener) {
+    function($scope, $element, localStorageService, deviceOrientationListener) {
 
       /* INITIALISATION */
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
-      var $waterLevel = $element.find('.water-meter__round-wrapper');
+      $scope.wnToDrink = toDrink;
+      var $waterLevel = $element.find('.water-meter__level');
 
       var waterLevelHeight = toDrink / goal * 100;
+
+      //if drinkSizes are in custom, they are in LS
+      var drinkSize = (localStorageService.get('drinkSize')) ? JSON.parse(localStorageService.get('drinkSize')) : false;
+
+      // if they aren't in LS, fallback to default
+      $scope.drinkSize = {};
+      $scope.drinkSize.small = (drinkSize.small) ? drinkSize.small : 125;
+      $scope.drinkSize.med = (drinkSize.med) ? drinkSize.med : 250;
+      $scope.drinkSize.large = (drinkSize.large) ? drinkSize.large : 330;
+
       // init the watermeter level
       setWaterLevel(waterLevelHeight);
 
       function setWaterLevel (height) {
-        $waterLevel.css('background-size', '100%' + height + '%');
+        $waterLevel.css('height', height + '%');
       }
 
       function initToDrink (quantity) {
@@ -207,8 +225,8 @@ waterMeterModule
 
       $scope.updateToDrink = function(quantity) {
         // get the value in the localstorage
-        var toDrink = 1000 * localStorageService.get('wnToDrink');
-        var newToDrink = (toDrink - quantity) / 1000;
+        var toDrink =  localStorageService.get('wnToDrink');
+        var newToDrink = (toDrink - quantity);
 
         if (newToDrink > 0) {
           newToDrink = newToDrink;
@@ -218,6 +236,8 @@ waterMeterModule
         var waterLevelHeight = newToDrink / goal * 100;
 
         setWaterLevel(waterLevelHeight);
+
+        $scope.wnToDrink = newToDrink;
         localStorageService.set('wnToDrink', newToDrink);
       };
     }

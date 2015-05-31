@@ -1,60 +1,43 @@
 /*===================================================================
   MAIN PAGE (water tracker)
 ===================================================================*/
-
-// config
-$wt-rad: 140vmax;
-
-
-.main-wrapper {
-
+.page-tracker {
+  background: $main-color;
+  height: 100%;
 }
 
 .water-meter__round-wrapper {
   position: absolute;
-  // moitié de la largeur-longueur de l'écran moins moitié de la longueur du round wrapper
-  // ce calcule ne peut être fait avec une variable (variable non interpréter)
-  top: calc(50vh - 70vmax);
-  left: calc(50vw - 70vmax);
-  width: $wt-rad;
-  height: $wt-rad;
-
-  transition: 2s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 2s .2s $smooth-transition;
   transform: rotate(0);
 
   display: flex;
   flex-direction: columns;
   align-items: flex-end;
 
-  background: repeating-linear-gradient(
-                315deg,
-                transparent,
-                transparent 20px,
-                $main-color 20px,
-                $main-color 25px,
-                transparent 25px,
-                transparent 45px
-              );
-  background-size: 100% 100%;
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
+  .water-meter__level {
+    display: block;
+    width: 100%;
+    height: 100%;
 
-  // .water-meter__level {
-  //   display: block;
-  //   width: 100%;
-  //   background: #A3FFC8;
-  //   transition: 2s .2s cubic-bezier(0.43,-0.52, 0.46, 1.27);
-  // }
+    background: repeating-linear-gradient(
+                  45deg,
+                  transparent,
+                  transparent 9px,
+                  $white-color 9px,
+                  $white-color 10px
+                );
+    background-size: 100% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 2s .2s $smooth-transition;
+  }
 
-// fUnction to generate a stripped bg automatically
-  // @function stripped-bg($first-color, $second-color) {
-  //   @for $i from 0 through 10 {
-  //     $first-color: $i * 5%;
-  //     $second-color: $i * 5%;
-  //   }
-  //   @return $first-color, $second-color;
-  // }
-  // @debug(stripped-bg(red, blue));
+
 }
 
 .mega-number__wrapper {
@@ -69,44 +52,52 @@ $wt-rad: 140vmax;
 
   // the big water tracker number
   .mega-number {
-    font-size: 8rem;
+    color: $white-color;
+    font-size: 60vw;
+    letter-spacing: -6vw;
   }
 }
 
-
-/* ======================================
-                SPORT MODE
-=========================================*/
-.sport {
-  &:before {
-    content: '';
-    background: url(../img/icon_sport.svg) 0 0 no-repeat;
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-size: 100%;
-    position: absolute;
-    top: 8%;
-    right: 2%;
-  }
-}
-
-/* ======================================
-                TEMOIN CONNEXION
-=========================================*/
-.temoin {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid #dfdfdf;
-  background: rgb(100, 189, 99);
+.ui {
   position: absolute;
-  right: 10px;
-  top: 10px;
-}
+  top: 3%;
+  right: 3%;
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background: $white-color;
+  border-radius: 50%;
+  border-top-right-radius: 0;
 
-.temoin_off {
-  background: #dfdfdf;
-  border: 1px solid #ADADAD;
+  /* SPORT MODE */
+  .sport {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../img/icon_sport.svg) no-repeat;
+    background-position: 50% 0%;
+    background-size: 100%;
 
+    &.active {
+      background-position: 50% 0%;
+    }
+  }
+  /* TEMOIN CONNEXION */
+  .temoin {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #dfdfdf;
+    background: rgb(100, 189, 99);
+  }
+
+  .temoin_off {
+    background: #dfdfdf;
+    border: 1px solid #adadad;
+
+  }
 }

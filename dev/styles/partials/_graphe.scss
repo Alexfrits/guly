@@ -1,39 +1,21 @@
-.graphe__wrapper {
+.page-stats {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  // @include wavey-bg(transparent, $second-color, 10%);
+}
+/*  GRAPHE
+===================================================================*/
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-  }
-
-  .graphe__img__frame {
-    overflow: scroll;
-
-    .graphes {
-      position: relative;
-      canvas#chart-bar {
-
-      }
-      canvas#chart-line {
-        position: absolute;
-        top: 0;
-        left: 58px;
-      }
-    }
-  }
+.chart {
+  background: $main-color;
+  width: 100%;
+  height: 320px;
 }
 
-.month-display {
-  ul {
-    list-style-type: none;
-  }
-}
 
-.success-display__trophies {
-  font-size: 3rem;
-}
+/*  BADGES
+===================================================================*/
 
 .badges {
 
@@ -52,7 +34,6 @@
       font-size: 1.4em;
       color: $second-color;
       margin: -6px 0 20px 0;
-
     }
 
     .description {

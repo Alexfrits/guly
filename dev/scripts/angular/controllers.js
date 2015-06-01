@@ -192,8 +192,7 @@ waterMeterModule
       $scope,
       $element,
       $window,
-      localStorageService
-    ) {
+      localStorageService) {
 
       /* INITIALISATION */
 
@@ -201,10 +200,15 @@ waterMeterModule
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
       var $waterLevelWrapper = $element.find('.water-meter__round-wrapper');
-      $scope.wnToDrink = toDrink;
       var $waterLevel = $element.find('.water-meter__level');
 
-      //if drinkSizes are in custom, they are in LS
+      $scope.wnToDrink = toDrink;
+
+      // init the level of the water meter
+      height = toDrink / goal * 100;
+      setWaterLevel(height);
+
+      //if drinkSizes are custom, they are in LS
       var drinkSize = (localStorageService.get('drinkSize')) ? JSON.parse(localStorageService.get('drinkSize')) : false;
 
       // if they aren't in LS, fallback to default
@@ -336,9 +340,7 @@ function JSON_CALLBACK() {
 gulyApp
   .controller('chartController', ['$scope', '$http', 'localStorageService',
     function($scope, $http, localStorageService) {
-
-      // getting today's date
-
+      /* GETTING TODAY'S DATE */
       var today = new Date();
       var dd = today.getDate();
       var mm = today.getMonth() + 1; //January is 0!
@@ -355,45 +357,92 @@ gulyApp
       today = mm + '/' + dd + '/' + yyyy;
       console.log(today);
 
-      var testDatas = {
-                        'labels': [
-                        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'TEST', 'TEST', 'TEST'
-                        ],
-                        'datasets': [
-                          {
-                            'label': 'line chart dataset',
-                            'fillColor': 'rgba(0, 0, 0, 0)',
-                            'strokeColor': 'rgb(0, 119, 230)',
-                            'pointColor': 'rgb(102, 229, 209)',
-                            'pointStrokeColor': '#fff',
-                            'pointHighlightFill': '#fff',
-                            'pointHighlightStroke': 'rgba(220,220,220,1)',
-                            'data': [81, 56, 55, 65, 59, 80, 40]
-                          },
-                          {
-                            'label': 'line chart 2 dataset',
-                            'fillColor': 'rgba(0, 0, 0, 0)',
-                            'strokeColor': 'rgb(255, 20, 70)',
-                            'pointColor': 'rgb(255, 119, 230)',
-                            'pointStrokeColor': '#fff',
-                            'pointHighlightFill': '#fff',
-                            'pointHighlightStroke': 'rgba(220,220,220,1)',
-                            'data': [23, 46, 75, 25, 89, 33, 12]
-                          }
-                        ]
-                      };
+      /*  CHART OPTIONS
+      ===================================================================*/
+      // COLORS (from styles/helpers/_colors.scss)
+      var mainColor = 'rgb(0, 119, 230)';       // deep blue
+      var secondColor = 'rgb(11, 46, 88)';      // dark blue
+      var actionColor = 'rgb(102, 229, 209)';   // turquoise flash
+      var whiteColor = 'rgb(255, 255, 255)';    // white
+      var transparentColor = 'rgba(0, 0, 0, 0)';
 
-      localStorageService.set('chartsData', JSON.stringify(testDatas));
+      var chartFontFamily = '"misoregular", "Arial Narrow","Helvetica Condensed", Helvetica, Arial, sans-serif';
 
+      // getting the datas from LS
       $scope.data = JSON.parse(localStorageService.get('chartsData'));
 
-      // Options for the line graph
+      // GRAPHE settings
       $scope.options = {
-        scaleShowGridLines : false,
-        showScale: false,
+        /* GENERAL SCALE settings */
         scaleBeginAtZero: true,
+        scaleFontFamily: chartFontFamily,
+        scaleFontSize: 14,
+        scaleFontColor: whiteColor,
+        scaleLineColor: whiteColor,
+        scaleShowVerticalLines: false,
+        responsive: true,
+        maintainAspectRatio: false,
+
+        /* TOOLTIP (infowindows) settings */
+        tooltipFillColor: secondColor,
+        tooltipFontFamily: chartFontFamily,
+        tooltipFontSize: 24,
+        // // tooltipFontColor: "#fff",
+        tooltipTitleFontFamily: chartFontFamily,
+        tooltipTitleFontSize: 18,
+        // // tooltipTitleFontColor: "#fff",
+        tooltipYPadding: 12,
+        tooltipXPadding: 12,
+        tooltipCornerRadius: 5,
+        multiTooltipTemplate: '<%= value %> litres',
+
+        /* LINE GRAPHE dedicated options */
+        scaleGridLineWidth : 1,
+        bezierCurve : true,
+        bezierCurveTension : 0.5,
+        pointDot : true,
+        pointDotRadius : 2,
+        pointDotStrokeWidth : 2,
+        pointHitDetectionRadius : 20,
+        datasetStrokeWidth : 6,
+        // legendTemplate : '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
       };
 
+      var testDatas = {
+        'labels': [
+          'lundi',
+          'mardi',
+          'mercredi',
+          'jeudi',
+          'vendredi',
+          'samedi',
+          'dimanche'
+        ],
+        'datasets': [
+          {
+            'label': 'objectif quotidien',
+            'fillColor': whiteColor,
+            'strokeColor': transparentColor,
+            'pointColor': transparentColor,
+            'pointStrokeColor': transparentColor,
+            'pointHighlightFill': transparentColor,
+            'pointHighlightStroke': transparentColor,
+            'data': [1.8, 1.8, 1.8, 1.8, 2.4, 1.8, 1.8]
+          },
+          {
+            'label': 'Quantité bue',
+            'fillColor': transparentColor,
+            'strokeColor': actionColor,
+            'pointColor': mainColor,
+            'pointStrokeColor': secondColor,
+            'pointHighlightFill': actionColor,
+            'pointHighlightStroke': mainColor,
+            'data': [1.2, 1.4, 1.3, 1.6, 2.6, 1.8, 1.8]
+          }
+        ]
+      };
+
+      localStorageService.set('chartsData', JSON.stringify(testDatas));
     }
   ]);
 

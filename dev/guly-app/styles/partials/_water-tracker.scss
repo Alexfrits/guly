@@ -41,7 +41,7 @@
 .mega-number__wrapper {
   position: absolute;
   top: 0%;
-  bottom: 0%;
+  bottom: 20%;
   left: 0%;
   right: 0%;
   display: flex;
@@ -53,6 +53,18 @@
     color: $white-color;
     font-size: 60vw;
     letter-spacing: -6vw;
+  }
+}
+
+.astuce__wrapper {
+  position: absolute;
+  bottom: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+  .astuce {
+
   }
 }
 

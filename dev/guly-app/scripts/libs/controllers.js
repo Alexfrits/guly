@@ -190,11 +190,13 @@ waterMeterModule
     '$element',
     '$window',
     'localStorageService',
+    '$interval',
     function(
       $scope,
       $element,
       $window,
-      localStorageService) {
+      localStorageService,
+      $interval) {
 
       /* INITIALISATION */
 
@@ -202,7 +204,7 @@ waterMeterModule
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
 
       //var toDrink;
-      if (localStorageService.get('wnToDrink') !== null){
+      if (localStorageService.get('wnToDrink') !== null) {
         var toDrink = localStorageService.get('wnToDrink');
       } else {
         toDrink = initToDrink(goal);
@@ -239,14 +241,30 @@ waterMeterModule
         toDrink = localStorageService.get('wnToDrink');
         var newToDrink = toDrink - quantity;
 
+        // if the difference between what's left to drink & what is drunk is higher than zero
         if (newToDrink > 0) {
           newToDrink = newToDrink;
-        }else {
+
+          // normal countdown to the new value 10 steps of 100ms
+          $interval(function() {
+            $scope.wnToDrink = $scope.wnToDrink - quantity / 10;
+          }, 100 , 10);
+
+        // if the result is a negative number
+        } else if (newToDrink < 0) {
+          // divide what's left to drink by the number of steps
+          // & substract it from what's left to drink every step
+          var fraction = $scope.wnToDrink / 10;
+
+          $interval(function() {
+            $scope.wnToDrink = $scope.wnToDrink - fraction;
+          }, 100 , 10);
+
           newToDrink = '0';
         }
+
         height = newToDrink / goal * 100;
 
-        $scope.wnToDrink = newToDrink;
         setWaterLevel(height);
         localStorageService.set('wnToDrink', newToDrink);
       };
@@ -261,8 +279,6 @@ waterMeterModule
           tiltLR = Math.round(e.gamma * 100) / 100; //arrondi à 2 décimales
           $scope.tiltFB = e.beta;
           North = e.alpha;
-
-          $waterLevelWrapper.attr('style', 'transform: rotate(' + tiltLR + ');');
         });
       }
 

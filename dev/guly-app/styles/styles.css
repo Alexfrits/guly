@@ -2301,7 +2301,7 @@ h1 {
 .mega-number__wrapper {
   position: absolute;
   top: 0%;
-  bottom: 0%;
+  bottom: 20%;
   left: 0%;
   right: 0%;
   display: -webkit-box;
@@ -2320,6 +2320,15 @@ h1 {
     color: white;
     font-size: 60vw;
     letter-spacing: -6vw; }
+
+.astuce__wrapper {
+  position: absolute;
+  bottom: 27%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center; }
 
 .ui {
   position: absolute;

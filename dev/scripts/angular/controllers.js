@@ -1,12 +1,3 @@
-
-/*  Contrôleur principal
-===================================================================*/
-
-gulyApp
-.controller('MainCtrl', ['$scope',
-
-]);
-
 /*  Contrôleur LocalStorage
 ===================================================================*/
 
@@ -122,19 +113,17 @@ pagesViewControllers
 ===================================================================*/
 
 gulyApp
-.controller('astucesController', ['$scope', '$http',
+  .controller('astucesCtrl', ['$scope', '$http',
     function($scope, $http) {
-      $scope.test = 'test';
-      console.log('test');
-      // $scope.astuces = [];
-      // $http.get('app-data/astuces.json')
-      //   .success(function(data) {
-      //     $scope.astuces = data;
-      //     console.log($scope.astuces);
-      //   })
-      //   .error(function(resp) {
-      //     console.log('attention, erreur: ' + resp);
-      //   });
+
+      $scope.astuces = [];
+
+      $http.get('app-data/astuces.json')
+        .success(function(data) {
+          $scope.astuces = data;
+        }).error(function(resp) {
+          console.log('attention, erreur: ' + resp);
+        });
     }
   ]);
 
@@ -199,13 +188,11 @@ waterMeterModule
     '$element',
     '$window',
     'localStorageService',
-    'deviceOrentationListener',
     function(
       $scope,
       $element,
       $window,
-      localStorageService,
-      deviceOrientationListener
+      localStorageService
     ) {
 
       /* INITIALISATION */

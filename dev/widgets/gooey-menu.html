@@ -2,8 +2,8 @@
 <div class="gooey__wrapper">
   <ul class="gooey">
 
-    <li class="gooey__open-button" ng-class="{opened:gooeyOn}">
-      <a href="" class="gooey__item__content" ng-click="gooeyOn = !gooeyOn">
+    <li class="gooey__open-button" data-ng-class="{opened:gooeyOn}">
+      <a href="" class="gooey__item__content" data-ng-click="gooeyOn = !gooeyOn">
         <svg class="drink-icon__svg" preserveAspectRatio="xMidYMid" viewBox="0 0 100 100">
           <use class="drink-icon--picto" xlink:href="#drink-icon"></use>
         </svg>
@@ -11,19 +11,19 @@
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--small" class="gooey__item__content" ng-click="updateToDrink(drinkSize.small); gooeyOn = !gooeyOn">
+      <a href="" id="gooey__add--small" class="gooey__item__content" data-ng-click="updateToDrink(drinkSize.small); gooeyOn = !gooeyOn">
         {{ drinkSize.small | litres:'ml' }}
       </a>
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--medium" class="gooey__item__content" ng-click="updateToDrink(drinkSize.med); gooeyOn = !gooeyOn">
+      <a href="" id="gooey__add--medium" class="gooey__item__content" data-ng-click="updateToDrink(drinkSize.med); gooeyOn = !gooeyOn">
         {{ drinkSize.med | litres:'ml' }}
       </a>
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--large" class="gooey__item__content" ng-click="updateToDrink(drinkSize.large); gooeyOn = !gooeyOn">
+      <a href="" id="gooey__add--large" class="gooey__item__content" data-ng-click="updateToDrink(drinkSize.large); gooeyOn = !gooeyOn">
         {{ drinkSize.large | litres:'ml' }}
       </a>
     </li>

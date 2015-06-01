@@ -1,5 +1,5 @@
 <main class="main_weather main-section" data-ng-controller="GetWeatherCtrl">
-	<div ng-repeat="day in data.list | filter:!dt.today">
+	<div data-ng-repeat="day in data.list | filter:!dt.today">
 		<span class="temp-title temp">
 		{{day.temp.day | temp}}
 		</span>

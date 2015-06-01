@@ -134,11 +134,11 @@ gulyApp
   .controller('faqitemCtrl', ['$scope', '$http',
     function($scope, $http) {
 
-      $scope.faqItems = [];
+      $scope.faq = [];
 
       $http.get('app-data/faq_items.json')
         .success(function(data) {
-          $scope.faqItems = data;
+          $scope.faq = data;
         }).error(function(resp) {
           console.log('attention, erreur: ' + resp);
         });

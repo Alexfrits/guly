@@ -11,7 +11,8 @@ var gulyApp = window.angular.module('gulyApp', [
   'weatherControllers',
   'weatherServices',
   'tc.chartjs',
-  'slick'
+  'slick',
+  'sharingModule'
 ]);
 
 /*  DEPENDENCIES
@@ -25,6 +26,7 @@ var gooeyMenuModule       = angular.module('gooeyMenuModule', []);
 var gulyFiltersModule     = angular.module('gulyFiltersModule', []);
 var weatherControllers    = angular.module('weatherControllers', []);
 var weatherServices       = angular.module('weatherServices', []);
+var sharingModule         = angular.module('sharingModule', []);
 
 gulyApp
   .config(['$routeProvider',

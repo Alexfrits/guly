@@ -1,12 +1,14 @@
-<main class="main_faq main-section" ng-controller="faqitemCtrl as faq">
+<main class="main_faq main-section" data-ng-controller="faqitemCtrl">
   <h1>FAQ</h1>
-  <slick dots=true arrows=false infinite=false touch-move=true slides-to-scroll=1 class="slide">
-
-      <div ng-repeat="item in faqItems">
+  <div data="faq" slick-slider="{
+    dots: true,
+    arrows: false,
+    slidesToShow:1,
+    infinite:false}">
+      <div data-ng-repeat="item in faq">
         <h2>{{item.question}}</h2>
         <p>"{{item.reponse}}"</p>
       </div>
-
       <div>
         <h2>J'ai une question !</h2>
         <p>Envoyer nous  votre question et nous y répondrons dans les plus bref délais !</p>
@@ -18,14 +20,13 @@
 		          data-ng-submit="submitForm(contact_form.$valid)"
 		          novalidate>
 
-      		<input type="email" name="mail" id="mail" placeholder="Entrer votre mail" ng-model="mail" required>
-        	<p ng-show="contact_form.mail.$invalid && !contact_form.mail.$pristine" class="help-block">Entrer une adresse email valide.</p>
-        	<textarea id="question" placeholder="Quelle est votre question ?" ng-model="question" required></textarea>
+      		<input type="email" name="mail" id="mail" placeholder="Entrer votre mail" data-ng-model="mail" required>
+        	<small data-ng-show="contact_form.mail.$invalid && !contact_form.mail.$pristine" class="help-block">Entrer une adresse email valide.</small>
+        	<textarea id="question" placeholder="Quelle est votre question ?" data-ng-model="question" required></textarea>
 
-          <input type="submit" value="Envoyer" class="button" id="submit_question" ng-disabled="contact_form.$invalid"/>
+          <input type="submit" value="Envoyer" class="button" id="submit_question" data-ng-disabled="contact_form.$invalid"/>
         </form>
-      		<p>contact_form is {{contact_form.$valid}}</p>
           <p>Ou Appelez nous au 02 497 279</p>
       </div>
-  </slick>
+  </div>
 </main>

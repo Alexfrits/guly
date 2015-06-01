@@ -1,0 +1,80 @@
+//config
+$menu-items: 3;
+$item-width: 4rem;
+$item-height: $item-width;
+$open-distance: (1.2 * $item-width);
+
+.share__wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+
+  .share {
+    position: relative;
+    filter: url("#goo");
+    width: 100%;
+    height: 65px;
+  }
+
+  .share__item {
+    position: absolute;
+    top: calc(50% - 20px);
+    right: 8%;
+    border-radius: 100%;
+
+    text-align: center;
+    font-size: 2rem;
+
+    background: $action-color;
+    transition: transform $smooth-transition 350ms;
+
+    @for $i from 1 through $menu-items {
+      &:nth-child(#{$i+1}) {
+        transition-duration: 70ms + ($i * 60ms);
+      }
+    }
+
+    .share__item__content {
+      width: $item-width;
+      height: $item-height;
+      display: block;
+      line-height: 4rem;
+      color: white;
+    }
+  }
+
+  .share__open-button {
+
+    @extend .share__item;
+    text-align: center;
+    z-index: 2;
+
+    .share-icon__svg {
+      width: 50%;
+      height: 100%;
+      margin: auto;
+
+      .share-icon--picto {
+
+      }
+    }
+
+    &.opened {
+      animation: blob 400ms ease-in-out;  // blob keyframes in _variables.scss
+
+      & ~ .share__item {
+        @for $i from 1 through $menu-items {
+
+          &:nth-child(#{$i+1}){
+            transition-duration:80ms+(80ms*$i);
+            transform:translate3d(
+                        - ($i * $open-distance),
+                        0,
+                        0
+                      );
+          }
+        }
+      }
+    }
+  }
+}

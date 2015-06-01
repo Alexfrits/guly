@@ -2,6 +2,16 @@ body {
 	width: 100%;
 	height: 100vh;
   color: $second-color;
+  font-size: 18px;
+  font-family: $miso-regular;
+}
+
+h1 {
+    text-align: center;
+    font-family: $miso-bold;
+
+    padding: 0 0 20px 0;
+    margin: 2rem 0;
 }
 
 // color of the clickable links

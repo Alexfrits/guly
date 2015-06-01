@@ -1,5 +1,5 @@
 //config
-$menu-items: 3;
+$menu-items: 4;
 $item-width: 5rem;
 $item-height: $item-width;
 $open-distance: (1.5 * $item-width);
@@ -65,8 +65,9 @@ $open-distance: (1.5 * $item-width);
 
       & ~ .gooey__item {
         @for $i from 1 through $menu-items {
-          $angle: 150deg + ($i * (60deg));
-
+          $angle: (180 - (45 / 2)) + ($i * 45deg);
+          
+          // starts at second item (first = open button)
           &:nth-child(#{$i+1}){
             transition-duration:80ms+(80ms*$i);
             transform:translate3d(

@@ -47,19 +47,3 @@
 $miso-light   : 'misolight'  , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
 $miso-regular : 'misoregular', 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
 $miso-bold    : 'misobold'   , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
-
-
-
-/*  3. FONTS USAGE
-===================================================================*/
-
-body {
-  font-size: 18px;
-  font-family: $miso-regular;
-}
-
-h1 {
-    text-align: center;
-    font-family: $miso-bold;
-    padding: 0 0 20px 0;
-}

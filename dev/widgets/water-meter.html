@@ -4,6 +4,8 @@
 
 <div class="mega-number__wrapper">
   <div class="mega-number">
-     <p class="number" data-ng-controller="wnCtrl" data-ng-model="wnResult">{{ wnToDrink | litres }}</p>
+     <p class="number" data-ng-show="wnToDrink > 0" data-ng-controller="wnCtrl" data-ng-model="wnResult">{{ wnToDrink | litres }}</p>
   </div>
 </div>
+  <p data-ng-show="wnToDrink > 0">Atteint ton objectif pour voir ce conseil</p>
+  <p data-ng-hide="wnToDrink > 0">RANDOM ASTUCE</p>

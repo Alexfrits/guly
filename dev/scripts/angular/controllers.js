@@ -52,17 +52,19 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
 
 gulyApp.controller('wnCtrl', ['$scope', 'localStorageService',
       function($scope, localStorageService) {
+        console.log('wnCtrl');
         var weight =  parseInt($scope.weight);
         var constante = 38;
         var food = weight * (900 / 65); // the amount of water you get eating food
         // gets the to drink of the LS if it exists
-        var toDrink = (localStorageService.get('wnToDrink')) ? localStorageService.get('wnToDrink') : false;
+        var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : false;
 
         $scope.wnResult = (weight * constante) - food;
 
         localStorageService.set('wnResult', $scope.wnResult);
         // if wnToDrink doesn't exists, sets it equal to the daily goal
-        if (!toDrink) {
+
+        if (toDrink == null) {
           localStorageService.set('wnToDrink', $scope.wnResult);
         }
       }
@@ -198,7 +200,13 @@ waterMeterModule
 
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
-      var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
+
+      //var toDrink;
+      if (localStorageService.get('wnToDrink') !== null){
+        var toDrink = localStorageService.get('wnToDrink');
+      } else {
+        toDrink = initToDrink(goal);
+      }
       var $waterLevelWrapper = $element.find('.water-meter__round-wrapper');
       var $waterLevel = $element.find('.water-meter__level');
 
@@ -234,7 +242,7 @@ waterMeterModule
         if (newToDrink > 0) {
           newToDrink = newToDrink;
         }else {
-          newToDrink = 0;
+          newToDrink = '0';
         }
         height = newToDrink / goal * 100;
 

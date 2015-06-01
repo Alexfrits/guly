@@ -16,7 +16,7 @@
     <label for="weight" class="weight">
       <select name="weight" id="weight" data-ng-model="weight" required>
         <option value="" disabled selected>Poids en Kg</option>
-        <option data-ng-repeat="x in [] | range:25:180" value="{{x}}" ng-selected="{{ x == weight }}">{{x}}</option>
+        <option data-ng-repeat="x in [] | range:25:180" value="{{x}}" data-ng-selected="{{ x == weight }}">{{x}}</option>
       </select>
     </label>
 
@@ -24,17 +24,17 @@
     <fieldset class="switch_section">
       <label for="notifications" class="switch_label">
         <span>Notifications</span>
-        <switch name="notif" ng-model="notif" ng-check="{{ notif }}" ng-change="changeCallback" id="notifications"></switch>
+        <switch name="notif" data-ng-model="notif" data-ng-check="{{ notif }}" data-ng-change="changeCallback" id="notifications"></switch>
       </label>
 
       <!-- Bouchon intelligent switch button -->
-      <label for="smartCap" ng-click="enabled=!enabled" class="switch_label">
+      <label for="smartCap" data-ng-click="enabled=!enabled" class="switch_label">
         <span>Guly SmartCap</span>
-        <switch name="smartcap" ng-model="smart" ng-check="{{ smart }}" ng-change="changeCallback" id="smartCap"></switch>
+        <switch name="smartcap" data-ng-model="smart" data-ng-check="{{ smart }}" data-ng-change="changeCallback" id="smartCap"></switch>
         <small>Connecte ton bouchon intelligent !</small>
       </label>
     </fieldset><!-- end of .switch_section -->
-	</div><!-- end of .ng-storageCtrl -->
+	</div><!-- end of .data-ng-storageCtrl -->
     <!-- Submit button -->
     <input type="submit" value="Calculer mon objectif" class="button action_btn" id="submit_objectif" data-ng-show="profil_form.$valid" data-ng-disabled="profil_form.$invalid" />
   </form>

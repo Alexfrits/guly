@@ -45,39 +45,13 @@ formControllers
     };
   });
 
-gulyApp
-  // .directive('slider', function($timeout) {
-  //   return {
-  //     restrict: 'AE',
-  //     templateUrl: 'widgets/slider.html',
-  //     scope: {
-  //       datas: '='
-  //     },
-  //     link: function(scope, elem, attrs, http) {
-
-  //       // console.log(scope.astuces);
-  //       // // Initially the index is at the first astuce
-  //       // scope.currentIndex = 0;
-  //       // scope.next = function() {
-  //       //   scope.currentIndex < scope.astuces.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-  //       // };
-
-  //       // scope.prev = function() {
-  //       //   scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.astuces.length - 1;
-  //       // };
-
-  //       // // watch les changements d'index
-  //       // scope.$watch('currentIndex', function() {
-  //       //   scope.astuces.forEach(function(astuce) {
-
-  //       //     // make every astuce invisible
-  //       //     astuce.visible = false;
-  //       //   });
-
-  //       //   // make the current astuce visible
-  //       //   scope.astuces[scope.currentIndex].visible = true;
-  //       // });
-  //     }
-  //   };
-  // })
-;
+gulyApp.directive('slickSlider', function($timeout) {
+  return {
+   restrict: 'A',
+   link: function(scope, element, attrs) {
+     $timeout(function() {
+       $(element).slick(scope.$eval(attrs.slickSlider));
+     });
+   }
+ }
+});

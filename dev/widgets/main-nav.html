@@ -11,7 +11,7 @@
 
 
 <!-- Menu Toogle -->
-<a href="" ng-class="{navOpened:mainNavOn}" ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button" class="main-nav__toggle-button">
+<a href="" data-ng-class="{navOpened:mainNavOn}" data-ng-click="mainNavOn = !mainNavOn" id="main-nav__toggle-button" class="main-nav__toggle-button">
   <svg class="menu-icon__wrapper" width="30" height="30">
     <use class="menu-icon--use" id="wave-1" xlink:href="#wave"></use>
     <use class="menu-icon--use" id="wave-2" xlink:href="#wave" y="10"></use>
@@ -21,14 +21,14 @@
 
 <aside class="offcanvas">
 
-  <nav ng-class="{navOpened:mainNavOn}" class="main-nav">
+  <nav data-ng-class="{navOpened:mainNavOn}" class="main-nav">
     <ul>
-      <li><a ng-click="mainNavOn = false" href="#/water-tracker">Water Tracker</a></li>
-      <li><a ng-click="mainNavOn = false" href="#/profil">Profil</a></li>
-      <li><a ng-click="mainNavOn = false" href="#/statistiques">Statistiques</a></li>
-      <li><a ng-click="mainNavOn = false" href="#/astuces">Astuces</a></li>
-      <li><a ng-click="mainNavOn = false" href="#/faq">FAQ</a></li>
-      <li><a ng-click="mainNavOn = false" href="#/boutique">Boutique</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/water-tracker">Water Tracker</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/profil">Profil</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/statistiques">Statistiques</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/astuces">Astuces</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/faq">FAQ</a></li>
+      <li><a data-ng-click="mainNavOn = false" href="#/boutique">Boutique</a></li>
     </ul>
   </nav>
 </aside>

@@ -1,15 +1,18 @@
 <main class="main_stats main-section">
 	<h1>Statistiques</h1>
 
-  <div ng-controller="chartController as chart">
+  <div data-ng-controller="chartController as chart">
     <canvas tc-chartjs-line chart-data="data" chart-options="options"></canvas>
   </div>
 
-	<ul class="badges" data-ng-controller="badgesCtrl">
-		<li data-ng-repeat="badge in badges" data-ng-click="showDescr = ! showDescr">
-			<img src="{{badge.url}}" alt="{{badge.alt}}">
-			<h2>{{ badge.titre }}</h2>
-			<p data-ng-show="showDescr" class="description">{{ badge.description }}</p>
-		</li>
-	</ul>
+  <div>
+		<h2>Défis</h2>
+		<ul class="badges" data-ng-controller="badgesCtrl">
+			<li data-ng-repeat="badge in badges" data-ng-click="showDescr = ! showDescr">
+				<img src="{{badge.url}}" alt="{{badge.alt}}">
+				<h2>{{ badge.titre }}</h2>
+				<p data-ng-show="showDescr" class="description">{{ badge.description }}</p>
+			</li>
+		</ul>
+	</div>
 </main>

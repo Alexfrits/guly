@@ -2,8 +2,20 @@
 {{ testctrl.test }}
 	<h1>Astuces</h1>
   <p>Retrouve ici la liste des astuces que tu as déjà débloquées!</p>
-  <ul>
-    <li ng-repeat="astuce in astuces">
-  </ul>
+
+	<slick>
+    <div data-ng-repeat="astuce in astuces">
+			<ul class="astuces">
+				<li>
+					<p>{{ astuce.astuce }}</p>
+					<ul class="socialnetwork">
+						<li><a href="#"></a>facebook</li>
+						<li><a href="#"></a>twitter</li>
+						<li><a href="#"></a>envoyer à un ami</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</slick>
 
 </main>

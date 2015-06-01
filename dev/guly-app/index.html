@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr" data-ng-app="gulyApp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, user-scalable=no">
+    <title>Guly | Water Tracker</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body data-ng-controller="storageCtrl" data-ng-controller="MainCtrl">
+
+  <div data-ng-view class="page-{{pageClass}}">
+  </div>
+</div>
+<gul-main-nav-module></gul-main-nav-module>
+
+<!--  FOOTER
+==================================================================-->
+<footer></footer>
+
+<!--  SCRIPTS
+==================================================================-->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script>
+    window.jQuery || document.write('<script src="../scripts/vendor/jquery-2.1.4.min.js"><\/script>')
+  </script>
+  <script src="scripts/angular/angular.js"></script>
+  <script src="scripts/angular/angular-route.js"></script>
+  <script src="scripts/angular/angular-animate.js"></script>
+  <script src="scripts/ng-plugins/angular-local-storage.min.js"></script>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/libs/directives.js"></script>
+  <script src="scripts/libs/controllers.js"></script>
+  <script src="scripts/libs/services.js"></script>
+  <script src="scripts/libs/filters.js"></script>
+  <script src="scripts/ng-plugins/angular-ui-switch.js"></script>
+  <script src="scripts/ng-plugins/tc-angular-chartjs.js"></script>
+  <script src="scripts/ng-plugins/angular-slick.js"></script>
+
+  <script src="scripts/vendor/slick.js"></script>
+  <script src="scripts/vendor/moment.min.js"></script>
+  <script src="scripts/vendor/Chart.min.js"></script>
+<!-- end SCRIPTS -->
+
+</body>
+</html>

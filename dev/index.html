@@ -1,47 +1,118 @@
 <!doctype html>
-<html lang="fr" data-ng-app="gulyApp">
+<html lang="fr">
 <head>
-
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, user-scalable=no">
-    <title>Guly | Water Tracker</title>
+    <title>Guly App - Water Tracker</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body data-ng-controller="storageCtrl" data-ng-controller="MainCtrl">
 
-  <div data-ng-view class="page-{{pageClass}}">
-  </div>
-</div>
-<gul-main-nav-module></gul-main-nav-module>
+<body>
+	<div class="global">
+		
+		<header>
+			<div class="logo">
+				<a href="#"><img src="img/logo-guly.png" alt="Guly logo"></a>
+			</div>
+			<nav>			
+				<ul>
+					<li><a href="#concept">Concept</a></li>
+					<li><a href="#utilisation">Utilisation</a></li>
+					<li><a href="#smartCap">SmartCap</a></li>
+					<li><a href="#telechargement">Télécharger</a></li>
+					<li><a href="#boutique">Boutique</a></li>
+				</ul>
+			</nav>
+			<div class="banner">
+				<img src="img/banner.jpg" alt="banner guly app">
+			</div><!-- end of .banner -->
+			<div class="download">
+				<ul>
+					<li><a href="#"><img src="img/download-google.png" alt="Google Play Store icon">Google Play Store</a></li>
+					<li><a href="#"><img src="img/download-itunes.png" alt="App Store icon">App Store</a></li>
+				</ul>
+			</div><!-- end of .download -->
+		</header>
 
-<!--  FOOTER
-==================================================================-->
-<footer></footer>
+		<main id="concept">
+			<h1>Concept</h1>
+			<div class="info">
+				<section class="concept">
+					<h2>Guly</h2>
+					<p>Le terme <i>Guly</i> est dérivé du bruit que l’on fait en buvant : <i>glou</i> en français.</p>
+					<p>C'est sur la base de la pyramide alimentaire que Guly fondent ses valeurs. </p>
+					<p>Cette application de tracking permet de gérer sa consommation d’eau quotidienne afin d'avoir un mode de vie plus sain.</p>
+				</section>
+				<section class="fonctions">
+					<h2>Fonctionnalités</h2>
+					<ul>
+						<li>Tracking</li>
+						<li>Bouchon intelligent</li>
+						<li>Statistiques</li>
+						<li>Coaching</li>
+						<li>Astuces</li>
+						<li>Rappel</li>
+						<li>Degré de chaleur</li>
+						<li>Badges</li>
+					</ul>
+				</section>
+				<section class="bouchon">
+					<h2>SmartCap</h2>
+					<p>Le SmartCap est un bouchon intelligent qui se place sur la plupart des bouteilles d'eau.</p>
+					<p>Il vous permet d'avoir une certaine liberté dans votre quotidien puisqu'il vous suffit de le connecter à votre smartphone via bluetooth et le bouchon transmettra les données à l'application Guly</p>
+				</section>
+			</div><!-- end of .info -->
+		</main>	
+		<div id="smartCap" class="smartCap">
+			<h1>SmartCap</h1>
+			<ul class="smartCapImg">
+				<li>SmartCap</li>
+				<li>SmartCap</li>
+			</ul>
+			<div class="description">
+				<ul>
+					<li>Diamètre standard</li>
+					<li>Connexion automatique</li>
+					<li>Simple d'utilisation</li>
+					<li>Contrôle de la consommation</li>
+					<li>Envoi des données via bluetooth</li>
+				</ul>
+				<a href="#">Obtenir un SmartCap</a>
+			</div><!-- end of .description -->
+			<p>Un SmartCap pour chaque <strong>personnalité.</strong></p>
+		</div><!-- end of .smartCap -->
 
-<!--  SCRIPTS
-==================================================================-->
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-  <script>
-    window.jQuery || document.write('<script src="scripts/vendor/jquery-2.1.4.min.js"><\/script>')
-  </script>
-  <script src="scripts/angular/angular.js"></script>
-  <script src="scripts/angular/angular-local-storage.min.js"></script>
-  <script src="scripts/angular/angular-route.js"></script>
-  <script src="scripts/angular/angular-animate.js"></script>
+		<section id="utilisation" class="views">
+			<h1>Utilisation</h1>
+			<ol>
+				<li><img src="" alt="Etape 1: le profil"></li>
+				<li><img src="" alt="Etape 2: le smartCap"></li>
+				<li><img src="" alt="Etape 3: le trackeur"></li>
+				<li><img src="" alt="Etape 4: les statistiques"></li>
+				<li><img src="" alt="Etape 5: les badges"></li>
+			</ol>
+		</section><!-- end of .views -->
+		
+		<div id="telechargement" class="download">
+			<h1>Télécharger</h1>
+			<ul>
+					<li><a href="#"><img src="img/download-google.png" alt="Google Play Store icon">Google Play Store</a></li>
+					<li><a href="#"><img src="img/download-itunes.png" alt="App Store icon">App Store</a></li>
+			</ul>
+		</div><!-- end of .download -->
 
-  <script src="scripts/angular/angular-app.js"></script>
-  <script src="scripts/angular/directives.js"></script>
-  <script src="scripts/angular/controllers.js"></script>
-  <script src="scripts/angular/services.js"></script>
-  <script src="scripts/angular/filters.js"></script>
-  <script src="scripts/angular/angular-ui-switch.js"></script>
-  <script src="scripts/angular/tc-angular-chartjs.js"></script>
-  <script src="scripts/angular/angular-slick.js"></script>
+	</div><!-- end of .global -->	
+	<footer>
+		<p>info@gulyapp.be</p>
+		<p><small>© Alexandre Frits & Élodie Grondin</small></p>
+	</footer>
 
-  <script src="scripts/vendor/slick.js"></script>
-  <script src="scripts/vendor/moment.min.js"></script>
-  <script src="scripts/vendor/Chart.js"></script>
-<!-- end SCRIPTS -->
-
+<!-- JavaScript -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="dev/js/libs/jquery-2.1.3.min.js"><\/script>')
+</script>
+<script src="scripts/main.min.js"></script>
+    
 </body>
 </html>

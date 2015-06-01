@@ -3,30 +3,30 @@
     "titre": "L'attentif",
     "alt": "Badge L'attentif",
     "description": "En buvant xxL tu as perdus xx calories",
-    "url": "../img/badge_1.png"
+    "url": "img/badge_1.png"
   },
   {
     "titre": "6 mois",
     "alt": "Badge 6 mois",
     "description": "Utilise Guly quotidiennement pendant au moins 6 mois",
-    "url": "../img/badge_2.png"
+    "url": "img/badge_2.png"
   },
     {
     "titre": "Le sportif",
     "alt": "Badge Le sportif",
     "description": "Utilise le mode sport 100x",
-    "url": "../img/badge_3.png"
+    "url": "img/badge_3.png"
   },
   {
     "titre": "50 objectifs",
     "alt": "Badge 50 objectifs",
     "description": "Rempli 50 objectifs",
-    "url": "../img/badge_4.png"
+    "url": "img/badge_4.png"
   },
   {
     "titre": "Mississippi",
     "alt": "Badge Mississippi",
     "description": "Atteinds les 200L d'eau en remplissant tes objectifs quotidiens",
-    "url": "../img/badge_5.png"
+    "url": "img/badge_5.png"
   }
 ]

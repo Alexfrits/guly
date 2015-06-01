@@ -183,3 +183,105 @@ gulp.task('build',['copy', 'styles', 'scripts', 'minimg'], function(){
       icon: null
     }));
 });
+
+/*================= ANGULAR =====================*/
+
+gulp.task('angular', ['styles-angular','scripts-angular','watch-angular'],
+  function() {
+    var notification = new NotificationCenter();
+        notification.notify({
+        title: 'Gulp notification',
+        message: 'ANGULAR TASK COMPLETE!'
+    });
+});
+
+
+/*
+==== TÂCHE STYLES ANGULAR ==== */
+
+gulp.task('styles-angular', function() {
+  return sass('dev/guly-app/styles/styles.scss', { sourcemap: true })
+  // pour éviter que gulp s'arrête à chaque erreur
+    .pipe(plumber())
+// l'autoprefixer
+    .pipe(autoprefixer(
+        'last 2 versions',
+        '> 5%',
+        'ie >= 9',
+        'Firefox ESR'
+    ))
+// écriture des sourcemaps
+    .pipe(sourcemaps.write(
+      './',
+      {
+        includeContent: false,  // par défaut, le code source est copié/inclus dans le fichier .map
+        sourceRoot:'../../dev/guly-app/styles/'  // on spécifie l'emplacement des fichiers sources
+      }
+    ))
+// destination du fichier
+    .pipe(gulp.dest('dev/guly-app/styles'))
+// refresh livereload
+    .pipe(livereload());
+});
+
+
+/*
+==== TÂCHE SCRIPTS ANGULAR ==== */
+
+gulp.task('scripts-angular', function() {
+  gulp.src(['dev/guly-app/scripts/app.js', 'dev/guly-app/scripts/libs/*.js'])
+// initialisation des sourcemaps
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+// concat
+    .pipe(concat('app.js'))
+// minification
+    .pipe(uglify())
+// ajout du .min
+    .pipe(rename({
+      suffix: '.min'
+    }))
+// écriture des sourcemaps
+    .pipe(sourcemaps.write(
+      './',
+      {
+        includeContent: false,  // par défaut, le code source est copié/inclus dans le fichier .map
+        sourceRoot:'../../dev/guly-app/scripts/' // on spécifie l'emplacement des fichiers sources
+      }
+    ))
+// destination du fichier
+    .pipe(gulp.dest('dev/guly-app/scripts/'))
+// refresh livereload
+    .pipe(livereload());
+});
+
+
+/*
+==== TÂCHE WATCH ==== */
+
+gulp.task('watch-angular', function() {
+// demarre le serveur livereload
+  livereload.listen();
+// gulp est a l'écoute des changements du main.js et il exécute minify avant !
+  gulp.watch('dev/guly-app/scripts/**/*.js', ['scripts-angular'])
+  gulp.watch('dev/guly-app/styles/**/*.scss', ['styles-angular'])
+  gulp.watch(['dev/guly-app/**/*.html'], ['static-angular'])
+});
+
+
+
+/*
+==== TÂCHE STATIC ANGULAR ==== */
+
+gulp.task('static-angular', function() {
+  livereload.reload();
+});
+
+
+
+
+
+
+
+
+

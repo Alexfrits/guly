@@ -1,27 +1,331 @@
-@import 'vendor/normalize';
-@import 'vendor/font-awesome';
-
 @import 'helpers/reset';
+@import 'helpers/boxsizing';
 @import 'helpers/colors';
 @import 'helpers/variables';
 @import 'helpers/fonts';
-@import 'helpers/trigo';
+@import 'modules/wavesclick';
 
-@import 'partials/main';
-@import 'partials/water-tracker';
-@import 'partials/profil';
-@import 'partials/graphe';
-@import 'partials/notifications';
-@import 'partials/astuces';
-@import 'partials/faq';
 
-@import 'modules/header';
-@import 'modules/main-nav';
-@import 'modules/gooey-menu';
-@import 'modules/buttons';
-@import 'modules/weather';
-@import 'modules/form-validation';
-@import 'modules/angular-chart';
-@import 'modules/slick';
-@import 'modules/slick-theme';
-@import 'modules/sharing-buttons';
+.global {
+	width: 100%;
+	height: auto;	
+}
+
+header,
+#smartCap,
+#utilisation,
+#telechargement {
+
+	@media screen and (min-width: $desktop) {
+		width: auto;
+		margin: 15px 5%;
+	}
+}
+
+
+/* =======================================
+								Header
+======================================== */
+    
+header {
+	.logo {
+		width: 100%;
+		text-align: center;
+		margin: 20px 0 30px 0;
+		@media screen and (min-width: $desktop) {
+			width: 100px;
+			margin: 20px 0 40px 20px;
+			float: left;
+			border-right: 2px solid;
+			padding: 0 20px 0 0;
+		}
+	
+		img {
+			width: 20%;
+			@media screen and (min-width: $desktop) {
+				width: 100%;
+			}
+		}
+	}
+	nav {
+		display: none;
+		@media screen and (min-width: $desktop) {
+			display: block;
+			padding: 24px 0 0 140px;
+		}
+
+		li {
+			@media screen and (min-width: $desktop) {
+				display: inline-block;
+				margin: 20px 15px 0 0;
+			}	
+		}
+
+		a {
+			@media screen and (min-width: $desktop) {
+				text-decoration: none;
+				color: $second-color;
+				font-family: $miso-bold;
+				font-size: 1.2em;
+			}
+
+			&:hover {
+				@media screen and (min-width: $desktop) {
+					color: $action-color;
+					border-bottom: 1px solid;
+				}
+			}
+		}
+	}
+
+	.banner {
+			@media screen and (min-width: $desktop) {
+				clear: both;
+				width: 80%;
+				display: block;
+				margin: 0 auto;
+			}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+/* =======================================
+								Main
+======================================== */
+    
+main {
+	background: $action-color;
+	color: $second-color;
+	padding: 0 0 30px 0;
+
+	@media screen and (min-width: $desktop) {
+		padding: 0 8% 2% 8%;
+	}	
+
+	h1 {
+		color: $white-color;
+		&:before,
+		&:after {
+			color: $white-color;
+		}	
+	}	
+	.info {
+		display: block;
+		width: 100%;
+		padding: 0 15px;
+		section {
+			@media screen and (min-width: $desktop) {
+				display: inline-block;
+				vertical-align: top;
+				width: 30%;
+				padding: 0 30px 0 0;
+			}
+
+			&:last-of-type {
+				padding: 0;
+			}
+		}	
+		.fonctions {
+			margin: 0 0 0 100px;
+			ul {
+				list-style: circle;
+				padding: 0 0 0 25px
+			}
+
+			li {
+				padding: 0 0 5px 0;
+			}
+		}
+	}
+}
+
+/* =======================================
+								smartCap
+======================================== */
+.smartCap {
+	position: relative;
+	
+	.smartCapImg{
+		font-size: 0;
+
+		li {
+			display: block;
+		  margin: 0 auto;
+		  width: 300px;
+		  height: 300px;
+		  background: url(../img/smartbottlecap.png) 0 0 no-repeat;
+		  background-size: 210%;
+			@media screen and (min-width: $desktop) {
+				width: 480px;
+				height: 420px;
+				float: left;
+			}
+
+			&:last-child {
+			  background-position: -230px -30px;
+			  background-size: 170%;
+			  margin: 50px 0 0 0;
+				@media screen and (min-width: $desktop) {
+					background-position: -478px -200px;
+			  	background-size: 200%;
+					float: right;
+					margin: 130px 0 0 0;
+ 
+				}
+			}
+		}
+	}
+	.description {
+		clear: both;
+		position: absolute;
+		margin: -360px 0 0 0;
+		@media screen and (min-width: $desktop) {
+			margin: 42px 0 0 450px;
+			font-size: 25px;
+		}
+
+
+		ul {
+				list-style: circle;
+				padding: 0 0 0 50px;
+				font-family: $miso-bold;
+		}
+
+		li {
+			padding: 5px 0;
+		}
+	}
+
+	a {
+		display: block;
+		width: 200px;
+		font-size: 1.2em;
+		letter-spacing: 1px;
+		font-family: $miso-bold;
+		text-decoration: none;
+		color: $white-color;
+		background-color: $main-color;
+		padding: 10px 15px;
+		border-radius: 0 50px 50px 50px;
+  	margin: 20px auto;
+ 		@media screen and (min-width: $desktop) {
+ 			margin: 20px 0 0 50px;
+ 		}
+
+	}
+
+	p {
+		clear: both;
+		padding: 20px 0 0 0;
+		text-align: center;
+		font-size: 20px;
+
+		@media screen and (min-width: $desktop) {
+			text-align: left;
+			position: relative;
+			top: -56px;
+			margin: 0 0 0 80px;
+			font-size: 25px;
+		}
+
+		strong{
+			color: $main-color;
+		}
+	}
+
+} 
+
+/* =======================================
+								Utilisation (views)
+======================================== */
+.views {
+	clear: both;
+
+	li {
+		display: block;
+		width: 100%;
+		@media screen and (min-width: $desktop) {
+			display: table-cell;
+			width: 20%;
+			padding: 0 20px 0 0;
+		}
+
+		&:last-child {
+			@media screen and (min-width: $desktop) {
+				padding: 0;
+			}
+		}
+	}
+}
+
+/* =======================================
+								Download
+======================================== */
+    
+.download {
+	text-align: center;
+	width: 100%;
+	height: auto;
+	@media screen and (min-width: $desktop) {
+		width: auto;
+
+	}
+
+	li {
+		display: inline-block;
+		font-size: 0;
+		margin: 25px 20px 25px 0;
+		width: 40%;
+		@media screen and (min-width: $desktop) {
+			width: 30%;
+			
+		}
+
+		&:last-child {
+			margin: 25px 0;
+		}
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;		
+	}
+}
+
+ 
+/* =======================================
+								Footer
+======================================== */
+
+footer {
+	font-size: 1.4em;
+	text-align: center;
+	margin: 25px 0 0 0;
+	padding: 12px 0;
+	background-color: $second-color;
+	color: $white-color;
+	font-family: $miso-regular;
+	@media screen and (min-width: $desktop) {
+		padding: 15px 25px;
+		background-color: transparent;
+		color: $second-color;
+		text-align: right;
+	}
+
+	p:first-of-type {
+		text-decoration: underline;
+		@media screen and (min-width: $desktop) {
+			display: inline-block;
+		}
+	}
+	p:last-of-type{
+		@media screen and (min-width: $desktop) {
+			display: inline-block;
+			padding: 0 0 0 30px;	
+		}
+	}
+}
+

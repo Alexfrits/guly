@@ -1,7 +1,3 @@
-html{
-    font-size: 62.5%;
-}
-
 /*  1. FONTS IMPORTS
 ===================================================================*/
 
@@ -51,45 +47,3 @@ html{
 $miso-light   : 'misolight'  , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
 $miso-regular : 'misoregular', 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
 $miso-bold    : 'misobold'   , 'Arial Narrow','Helvetica Condensed', Helvetica, Arial, sans-serif;
-
-
-
-/*  3. FONTS USAGE
-===================================================================*/
-
-.global {
-  font-size: 18px;
-  font-family: $miso-regular;
-  color: $second-color;
-}
-
-h1 {
-  font-size: 2.2em;
-  font-family: $miso-bold;
-  text-align: center;
-  color: $action-color;
-  padding: 25px 0 10px 0;
-
-  &:before, &:after {
-    content: ' --------- ';
-    letter-spacing: -6px;
-    padding: 0 5%;
-    font-size: .6em;
-    color: $action-color;
-    @media screen and (min-width: $desktop) {
-      padding: 0 2%;
-    }
-  }
-}
-
-h2 {
-  font-size: 1.6em;
-  font-family: $miso-bold;
-  padding: 15px 0 8px 0;
-  color: $second-color;
-  letter-spacing: 1px;
-}
-
-p {
-  padding: 0 0 10px 5px;
-}

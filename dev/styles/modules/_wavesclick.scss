@@ -1,0 +1,14 @@
+.dot{
+  position: absolute;
+  line-height:1.625em;
+  text-align:center;
+  width:1em;
+  height:1em;
+  border-radius:50%;
+}
+
+.waves{
+  animation:waves 1.0s linear
+}
+
+@keyframes waves{from{box-shadow:0 0 #fff,0 0 0 1px transparentize($main-color, 0.5)}to{box-shadow:0 0 0 8px #fff,0 0 0 16px transparentize($main-color, 0.9)}}

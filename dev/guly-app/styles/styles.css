@@ -2359,6 +2359,9 @@ h1 {
 /* =============================
 		PROFIL PAGE INIT.
 ============================= */
+.page-profil {
+  background: url(../img/bg-aqua-1.svg); }
+
 .main_profil,
 .result_section {
   width: 100%;
@@ -2431,34 +2434,40 @@ h1 {
 /* =============================
 		RESULT OBJECTIF
 ============================= */
-.main_wn .result_section {
-  text-align: center; }
-  .main_wn .result_section h2 {
-    font-family: "misobold", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif;
-    font-size: 35px;
-    letter-spacing: 2px;
-    margin: 32px 0 15px 0; }
-  .main_wn .result_section .ObjTitle {
-    font-size: 28px; }
-  .main_wn .result_section .WN {
-    font-family: "misoregular", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif;
-    font-size: 80px;
-    color: #0077e6;
-    padding: 25px 0 0 0; }
-  .main_wn .result_section strong {
-    font-family: "misobold", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif; }
-.main_wn .button {
-  text-align: center; }
+.main_wn {
+  background: url(../img/bg-aqua-4.svg); }
+  .main_wn .result_section {
+    text-align: center; }
+    .main_wn .result_section h2 {
+      font-family: "misobold", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif;
+      font-size: 35px;
+      letter-spacing: 2px;
+      margin: 32px 0 15px 0; }
+    .main_wn .result_section .ObjTitle {
+      font-size: 28px; }
+    .main_wn .result_section .WN {
+      font-family: "misoregular", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif;
+      font-size: 80px;
+      color: #0077e6;
+      padding: 25px 0 0 0; }
+    .main_wn .result_section strong {
+      font-family: "misobold", "Arial Narrow", "Helvetica Condensed", Helvetica, Arial, sans-serif; }
+  .main_wn .button {
+    text-align: center; }
 
 .page-stats {
   width: 100%;
   height: 100%;
-  overflow: auto; }
+  overflow: auto;
+  background: url(../img/bg-aqua-2.svg); }
+  .page-stats h2 {
+    text-align: center;
+    padding: 25px 0 8px 0; }
 
 /*  GRAPHE
 ===================================================================*/
 .chart {
-  background: #0077e6;
+  background: #229cdf;
   width: 100%;
   height: 320px; }
 
@@ -2488,67 +2497,62 @@ h1 {
     border-radius: 5px; }
 
 /* =============================
-	Notifications
+	Astuces / FAQ 
 ============================= */
-.notifications #push_connexion {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100vw;
-  height: 15vh;
-  background: rgba(102, 229, 209, 0.9);
-  color: white;
-  z-index: 1001;
-  overflow: hidden; }
-
-/* =============================
-	Astuces
-============================= */
-.page-astuces {
+.page-astuces,
+.page-faq {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  padding: 2vh 5vw;
+  background: url(../img/bg-aqua-3.svg); }
 
-.main_astuces {
-  padding: 2vh 5vw; }
-  .main_astuces h2 {
-    text-transform: uppercase;
-    padding: 30px 0 8px 0; }
-  .main_astuces p {
-    font-size: 18px;
-    line-height: 22px; }
-  .main_astuces .socialnetwork li {
-    display: inline-block;
-    background: url(../img/sprite_socialnetwork.png) 5px 0 no-repeat;
-    background-size: 300%;
-    width: 30px;
-    height: 30px;
-    font-size: 0; }
-    .main_astuces .socialnetwork li:nth-child(2) {
-      background-position: -27px 0; }
-    .main_astuces .socialnetwork li:last-child {
-      background-position: -64px 0; }
-  .main_astuces .socialnetwork a {
-    width: 100%;
-    height: 100%; }
+.page-astuces {
+  background: url(../img/bg-aqua-2.svg); }
+
+.page-faq  {
+  background: url(../img/bg-aqua-3.svg); }
+
+.border-top {
+  background: url(../img/border-wave-tp.png) 0 0;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 20px;
+  position: relative;
+  top: 10px; }
+
+.border-bottom {
+  background: url(../img/border-wave-bt.png) 0 0;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 20px;
+  position: relative;
+  top: 10px; }
+
+.main_astuces h1,
+.main_faq h1 {
+  padding: 0;
+  margin: 10px 0 0 0; }
+.main_astuces h2,
+.main_faq h2 {
+  text-transform: uppercase;
+  padding: 10px 8px;
+  margin: 0 10px; }
+.main_astuces p,
+.main_faq p {
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 10px; }
 
 /* =============================
 	FAQ
 ============================= */
-.main_faq {
-  padding: 2vh 5vw; }
-  .main_faq h2 {
-    text-transform: uppercase;
-    padding: 0 0 12px 0; }
-  .main_faq p {
-    font-size: 18px;
-    line-height: 22px; }
-  .main_faq .contact_form input,
-  .main_faq .contact_form textarea {
-    width: 100%;
-    display: block;
-    background: transparent;
-    border: 1px solid white;
-    margin: 25px 0; }
+.main_faq .contact_form input,
+.main_faq .contact_form textarea {
+  width: 100%;
+  display: block;
+  background: transparent;
+  border: 1px solid white;
+  margin: 25px 0; }
 
 .page__title {
   color: pink;
@@ -2759,7 +2763,8 @@ h1 {
 
 input[type="text"]:focus {
   border: none;
-  outline: none !important; }
+  outline: none !important;
+  background: transparent; }
 
 .return_btn {
   font-size: 30px;

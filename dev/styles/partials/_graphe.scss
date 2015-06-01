@@ -41,6 +41,30 @@
     float: left;    
     width: 50%;
     text-align: center;
+    position: relative;
 
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      color: $second-color;
+      margin: -6px 0 20px 0;
+
+    }
+
+    .description {
+      position: absolute;
+      top: 0;
+      left: 5px;
+      width: 94%;
+      padding: 8px;
+      font-family: $miso-light;
+      color: $white-color;
+      background: transparentize($second-color, 0.1);
+      border-radius: 5px;
+    }
   }
 }

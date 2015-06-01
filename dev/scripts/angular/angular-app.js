@@ -81,4 +81,12 @@ gulyApp
       // .setStorageCookieDomain('http://www.guly.cepegra.be')
     }
   ])
+  .run(['$location', 'localStorageService',
+    function($location, localStorageService) {
+      var logged = localStorageService.get('logged');
+      if (!logged) {
+        $location.url('/profil');
+      }
+    }
+  ])
 ;

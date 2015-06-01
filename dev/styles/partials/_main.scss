@@ -1,4 +1,11 @@
 body {
 	width: 100%;
 	height: 100vh;
+  color: $second-color;
+}
+
+// color of the clickable links
+.link {
+  color: $main-color;
+  border-bottom: 1px solid $main-color;
 }

@@ -19,7 +19,7 @@
 		font-size: 35px;
 		letter-spacing: 2px;
 		margin: 8% 0 0 0;
-		color: $action-color;
+		color: $main-color;
 	}
 
 	p {
@@ -65,7 +65,7 @@
 			float: right;
 		}
 	}
-	
+
 	// nickname input
 	#nickname {
 		border: none;
@@ -91,7 +91,7 @@
 		border: none;
 		border-radius: none;
 	}
-	
+
 	// switch buttons
 	.switch_section {
 		clear: both;
@@ -135,7 +135,7 @@
 		.WN {
 			font-family: $miso-regular;
 			font-size: 80px;
-			color: $action-color;
+			color: $main-color;
 			padding: 25px 0 0 0;
 		}
 

@@ -1,11 +1,11 @@
 <main class="main_wn main-section main-wrapper" data-ng-controller="wnCtrl">
-    <a href="#/profil"><i class="fa fa-arrow-left return_btn"></i></a>
 	<div class="result_section">
          <h2 class="result_nickname">{{ nickname }},</h2>
          <p class="ObjTitle">Ton objectif est de boire</p>
-         <p class="WN" ng-model="wnResult">{{ (wnResult) | litres | number:2 }} L</p>
+         <p class="WN" ng-model="wnResult">{{ wnResult | litres }}</p>
          <p><strong>d'eau</strong> tout au long de la journée.</p>
          <p>(Hors alimentation)</p>
+         Tu peux toujours modifier tes préférences dans le <a class ="link" href="#/profil">menu profil</a>
      </div><!-- end of .result_section -->
      <a role="button" href="#/water-tracker" class="button action_btn">Commencer</a>
 </main>

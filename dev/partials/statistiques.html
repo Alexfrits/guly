@@ -5,14 +5,11 @@
     <canvas tc-chartjs-line chart-data="data" chart-options="options"></canvas>
   </div>
 
-
-
-	<ul class="badges">
-		<li><img src="img/badge_100.png" alt=""></li>
-		<li><img src="img/badge_80.png" height="100" width="100" alt=""></li>
-		<li><img src="img/badge_60.png" height="100" width="100" alt=""></li>
-		<li><img src="img/badge_40.png" height="100" width="100" alt=""></li>
-		<li><img src="img/badge_20.png" height="100" width="100" alt=""></li>
-		<li><img src="img/badge_0.png" height="100" width="100" alt=""></li>
+	<ul class="badges" data-ng-controller="badgesCtrl">
+		<li data-ng-repeat="badge in badges" data-ng-click="showDescr = ! showDescr">
+			<img src="{{badge.url}}" alt="{{badge.alt}}">
+			<h2>{{ badge.titre }}</h2>
+			<p data-ng-show="showDescr" class="description">{{ badge.description }}</p>
+		</li>
 	</ul>
 </main>

@@ -44,7 +44,7 @@ $nav-bg-open-close: $time-med all ease-out;
 .main-nav__toggle-button {
   position: absolute;
   top: 3%;
-  left: 5%;
+  left: 3%;
   background: $action-color;
   border-radius: 50px;
   border-top-left-radius: 0;
@@ -67,9 +67,6 @@ $nav-bg-open-close: $time-med all ease-out;
     stroke-linecap: round;
 
     &:first-child {
-/*       stroke: blue;
-transform-origin: 0 50%;
-transform: rotate(45deg); */
     }
 
   }
@@ -107,14 +104,16 @@ transform: rotate(45deg); */
   ul {
 
     li {
-      transition: $nav-li-open-close;
       position: absolute;
       left: -100%;
+      transition: $nav-li-open-close;
 
       margin: calc(5% + 5rem) 5% 0;
       padding: 1.4rem 0;
       padding-left: 2rem;
+
       font-size: 2.4rem;
+      text-transform: uppercase;
 
 
       @for $i from 0 to ($main-menu-items) {

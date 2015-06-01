@@ -4,10 +4,7 @@
 
 gulyApp
 .controller('MainCtrl', ['$scope',
-  // function($scope) {
-  //   $scope.nickname == null && $scope.weight == null;
-  //   $window.location.href = '../partials/profil.html';
-  // }
+
 ]);
 
 /*  Contrôleur LocalStorage
@@ -59,6 +56,27 @@ gulyApp.controller('storageCtrl', ['$scope', 'localStorageService',
   }
   ]);
 
+/*  Calculer l'objectif (waterneed)
+===================================================================*/
+
+gulyApp.controller('wnCtrl', ['$scope', 'localStorageService',
+      function($scope, localStorageService) {
+        var weight =  parseInt($scope.weight);
+        var constante = 38;
+        var food = weight * (900 / 65); // the amount of water you get eating food
+        // gets the to drink of the LS if it exists
+        var toDrink = (localStorageService.get('wnToDrink')) ? localStorageService.get('wnToDrink') : false;
+
+        $scope.wnResult = (weight * constante) - food;
+
+        localStorageService.set('wnResult', $scope.wnResult);
+        // if wnToDrink doesn't exists, sets it equal to the daily goal
+        if (!toDrink) {
+          localStorageService.set('wnToDrink', $scope.wnResult);
+        }
+      }
+    ]);
+
 /*  Contrôleurs de pages
 ===================================================================*/
 
@@ -103,31 +121,20 @@ pagesViewControllers
 /*  liste des astuces
 ===================================================================*/
 
-gulyApp.
-  controller('astucesCtrl', ['$scope', '$http',
+gulyApp
+.controller('astucesController', ['$scope', '$http',
     function($scope, $http) {
-      $scope.astuces = [];
-      $http.get('app-data/astuces.json')
-        .success(function(data) {
-          $scope.astuces = data;
-          //console.log($scope.astuces);
-        })
-        .error(function(resp) {
-          console.log('attention, erreur: ' + resp);
-        });
-
-      // $scope.astuces = [{
-      //   strong:'dzd',
-      //   astuce: 'astuce 1'
-      // },
-      // {
-      //   strong:'dzd',
-      //   astuce: 'astuce 2',
-      // },
-      // {
-      //   strong:'dzd',
-      //   astuce: 'astuce 3',
-      // }];
+      $scope.test = 'test';
+      console.log('test');
+      // $scope.astuces = [];
+      // $http.get('app-data/astuces.json')
+      //   .success(function(data) {
+      //     $scope.astuces = data;
+      //     console.log($scope.astuces);
+      //   })
+      //   .error(function(resp) {
+      //     console.log('attention, erreur: ' + resp);
+      //   });
     }
   ]);
 
@@ -159,13 +166,15 @@ gulyApp
 
       // initialise les boutons avec une valeur
       $scope.notif = (localStorageService.get('notif') !== null) ? localStorageService.get('notif') : true;
-      $scope.sport = (localStorageService.get('sport') !== null) ? localStorageService.get('sport') : false;
       $scope.smart = (localStorageService.get('smart') !== null) ? localStorageService.get('smart') : false;
 
       // validation du form
       $scope.submitForm = function(isValid) {
+        // starts the logged session when form is validated
         if (isValid) {
+          logged = true;
           console.log('formulaire envoyé');
+          localStorageService.set('logged', logged);
         }
       };
     }
@@ -204,18 +213,22 @@ waterMeterModule
       var goal = localStorageService.get('wnResult');
       // get the value in the LS; if doesn't exists, sets it equal to the daily goal
       var toDrink = (localStorageService.get('wnToDrink') !== null) ? localStorageService.get('wnToDrink') : initToDrink(goal);
-      var $waterLevel = $element.find('.water-meter__level');
       var $waterLevelWrapper = $element.find('.water-meter__round-wrapper');
-
       $scope.wnToDrink = toDrink;
+      var $waterLevel = $element.find('.water-meter__level');
 
-      $scope.waterLevelHeight = {'height': toDrink / goal * 100 + '%'};
-      // init the watermeter level
+      //if drinkSizes are in custom, they are in LS
+      var drinkSize = (localStorageService.get('drinkSize')) ? JSON.parse(localStorageService.get('drinkSize')) : false;
 
-      // function setWaterLevel (height) {
-      //   $waterLevel.css('height', Math.round(height * 100)/100 + '%');
-      // }
+      // if they aren't in LS, fallback to default
+      $scope.drinkSize = {};
+      $scope.drinkSize.small = (drinkSize.small) ? drinkSize.small : 125;
+      $scope.drinkSize.med = (drinkSize.med) ? drinkSize.med : 250;
+      $scope.drinkSize.large = (drinkSize.large) ? drinkSize.large : 330;
 
+      function setWaterLevel (height) {
+        $waterLevel.css('height', height + '%');
+      }
       function initToDrink (quantity) {
         localStorageService.set('wnToDrink', quantity);
       }
@@ -224,7 +237,7 @@ waterMeterModule
 
       $scope.updateToDrink = function(quantity) {
         // get the value in the localstorage
-        var toDrink = localStorageService.get('wnToDrink');
+        toDrink = localStorageService.get('wnToDrink');
         var newToDrink = toDrink - quantity;
 
         if (newToDrink > 0) {
@@ -232,11 +245,10 @@ waterMeterModule
         }else {
           newToDrink = 0;
         }
-        $scope.waterLevelHeight = {'height': newToDrink / goal * 100 + '%'};
+        height = newToDrink / goal * 100;
 
-        // setWaterLevel($scope.waterLevelHeight)
         $scope.wnToDrink = newToDrink;
-
+        setWaterLevel(height);
         localStorageService.set('wnToDrink', newToDrink);
       };
 
@@ -254,8 +266,9 @@ waterMeterModule
           $waterLevelWrapper.attr('style', 'transform: rotate(' + tiltLR + ');');
         });
       }
+
     }
-  ]);
+]);
 
 /*  Weather Api
 ===================================================================*/
@@ -394,5 +407,20 @@ gulyApp
         scaleBeginAtZero: true,
       };
 
+    }
+  ]);
+
+gulyApp
+  .controller('badgesCtrl', ['$scope', '$http',
+    function($scope, $http) {
+
+      $scope.badges = [];
+
+      $http.get('app-data/badges.json')
+        .success(function(data) {
+          $scope.badges = data;
+        }).error(function(resp) {
+          console.log('attention, erreur: ' + resp);
+        });
     }
   ]);

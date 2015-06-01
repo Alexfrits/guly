@@ -1,53 +1,49 @@
-<!-- GOOEY MENU -->
-
-<div>{{title}}</div>
+<!--GOOEY MENU -->
 <div class="gooey__wrapper">
   <ul class="gooey">
 
     <li class="gooey__open-button" ng-class="{opened:gooeyOn}">
       <a href="" class="gooey__item__content" ng-click="gooeyOn = !gooeyOn">
-        <i class="fa fa-plus"></i>
+        <svg class="drink-icon__svg" preserveAspectRatio="xMidYMid" viewBox="0 0 100 100">
+          <use class="drink-icon--picto" xlink:href="#drink-icon"></use>
+        </svg>
       </a>
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--small" class="gooey__item__content" ng-click="updateToDrink(125); gooeyOn = !gooeyOn">
-        <i class="fa fa-glass"></i>
+      <a href="" id="gooey__add--small" class="gooey__item__content" ng-click="updateToDrink(drinkSize.small); gooeyOn = !gooeyOn">
+        {{ drinkSize.small | litres:'ml' }}
       </a>
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--medium" class="gooey__item__content" ng-click="updateToDrink(250); gooeyOn = !gooeyOn">
-        <i class="fa fa-coffee"></i>
+      <a href="" id="gooey__add--medium" class="gooey__item__content" ng-click="updateToDrink(drinkSize.med); gooeyOn = !gooeyOn">
+        {{ drinkSize.med | litres:'ml' }}
       </a>
     </li>
 
     <li class="gooey__item">
-      <a href="" id="gooey__add--large" class="gooey__item__content" ng-click="updateToDrink(500); gooeyOn = !gooeyOn">
-        <i class="fa fa-beer"></i>
+      <a href="" id="gooey__add--large" class="gooey__item__content" ng-click="updateToDrink(drinkSize.large); gooeyOn = !gooeyOn">
+        {{ drinkSize.large | litres:'ml' }}
       </a>
     </li>
 
   </ul>
 </div>
-<!-- filters -->
 <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style="display:none">
     <defs>
-      <filter id="shadowed-goo">
-        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-<!--         <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-        <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
-        <feOffset in="shadow" dx="1" dy="1" result="shadow" /> -->
-        <!-- <feBlend in2="shadow" in="goo" result="goo" /> -->
-        <feBlend in2="goo" in="SourceGraphic" result="mix" />
-      </filter>
+      <!-- filter -->
       <filter id="goo">
         <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
         <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
         <feBlend in2="goo" in="SourceGraphic" result="mix" />
       </filter>
+      <!-- icon -->
+      <symbol id="drink-icon">
+        <polyline fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="86.9,8.6 74.2,91.4 25.8,91.4 13.1,8.6"/>
+        <path fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M84,26.5c-7.9,8.8-24.5,10.9-33.3,4.8s-25.6-3.7-33.3,4.8"/>
+      </symbol>
     </defs>
 </svg>
 <!-- end filter -->
-<!-- end GOOEY MENU -->
+<!-- end GOOEY MENU

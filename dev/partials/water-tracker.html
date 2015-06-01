@@ -1,11 +1,14 @@
 <main class="main-section main-wrapper">
-  <gul-weather></gul-weather>
-
-  <span class="temoin temoin_off"></span>
 
   <gul-water-meter></gul-water-meter>
 
-  <span class="sport"></span>
+  <gul-weather></gul-weather>
+
+
+  <div class="ui">
+    <span class="temoin temoin_off"></span>
+    <a href class="sport" ng-class="{active:sportOn}" ng-click="sportOn = !sportOn"></a>
+  </div>
 
   <gul-gooey-menu></gul-gooey-menu>
 </main>

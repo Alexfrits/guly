@@ -306,7 +306,7 @@ weatherServices.factory('weatherApi', ['myHttp',
       getWeeklyWeather: function(city) {
         return myHttp.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&mode=json&units=metric');
       }
-    }
+    };
   }
 ]);
 

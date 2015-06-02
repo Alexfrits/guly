@@ -1,7 +1,9 @@
 /* =============================
 		PROFIL PAGE INIT.
 ============================= */
-
+.page-profil {
+	background: url(../img/bg-aqua-1.svg);
+}
 .main_profil,
 .result_section {
   width: 100%;
@@ -115,8 +117,8 @@
 /* =============================
 		RESULT OBJECTIF
 ============================= */
-
 .main_wn {
+		background: url(../img/bg-aqua-4.svg);
 	.result_section {
 		text-align: center;
 

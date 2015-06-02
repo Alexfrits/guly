@@ -1,0 +1,70 @@
+/* =============================
+	Astuces / FAQ 
+============================= */
+.page-astuces,
+.page-faq {
+	width: 100%;
+	height: 100%;
+	padding: 2vh 5vw;
+	background: url(../img/bg-aqua-3.svg);
+
+}
+.page-astuces {
+	background: url(../img/bg-aqua-2.svg);
+}
+.page-faq {
+	background: url(../img/bg-aqua-3.svg);
+}
+
+.border-top {
+	background: url(../img/border-wave-tp.png) 0 0;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 20px;
+  position: relative;
+  top: 10px;
+}
+.border-bottom {
+	background: url(../img/border-wave-bt.png) 0 0;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 20px;
+  position: relative;
+  top: 10px;
+}
+
+.main_astuces,
+.main_faq {
+	
+	h1 {
+		padding: 0;
+		margin: 10px 0 0 0;
+	}
+
+	h2{
+		text-transform: uppercase;
+		padding: 10px 8px;
+		margin: 0 10px;
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 22px;
+		margin: 0 10px;
+	}
+}
+
+
+/* =============================
+	FAQ
+============================= */
+.main_faq {	
+	.contact_form input,
+	.contact_form textarea {
+		width: 100%;
+		display: block;
+		background: transparent;
+		border: 1px solid white;
+		margin: 25px 0; 
+	}
+}

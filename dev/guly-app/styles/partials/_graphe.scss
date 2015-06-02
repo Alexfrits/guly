@@ -3,12 +3,18 @@
   height: 100%;
   overflow: auto;
   // @include wavey-bg(transparent, $second-color, 10%);
+  background: url(../img/bg-aqua-2.svg);
+  
+  h2 {
+    text-align: center;
+    padding: 25px 0 8px 0;
+  }
 }
 /*  GRAPHE
 ===================================================================*/
 
 .chart {
-  background: $main-color;
+  background: $blue-4;
   width: 100%;
   height: 320px;
 }

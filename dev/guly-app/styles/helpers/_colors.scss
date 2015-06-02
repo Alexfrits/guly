@@ -35,3 +35,14 @@ $degrade-1: linear-gradient(to bottom, $blue-3 12%, $blue-1 12%, $action-color 9
     $bg-color);
   background-size: $size $size;
 };
+
+@mixin striped-bg($color1, $color2, $size, $angle) {
+  background: repeating-linear-gradient(
+                $angle,
+                $color1,
+                $color1 9px,
+                $color2 9px,
+                $color2 10px
+              );
+  background-size: $size $size;
+};

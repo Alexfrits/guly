@@ -2216,6 +2216,50 @@ ol {
   50% {
     -webkit-transform: scale(1, 1.1);
             transform: scale(1, 1.1); } }
+@-webkit-keyframes water1 {
+  0%, 100% {
+    background-position: 0 0; }
+  20% {
+    background-position: -10px -3px; }
+  40% {
+    background-position: -3px 5px; }
+  60% {
+    background-position: 7px 9px; }
+  80% {
+    background-position: 3px -12px; } }
+@keyframes water1 {
+  0%, 100% {
+    background-position: 0 0; }
+  20% {
+    background-position: -10px -3px; }
+  40% {
+    background-position: -3px 5px; }
+  60% {
+    background-position: 7px 9px; }
+  80% {
+    background-position: 3px -12px; } }
+@-webkit-keyframes water2 {
+  0%, 100% {
+    background-position: 0 0; }
+  20% {
+    background-position: 10px -3px; }
+  40% {
+    background-position: -7px 3px; }
+  60% {
+    background-position: 4px -2px; }
+  80% {
+    background-position: 10px -6px; } }
+@keyframes water2 {
+  0%, 100% {
+    background-position: 0 0; }
+  20% {
+    background-position: 10px -3px; }
+  40% {
+    background-position: -7px 3px; }
+  60% {
+    background-position: 4px -2px; }
+  80% {
+    background-position: 10px -6px; } }
 /*  1. FONTS IMPORTS
 ===================================================================*/
 @font-face {
@@ -2286,17 +2330,24 @@ h1 {
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end; }
-  .water-meter__round-wrapper .water-meter__level {
-    display: block;
+  .water-meter__round-wrapper .water-meter__level, .water-meter__round-wrapper .water-meter__level__bg {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    border-top: 3px solid white;
     background: -webkit-repeating-linear-gradient(45deg, transparent, transparent 9px, white 9px, white 10px);
     background: repeating-linear-gradient(45deg, transparent, transparent 9px, white 9px, white 10px);
-    background-size: 100% 100%;
-    background-position: 100% 0;
-    background-repeat: no-repeat;
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    -webkit-animation: water1 30s ease-in-out infinite;
+            animation: water1 30s ease-in-out infinite;
     -webkit-transition: 2s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transition: 2s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .water-meter__round-wrapper .water-meter__level__bg {
+    height: 100%;
+    -webkit-animation: water2 35s linear infinite;
+            animation: water2 35s linear infinite; }
 
 .mega-number__wrapper {
   position: absolute;
@@ -2329,6 +2380,12 @@ h1 {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   text-align: center; }
+  .astuce__wrapper .astuce.step2 {
+    padding: 2rem;
+    border: 3px solid;
+    border-radius: 7px;
+    background-color: rgba(11, 46, 88, 0.3);
+    color: white; }
 
 .ui {
   position: absolute;

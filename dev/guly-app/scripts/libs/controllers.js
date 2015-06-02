@@ -120,12 +120,21 @@ gulyApp
 
       $scope.astuces = [];
 
+      function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
       $http.get('app-data/astuces.json')
         .success(function(data) {
           $scope.astuces = data;
+
+          var randomIndex = getRandom(0, $scope.astuces.length);
+          $scope.randomAstuce = $scope.astuces[randomIndex].astuce;
+
         }).error(function(resp) {
           console.log('attention, erreur: ' + resp);
         });
+
     }
   ]);
 
@@ -215,8 +224,8 @@ waterMeterModule
       $scope.wnToDrink = toDrink;
 
       // init the level of the water meter
-      height = toDrink / goal * 100;
-      setWaterLevel(height);
+      levelHeight = toDrink / goal * 100;
+      setWaterLevel(levelHeight);
 
       //if drinkSizes are custom, they are in LS
       var drinkSize = (localStorageService.get('drinkSize')) ? JSON.parse(localStorageService.get('drinkSize')) : false;
@@ -228,7 +237,8 @@ waterMeterModule
       $scope.drinkSize.large = (drinkSize.large) ? drinkSize.large : 330;
 
       function setWaterLevel (height) {
-        $waterLevel.css('height', height + '%');
+        // $waterLevel.css('height', levelHeight + '%'); // jquery style
+        TweenMax.to($waterLevel, 0, {height: levelHeight + '%'});
       }
       function initToDrink (quantity) {
         localStorageService.set('wnToDrink', quantity);
@@ -260,27 +270,36 @@ waterMeterModule
             $scope.wnToDrink = $scope.wnToDrink - fraction;
           }, 100 , 10);
 
-          newToDrink = '0';
+          newToDrink = 0;
         }
 
-        height = newToDrink / goal * 100;
+        levelHeight = newToDrink / goal * 100;
 
-        setWaterLevel(height);
+        setWaterLevel(levelHeight);
         localStorageService.set('wnToDrink', newToDrink);
+        console.log(typeof($scope.wnToDrink));
       };
 
       /* ROTATION */
-      var tiltLR;
-      var tiltFB;
-      var North;
+      // var tiltLR;
+      // var tiltFB;
+      // var North;
 
-      if ($window.DeviceOrientationEvent) {
-        $window.addEventListener('deviceorientation', function(e) {
-          tiltLR = Math.round(e.gamma * 100) / 100; //arrondi à 2 décimales
-          $scope.tiltFB = e.beta;
-          North = e.alpha;
-        });
-      }
+      // if ($window.DeviceOrientationEvent) {
+      //   $window.addEventListener('deviceorientation', function(e) {
+      //     tiltLR = Math.round(e.gamma * 100) / 100; //arrondi à 2 décimales
+      //     $scope.tiltFB = e.beta;
+      //     North = e.alpha;
+
+      //     TweenMax.to($waterLevel, 0.2, {rotation: tiltLR, onUpdate:drawCanvas});
+
+      //     function drawCanvas() {
+
+      //       // console.log(e.beta);
+      //     }
+
+      //   });
+      // }
 
     }
 ]);

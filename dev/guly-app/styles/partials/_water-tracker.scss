@@ -20,21 +20,22 @@
   align-items: flex-end;
 
   .water-meter__level {
-    display: block;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    border-top: 3px solid $white-color;
 
-    background: repeating-linear-gradient(
-                  45deg,
-                  transparent,
-                  transparent 9px,
-                  $white-color 9px,
-                  $white-color 10px
-                );
-    background-size: 100% 100%;
-    background-position: 100% 0;
-    background-repeat: no-repeat;
+    @include striped-bg(transparent, $white-color, 200%, 45deg);
+    background-position: 50% 50%;
+    background-repeat: repeat;
+
+    animation: water1 30s ease-in-out infinite;
     transition: 2s .2s $smooth-transition;
+  }
+  .water-meter__level__bg {
+    @extend .water-meter__level;
+    height: 100%;
+    animation: water2 35s linear infinite;
   }
 }
 
@@ -64,7 +65,13 @@
   text-align: center;
 
   .astuce {
-
+    &.step2 {
+      padding: 2rem;
+      border: 3px solid;
+      border-radius: 7px;
+      background-color: transparentize($second-color, .7);
+      color: $white-color;
+    }
   }
 }
 

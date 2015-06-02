@@ -1,5 +1,6 @@
 <div class="water-meter__round-wrapper">
-  <div class="water-meter__level" data-ng-style="waterLevelHeight"></div>
+
+  <div class="water-meter__level" data-ng-style="waterLevelHeight"><div class="water-meter__level__bg" data-ng-style="waterLevelHeight"></div></div>
 </div>
 
 <div class="mega-number__wrapper">
@@ -8,6 +9,6 @@
   </div>
 </div>
 <div class="astuce__wrapper">
-  <p class="astuce step1" data-ng-show="wnToDrink > 0">Atteint ton objectif pour voir ce conseil</p>
-  <p class="astuce step2" data-ng-hide="wnToDrink > 0">RANDOM ASTUCE</p>
+  <p class="astuce step1" data-ng-show="wnToDrink > 0">Atteins ton objectif pour débloquer cette astuce</p>
+  <p class="astuce step2" data-ng-hide="wnToDrink > 0" data-ng-controller="astucesCtrl">{{ randomAstuce | limitTo : 75 }}… <a href="#/astuces">Lire la suite</a></p>
 </div>

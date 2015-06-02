@@ -18,3 +18,38 @@ $smooth-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: scale(1, 1.1);
   }
 }
+
+@keyframes water1 {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: -10px -3px;
+  }
+  40% {
+    background-position: -3px 5px;
+  }
+  60% {
+    background-position:  7px 9px;
+  }
+  80% {
+    background-position: 3px -12px;
+  }
+}
+@keyframes water2 {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: 10px -3px;
+  }
+  40% {
+    background-position: -7px 3px;
+  }
+  60% {
+    background-position:  4px -2px;
+  }
+  80% {
+    background-position: 10px -6px;
+  }
+}

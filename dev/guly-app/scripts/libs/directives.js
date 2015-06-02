@@ -9,6 +9,19 @@ waterMeterModule
       controller: 'waterMeterController'
     };
   });
+  // // adds 'changed' class when value changes
+  // .directive('animateOnChange', function($timeout) {
+  //   return function(scope, element, attr) {
+  //     scope.$watch(attr.animateOnChange, function(nv, ov) {
+  //       if (nv != ov) {
+  //         element.addClass('animated');
+  //         $timeout(function() {
+  //           element.removeClass('animated');
+  //         }, 1000); // Could be enhanced to take duration as a parameter
+  //       }
+  //     });
+  //   };
+  // });
 
 gooeyMenuModule
   .directive('gulGooeyMenu', function() {
